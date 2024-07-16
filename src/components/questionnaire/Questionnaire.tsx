@@ -11,6 +11,7 @@ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 // import screenfull from "screenfull";
 // import { pdfjs } from "react-pdf";
 // import "@react-pdf-viewer/core/lib/styles/index.css";
+import screenfull from "screenfull";
 
 Modal.setAppElement("#root");
 type QuestionaireProps = {
@@ -192,32 +193,22 @@ const PdfViewer: React.FC = () => {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   const handleFullscreen = () => {
-    if (viewerRef.current) {
-      const elem = viewerRef.current as any;
-
-      if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) {
-        // Safari
-        elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) {
-        // IE11
-        elem.msRequestFullscreen();
-      } else if (elem.mozRequestFullScreen) {
-        // Firefox
-        elem.mozRequestFullScreen();
-      } else {
+    if (viewerRef.current && screenfull.isEnabled) {
+      screenfull.toggle(viewerRef.current).catch((err) => {
         console.error(
-          "Fullscreen API is not supported on this browser/device."
+          "Fullscreen API is not supported on this browser/device.",
+          err
         );
         setError("not supported");
-      }
+      });
+    } else {
+      console.error("Fullscreen API is not supported on this browser/device.");
+      setError("not supported");
     }
   };
+
   return (
     <div>
-      {/* <button>{error}</button> */}
-
       <button onClick={handleFullscreen}>{error}</button>
 
       <div
