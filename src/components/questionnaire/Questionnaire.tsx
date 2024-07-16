@@ -187,52 +187,102 @@ const ModalComponent = ({ closeModal, modalIsOpen, setIsAssemble }: any) => (
   </>
 );
 
+// const PdfViewer: React.FC = () => {
+//   const [error, setError] = useState("toggle");
+//   const viewerRef = useRef<HTMLDivElement>(null);
+//   const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
+//   const handleFullscreen = () => {
+//     console.log("suppp2");
+
+//     // if (viewerRef.current) {
+//     //   console.log("suppp");
+//     //   viewerRef.current.classList.toggle("fullscreen");
+//     // }
+
+//     // if (viewerRef.current && screenfull.isEnabled) {
+//     //   screenfull.toggle(viewerRef.current).catch((err) => {
+//     //     console.error(
+//     //       "Fullscreen API is not supported on this browser/device.",
+//     //       err
+//     //     );
+//     //     setError("not supported");
+//     //   });
+//     // } else {
+//     //   console.error("Fullscreen API is not supported on this browser/device.");
+//     //   setError("not supported");
+//     //   if (viewerRef.current) {
+//     //     viewerRef.current.classList.toggle("fullscreen");
+//     //   }
+//     // }
+//   };
+
+//   return (
+//     <div>
+//       <button onClick={handleFullscreen}>{error}</button>
+
+//       <div
+//         ref={viewerRef}
+//         style={{}}
+//         onClick={handleFullscreen}
+//         onTouchEnd={handleFullscreen}
+//       >
+//         <Worker
+//           workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
+//         >
+//           <Viewer
+//             fileUrl="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
+//             plugins={[defaultLayoutPluginInstance]}
+//           />
+//         </Worker>
+//       </div>
+//     </div>
+//   );
+// };
+
 const PdfViewer: React.FC = () => {
-  const [error, setError] = useState("toggle");
   const viewerRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   const handleFullscreen = () => {
-    console.log("suppp2");
-
-    if (viewerRef.current) {
-      console.log("suppp");
-      viewerRef.current.classList.toggle("fullscreen");
-    }
-
-    if (viewerRef.current && screenfull.isEnabled) {
+    if (screenfull.isEnabled && viewerRef && viewerRef.current) {
       screenfull.toggle(viewerRef.current).catch((err) => {
         console.error(
           "Fullscreen API is not supported on this browser/device.",
           err
         );
-        setError("not supported");
+        setIsFullscreen(!isFullscreen);
       });
     } else {
-      console.error("Fullscreen API is not supported on this browser/device.");
-      setError("not supported");
-      if (viewerRef.current) {
-        viewerRef.current.classList.toggle("fullscreen");
-      }
+      setIsFullscreen(!isFullscreen);
     }
   };
 
   return (
     <div>
-      <button onClick={handleFullscreen}>{error}</button>
-
+      <button
+        style={{ background: "black", position: "absolute", zIndex: 5 }}
+        onClick={handleFullscreen}
+      >
+        {isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+      </button>
       <div
         ref={viewerRef}
-        style={{}}
-        onClick={handleFullscreen}
-        onTouchEnd={handleFullscreen}
+        className={isFullscreen ? "fullscreen" : ""}
+        style={{
+          height: isFullscreen ? "100vh" : "80vh",
+          width: "100%",
+          overflow: "auto",
+        }}
       >
         <Worker
           workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
         >
           <Viewer
             fileUrl="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
-            plugins={[defaultLayoutPluginInstance]}
+            plugins={[isFullscreen ? null : defaultLayoutPluginInstance]}
           />
         </Worker>
       </div>
@@ -244,6 +294,7 @@ const PdfViewer: React.FC = () => {
 
 // const PdfViewer: React.FC = () => {
 //   const viewerRef = useRef<HTMLDivElement>(null);
+//   const [error, setError] = useState("toggle");
 
 //   const handleFullscreen = () => {
 //     if (viewerRef.current) {
@@ -263,6 +314,7 @@ const PdfViewer: React.FC = () => {
 //         console.error(
 //           "Fullscreen API is not supported on this browser/device."
 //         );
+//         setError("snot support");
 //       }
 //     }
 //   };
@@ -272,6 +324,7 @@ const PdfViewer: React.FC = () => {
 //       <button onClick={handleFullscreen}>Toggle Fullscreen</button>
 
 //       <div ref={viewerRef} style={{ height: "100vh", width: "100vw" }}>
+//         <div>{/* <button>{error}</button> */}</div>
 //         <embed
 //           src="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
 //           width="100%"
