@@ -193,18 +193,25 @@ const PdfViewer: React.FC = () => {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   const handleFullscreen = () => {
-    if (viewerRef.current && screenfull.isEnabled) {
-      screenfull.toggle(viewerRef.current).catch((err) => {
-        console.error(
-          "Fullscreen API is not supported on this browser/device.",
-          err
-        );
-        setError("not supported");
-      });
-    } else {
-      console.error("Fullscreen API is not supported on this browser/device.");
-      setError("not supported");
+    console.log("suppp2");
+
+    if (viewerRef.current) {
+      console.log("suppp");
+      viewerRef.current.classList.toggle("fullscreen");
     }
+
+    // if (viewerRef.current && screenfull.isEnabled) {
+    //   screenfull.toggle(viewerRef.current).catch((err) => {
+    //     console.error(
+    //       "Fullscreen API is not supported on this browser/device.",
+    //       err
+    //     );
+    //     setError("not supported");
+    //   });
+    // } else {
+    //   console.error("Fullscreen API is not supported on this browser/device.");
+    //   setError("not supported");
+    // }
   };
 
   return (
@@ -213,7 +220,7 @@ const PdfViewer: React.FC = () => {
 
       <div
         ref={viewerRef}
-        style={{ height: "30em" }}
+        style={{}}
         onClick={handleFullscreen}
         onTouchEnd={handleFullscreen}
       >
