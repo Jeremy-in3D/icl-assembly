@@ -54,8 +54,8 @@ type BtnProps = {
 const AssembleBtn = ({
   clickedButton,
   handleLanguagePick,
-  isAssemble,
-}: BtnProps) => (
+}: // isAssemble,
+BtnProps) => (
   <div>
     <button
       style={{
