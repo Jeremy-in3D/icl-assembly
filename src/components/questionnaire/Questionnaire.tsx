@@ -282,7 +282,7 @@ const PdfViewer: React.FC = () => {
         >
           <Viewer
             fileUrl="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
-            plugins={[isFullscreen ? null : defaultLayoutPluginInstance]}
+            plugins={[defaultLayoutPluginInstance]}
           />
         </Worker>
       </div>
