@@ -200,18 +200,21 @@ const PdfViewer: React.FC = () => {
       viewerRef.current.classList.toggle("fullscreen");
     }
 
-    // if (viewerRef.current && screenfull.isEnabled) {
-    //   screenfull.toggle(viewerRef.current).catch((err) => {
-    //     console.error(
-    //       "Fullscreen API is not supported on this browser/device.",
-    //       err
-    //     );
-    //     setError("not supported");
-    //   });
-    // } else {
-    //   console.error("Fullscreen API is not supported on this browser/device.");
-    //   setError("not supported");
-    // }
+    if (viewerRef.current && screenfull.isEnabled) {
+      screenfull.toggle(viewerRef.current).catch((err) => {
+        console.error(
+          "Fullscreen API is not supported on this browser/device.",
+          err
+        );
+        setError("not supported");
+      });
+    } else {
+      console.error("Fullscreen API is not supported on this browser/device.");
+      setError("not supported");
+      if (viewerRef.current) {
+        viewerRef.current.classList.toggle("fullscreen");
+      }
+    }
   };
 
   return (
