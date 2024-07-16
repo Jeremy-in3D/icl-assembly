@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { LandingPage } from "./components/LandingPage";
 import { Homepage } from "./components/Homepage";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 function App() {
-  const {
-    i18n: { changeLanguage, language },
-  } = useTranslation();
+  // const {
+  //   i18n: { changeLanguage, language },
+  // } = useTranslation();
 
   const [viewedOpeningVid, setViewedOpeningVid] = useState<boolean>(false);
-  const [currentLanguage, setCurrentLanguage] = useState(language);
+  // const [currentLanguage, setCurrentLanguage] = useState(language);
   const [fadeOutHappenedAlready, setFdOutHappenedAlready] = useState(false);
 
   useEffect(() => {

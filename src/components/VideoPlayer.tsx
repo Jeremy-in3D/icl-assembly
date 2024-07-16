@@ -13,8 +13,8 @@ export const VideoPlayer = ({
   startTime = 0,
   videoRef,
   videoFit,
-  height,
-}: VideoPlayerProps) => {
+}: // height,
+VideoPlayerProps) => {
   // const videoRef = useRef(null);
   useEffect(() => {
     const videoElement = videoRef?.current;

@@ -39,7 +39,9 @@ export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
   const [surveyOption, setSurveyOption] = useState<number>(1);
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  const videoRef = useRef(null);
+  // const videoRef = useRef(null);
+
+  console.log(isAssemble);
 
   function openModal() {
     setIsOpen(true);
