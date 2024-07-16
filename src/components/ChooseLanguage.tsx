@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { t } from "../common/t";
+// import { t } from "../common/t";
 
 type ChooseLanguageProps = {
   setLanguage: React.Dispatch<React.SetStateAction<string>>;

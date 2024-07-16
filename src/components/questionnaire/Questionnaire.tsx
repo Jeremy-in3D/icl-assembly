@@ -4,12 +4,12 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Modal from "react-modal";
 import TaskIcon from "@mui/icons-material/Task";
-import { Worker, Viewer } from "@react-pdf-viewer/core";
-import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
+// import { Worker, Viewer } from "@react-pdf-viewer/core";
+// import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import screenfull from "screenfull";
-import { Document, Page, pdfjs } from "react-pdf";
+// import screenfull from "screenfull";
+import { pdfjs } from "react-pdf";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 
 Modal.setAppElement("#root");
@@ -240,7 +240,7 @@ const ModalComponent = ({ closeModal, modalIsOpen, setIsAssemble }: any) => (
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const PdfViewer: React.FC = () => {
-  const viewerRef = useRef<HTMLIFrameElement>(null);
+  const viewerRef = useRef<HTMLDivElement>(null);
 
   const handleFullscreen = () => {
     if (viewerRef.current) {
@@ -268,11 +268,14 @@ const PdfViewer: React.FC = () => {
     <div>
       <button onClick={handleFullscreen}>Toggle Fullscreen</button>
 
-      <iframe
-        ref={viewerRef}
-        src="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
-        style={{ width: "100%", height: "100vh", border: "none" }}
-      />
+      <div ref={viewerRef} style={{ height: "100vh", width: "100vw" }}>
+        <embed
+          src="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
+          width="100%"
+          height="100%"
+          type="application/pdf"
+        />
+      </div>
     </div>
   );
 };
