@@ -5,7 +5,9 @@ import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import screenfull from "screenfull";
 
-export const PdfViewer: React.FC = ({}) => {
+type PdfViewerProps = { question?: number };
+
+export const PdfViewer: React.FC<PdfViewerProps> = ({ question }) => {
   const viewerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -35,24 +37,25 @@ export const PdfViewer: React.FC = ({}) => {
         </button> */}
       <div
         ref={viewerRef}
-        className={isFullscreen ? "fullscreen" : ""}
-        style={{
-          height: isFullscreen ? "100vh" : "62vh",
-          width: "100%",
-          overflow: "auto",
-          borderRadius: "8px",
-        }}
-        // onClick={() => {
-        //   console.log("Worker clicked");
-        //   handleFullscreen();
-        // }}
+        className={`pdf-wrapper ${isFullscreen ? "fullscreen" : ""}`}
+        style={
+          isFullscreen
+            ? {
+                height: isFullscreen ? "100vh" : "62vh",
+              }
+            : {}
+        }
         onDoubleClick={() => handleFullscreen()}
       >
         <Worker
           workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
         >
           <Viewer
-            fileUrl="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
+            fileUrl={
+              question && question % 2 == 0
+                ? "/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
+                : "/assets/buildchair.pdf"
+            }
             plugins={[defaultLayoutPluginInstance]}
           />
         </Worker>

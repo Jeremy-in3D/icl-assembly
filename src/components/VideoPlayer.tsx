@@ -5,7 +5,9 @@ type VideoPlayerProps = {
   startTime: number;
   videoRef: React.MutableRefObject<any>;
   videoFit?: "contain";
-  height: any;
+  isQuestionaire?: boolean | undefined;
+  question?: number;
+  // height: any;
 };
 
 export const VideoPlayer = ({
@@ -13,8 +15,10 @@ export const VideoPlayer = ({
   startTime = 0,
   videoRef,
   videoFit,
-  height,
+  isQuestionaire,
+  question,
 }: // height,
+// height,
 // height,
 VideoPlayerProps) => {
   // const videoRef = useRef(null);
@@ -42,16 +46,18 @@ VideoPlayerProps) => {
   }, [startTime, videoRef]);
 
   return (
-    <div className="video-container" style={{ width: "100%", height: "100%" }}>
+    <div className="video-container">
       <video
         controls
         autoPlay
         playsInline
-        className="video-player"
+        className={`video-player ${isQuestionaire ? "video-height" : ""} ${
+          question == 6 || question == 8 ? "smaller-vid" : ""
+        }`}
         ref={videoRef}
         style={{
           width: "100%",
-          height: height ? height : "100%",
+          // height: height ? height : "100%",
           // height: "100%",
           objectFit: videoFit ? videoFit : "cover", // "containe"
         }}

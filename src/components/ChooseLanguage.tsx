@@ -17,19 +17,7 @@ export const ChooseLanguage = ({ setLanguage }: ChooseLanguageProps) => {
   return (
     <div className="homepage-wrapper">
       <div className="choose-language-wrapper">
-        <div style={{ textAlign: "center" }}>
-          <h3
-            style={{
-              color: "#002846ff",
-              marginTop: "5.5em",
-              fontFamily: "gotham",
-              fontSize: "2.2em",
-            }}
-          >
-            {/* Please select a languagef */}
-            {/* {t("pleaseSelectLanguage")} */}
-          </h3>
-        </div>
+        <div style={{ textAlign: "center" }}></div>
         <div className="languages-container">
           <div>
             <button

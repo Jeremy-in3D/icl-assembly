@@ -4,11 +4,6 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Modal from "react-modal";
 import TaskIcon from "@mui/icons-material/Task";
-// import { Worker, Viewer } from "@react-pdf-viewer/core";
-// import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
-// import "@react-pdf-viewer/core/lib/styles/index.css";
-// import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-// import screenfull from "screenfull";
 import { PdfViewer } from "../common/PdfViewer";
 
 Modal.setAppElement("#root");
@@ -57,33 +52,22 @@ export function Questionaire({
   }
 
   return (
-    <div
-      style={{
-        height: "100%",
-        display: "flex",
-        // justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        marginTop: "6em",
-      }}
-    >
-      {/* <div>
-        <h1>{isAssemble ? "Assemble" : "Dismantle"}</h1>
-      </div> */}
-
+    <div className="questionaire-wrapper">
       <div style={{ width: "96%" }}>
         {surveyOption == 2 || surveyOption == 6 || surveyOption == 8 ? (
           <>
             <VideoPlayer
-              height={"18em"}
+              // height={"18em"}
+              isQuestionaire
               startTime={0}
               videoRef={videoRef}
               src={
                 surveyOption == 6
-                  ? "/assets/video/darluke.mp4"
+                  ? "/assets/video/What can HoloLens 2 do_.mp4"
                   : "/assets/video/Mesh Hololens - Remote Collaboration.mp4"
               }
               videoFit="contain"
+              question={surveyOption}
             />
             {surveyOption == 2 ? (
               <div
@@ -112,7 +96,7 @@ export function Questionaire({
             ) : null}
           </>
         ) : (
-          <PdfViewer />
+          <PdfViewer question={surveyOption} />
         )}
       </div>
 
