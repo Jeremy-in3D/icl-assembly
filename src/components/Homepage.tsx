@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Questionaire } from "./questionnaire/Questionnaire";
 
-function Homepage() {
+function Homepage({ setQuestionaireSelect }: any) {
   const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
   return (
     <div style={{ height: "100vh" }}>
       {isAssemble === null ? (
-        <SelectType setIsAssemble={setIsAssemble} />
+        <SelectType
+          setIsAssemble={setIsAssemble}
+          setQuestionaireSelect={setQuestionaireSelect}
+        />
       ) : (
         <Questionaire isAssemble={isAssemble} setIsAssemble={setIsAssemble} />
       )}
@@ -18,9 +21,13 @@ export default Homepage;
 
 type SelectTypeProps = {
   setIsAssemble: React.Dispatch<React.SetStateAction<boolean | null>>;
+  setQuestionaireSelect: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const SelectType = ({ setIsAssemble }: SelectTypeProps) => {
+const SelectType = ({
+  setIsAssemble,
+  setQuestionaireSelect,
+}: SelectTypeProps) => {
   const [clickedButton, setClickedButton] = useState<string | null>(null);
 
   const handleLanguagePick = (selectedOption: string) => {
@@ -38,10 +45,12 @@ const SelectType = ({ setIsAssemble }: SelectTypeProps) => {
         clickedButton={clickedButton}
         handleLanguagePick={handleLanguagePick}
         isAssemble
+        setQuestionaireSelect={setQuestionaireSelect}
       />
       <DismantleBtn
         clickedButton={clickedButton}
         handleLanguagePick={handleLanguagePick}
+        setQuestionaireSelect={setQuestionaireSelect}
       />
     </div>
   );
@@ -51,11 +60,13 @@ type BtnProps = {
   clickedButton: string | null;
   handleLanguagePick: (selectedOption: string) => void;
   isAssemble?: any;
+  setQuestionaireSelect: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const AssembleBtn = ({
   clickedButton,
   handleLanguagePick,
+  setQuestionaireSelect,
 }: // isAssemble,
 BtnProps) => (
   <div>
@@ -72,14 +83,21 @@ BtnProps) => (
           ? "fade-out-now"
           : ""
       }`}
-      onClick={() => handleLanguagePick("assemble")}
+      onClick={() => {
+        handleLanguagePick("assemble");
+        setQuestionaireSelect("assemble");
+      }}
     >
       <h1 style={{ color: "black" }}>Assemble</h1>
     </button>
   </div>
 );
 
-const DismantleBtn = ({ clickedButton, handleLanguagePick }: BtnProps) => (
+const DismantleBtn = ({
+  clickedButton,
+  handleLanguagePick,
+  setQuestionaireSelect,
+}: BtnProps) => (
   <div>
     <button
       style={{
@@ -87,7 +105,10 @@ const DismantleBtn = ({ clickedButton, handleLanguagePick }: BtnProps) => (
         textAlign: "center",
         borderRadius: "12px",
       }}
-      onClick={() => handleLanguagePick("dismantle")}
+      onClick={() => {
+        handleLanguagePick("dismantle");
+        setQuestionaireSelect("dismantle");
+      }}
       className={`assemble-dismantle-option dismantle-btn ${
         clickedButton === "dismantle"
           ? "move-and-fade-backwards"

@@ -108,7 +108,7 @@ body {
 
 .icl-logo {
   height: 50%;
-  margin-left: 2em;
+  /* margin-left: 2em; */
   animation: slideUp 1s ease-out forwards;
 }
 

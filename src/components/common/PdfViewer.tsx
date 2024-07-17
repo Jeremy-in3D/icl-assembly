@@ -37,7 +37,7 @@ export const PdfViewer: React.FC = ({}) => {
         ref={viewerRef}
         className={isFullscreen ? "fullscreen" : ""}
         style={{
-          height: isFullscreen ? "100vh" : "70vh",
+          height: isFullscreen ? "100vh" : "62vh",
           width: "100%",
           overflow: "auto",
           borderRadius: "8px",

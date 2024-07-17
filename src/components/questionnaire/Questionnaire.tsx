@@ -80,32 +80,34 @@ export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
               }
               videoFit="contain"
             />
-            <div
-              style={{
-                color: "white",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                background: "rgb(0,0,0,0.4)",
-                borderRadius: "12px",
-                padding: "4px",
-              }}
-            >
-              <div style={{ fontFamily: "gotham" }}>
-                A question about the video if relevant
-              </div>
+            {surveyOption == 2 ? (
               <div
                 style={{
-                  width: "50%",
+                  color: "white",
                   display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "1em",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  background: "rgb(0,0,0,0.4)",
+                  borderRadius: "12px",
+                  padding: "4px",
                 }}
               >
-                <button className="prev-next-btn">True</button>
-                <button className="prev-next-btn">False</button>
+                <div style={{ fontFamily: "gotham" }}>
+                  A question about the video if relevant
+                </div>
+                <div
+                  style={{
+                    width: "50%",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginTop: "1em",
+                  }}
+                >
+                  <button className="prev-next-btn">True</button>
+                  <button className="prev-next-btn">False</button>
+                </div>
               </div>
-            </div>
+            ) : null}
           </>
         ) : (
           <PdfViewer />
