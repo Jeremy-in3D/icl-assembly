@@ -390,6 +390,7 @@ body {
 
 .nav-questionaire-type {
   font-family: "Courier New", Courier, monospace;
+  animation: slideUp 1s ease-out forwards;
 }
 
 .fullscreen {

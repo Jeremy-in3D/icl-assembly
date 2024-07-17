@@ -46,16 +46,18 @@ function App() {
             // style={{ height: "50%", marginLeft: "2em" }}
             className="icl-logo"
           />
-          <div
-            className="nav-questionaire-type"
-            style={{ color: "white", fontSize: "1.2em" }}
-          >
-            {questionaireSelect
-              ? questionaireSelect == "assemble"
-                ? "Assemble"
-                : "Dismantle"
-              : null}
-          </div>
+          {questionaireSelect ? (
+            <div
+              className="nav-questionaire-type"
+              style={{ color: "white", fontSize: "1.2em" }}
+            >
+              {questionaireSelect
+                ? questionaireSelect == "assemble"
+                  ? "Assemble"
+                  : "Dismantle"
+                : null}
+            </div>
+          ) : null}
         </div>
       </div>
       {viewedOpeningVid ? (
