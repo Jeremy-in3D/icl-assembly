@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import "./App.css";
 import { LandingPage } from "./components/LandingPage";
-import { Homepage } from "./components/Homepage";
+// import Homepage from "./components/Homepage";
 // import { useTranslation } from "react-i18next";
+
+const LazyHomepage = lazy(() => import("./components/Homepage"));
 
 function App() {
   // const {
@@ -29,7 +31,9 @@ function App() {
         />
       </div>
       {viewedOpeningVid ? (
-        <Homepage />
+        <Suspense fallback={null}>
+          <LazyHomepage />
+        </Suspense>
       ) : (
         <LandingPage setViewedOpeningVid={setViewedOpeningVid} />
       )}

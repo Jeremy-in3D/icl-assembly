@@ -1,17 +1,15 @@
 import { useRef, useState } from "react";
-// import { VideoPlayer } from "../VideoPlayer";
+import { VideoPlayer } from "../VideoPlayer";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Modal from "react-modal";
 import TaskIcon from "@mui/icons-material/Task";
-import { Worker, Viewer } from "@react-pdf-viewer/core";
-import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
-import "@react-pdf-viewer/core/lib/styles/index.css";
-import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-// import screenfull from "screenfull";
-// import { pdfjs } from "react-pdf";
+// import { Worker, Viewer } from "@react-pdf-viewer/core";
+// import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 // import "@react-pdf-viewer/core/lib/styles/index.css";
-import screenfull from "screenfull";
+// import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+// import screenfull from "screenfull";
+import { PdfViewer } from "../common/PdfViewer";
 
 Modal.setAppElement("#root");
 type QuestionaireProps = {
@@ -39,8 +37,9 @@ const MAX_NUM_OF_QUESTIONS = 10;
 export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
   const [surveyOption, setSurveyOption] = useState<number>(1);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [isTrueClicked, setIsTrueClicked] = useState(null);
 
-  // const videoRef = useRef(null);
+  const videoRef = useRef(null);
 
   console.log(isAssemble);
 
@@ -67,15 +66,50 @@ export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
         <h1>{isAssemble ? "Assemble" : "Dismantle"}</h1>
       </div> */}
 
-      <div style={{ width: "100%" }}>
-        {/* <VideoPlayer
-          height={"18em"}
-          startTime={0}
-          videoRef={videoRef}
-          src="/assets/video/Mesh Hololens - Remote Collaboration.mp4"
-          videoFit="contain"
-        /> */}
-        <PdfViewer />
+      <div style={{ width: "96%" }}>
+        {surveyOption == 2 || surveyOption == 6 || surveyOption == 8 ? (
+          <>
+            <VideoPlayer
+              height={"18em"}
+              startTime={0}
+              videoRef={videoRef}
+              src={
+                surveyOption == 6
+                  ? "/assets/video/darluke.mp4"
+                  : "/assets/video/Mesh Hololens - Remote Collaboration.mp4"
+              }
+              videoFit="contain"
+            />
+            <div
+              style={{
+                color: "white",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                background: "rgb(0,0,0,0.4)",
+                borderRadius: "12px",
+                padding: "4px",
+              }}
+            >
+              <div style={{ fontFamily: "gotham" }}>
+                A question about the video if relevant
+              </div>
+              <div
+                style={{
+                  width: "50%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: "1em",
+                }}
+              >
+                <button className="prev-next-btn">True</button>
+                <button className="prev-next-btn">False</button>
+              </div>
+            </div>
+          </>
+        ) : (
+          <PdfViewer />
+        )}
       </div>
 
       <div className="prev-next-survey-wrapper">
@@ -88,6 +122,16 @@ export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
           <NavigateBeforeIcon fontSize="large" />
           {/* Previous */}
         </button>
+        <div
+          style={{
+            // left: "83%",
+            bottom: "1.5em",
+            fontSize: "1.5em",
+            color: "black",
+          }}
+        >
+          {`${surveyOption}/10`}
+        </div>
         <button
           className="prev-next-btn"
           onClick={
@@ -109,17 +153,6 @@ export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
         </button>
       </div>
 
-      <div
-        style={{
-          position: "absolute",
-          // left: "83%",
-          bottom: "1.5em",
-          fontSize: "1.5em",
-          color: "black",
-        }}
-      >
-        {`${surveyOption}/10`}
-      </div>
       <div>
         {/* <button onClick={openModal}>Open Modal</button> */}
         <ModalComponent
@@ -188,44 +221,46 @@ const ModalComponent = ({ closeModal, modalIsOpen, setIsAssemble }: any) => (
 );
 
 // const PdfViewer: React.FC = () => {
-//   const [error, setError] = useState("toggle");
 //   const viewerRef = useRef<HTMLDivElement>(null);
+//   const [isFullscreen, setIsFullscreen] = useState(false);
+
 //   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
 //   const handleFullscreen = () => {
-//     console.log("suppp2");
-
-//     // if (viewerRef.current) {
-//     //   console.log("suppp");
-//     //   viewerRef.current.classList.toggle("fullscreen");
-//     // }
-
-//     // if (viewerRef.current && screenfull.isEnabled) {
-//     //   screenfull.toggle(viewerRef.current).catch((err) => {
-//     //     console.error(
-//     //       "Fullscreen API is not supported on this browser/device.",
-//     //       err
-//     //     );
-//     //     setError("not supported");
-//     //   });
-//     // } else {
-//     //   console.error("Fullscreen API is not supported on this browser/device.");
-//     //   setError("not supported");
-//     //   if (viewerRef.current) {
-//     //     viewerRef.current.classList.toggle("fullscreen");
-//     //   }
-//     // }
+//     if (screenfull.isEnabled && viewerRef && viewerRef.current) {
+//       screenfull.toggle(viewerRef.current).catch((err) => {
+//         console.error(
+//           "Fullscreen API is not supported on this browser/device.",
+//           err
+//         );
+//         setIsFullscreen(!isFullscreen);
+//       });
+//     } else {
+//       setIsFullscreen(!isFullscreen);
+//     }
 //   };
 
 //   return (
 //     <div>
-//       <button onClick={handleFullscreen}>{error}</button>
-
+//       {/* <button
+//         style={{ background: "black", position: "absolute", zIndex: 5 }}
+//         onClick={handleFullscreen}
+//       >
+//         {isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+//       </button> */}
 //       <div
 //         ref={viewerRef}
-//         style={{}}
-//         onClick={handleFullscreen}
-//         onTouchEnd={handleFullscreen}
+//         className={isFullscreen ? "fullscreen" : ""}
+//         style={{
+//           height: isFullscreen ? "100vh" : "70vh",
+//           width: "100%",
+//           overflow: "auto",
+//         }}
+//         // onClick={() => {
+//         //   console.log("Worker clicked");
+//         //   handleFullscreen();
+//         // }}
+//         onDoubleClick={() => handleFullscreen()}
 //       >
 //         <Worker
 //           workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
@@ -235,102 +270,6 @@ const ModalComponent = ({ closeModal, modalIsOpen, setIsAssemble }: any) => (
 //             plugins={[defaultLayoutPluginInstance]}
 //           />
 //         </Worker>
-//       </div>
-//     </div>
-//   );
-// };
-
-const PdfViewer: React.FC = () => {
-  const viewerRef = useRef<HTMLDivElement>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
-
-  const handleFullscreen = () => {
-    if (screenfull.isEnabled && viewerRef && viewerRef.current) {
-      screenfull.toggle(viewerRef.current).catch((err) => {
-        console.error(
-          "Fullscreen API is not supported on this browser/device.",
-          err
-        );
-        setIsFullscreen(!isFullscreen);
-      });
-    } else {
-      setIsFullscreen(!isFullscreen);
-    }
-  };
-
-  return (
-    <div>
-      <button
-        style={{ background: "black", position: "absolute", zIndex: 5 }}
-        onClick={handleFullscreen}
-      >
-        {isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
-      </button>
-      <div
-        ref={viewerRef}
-        className={isFullscreen ? "fullscreen" : ""}
-        style={{
-          height: isFullscreen ? "100vh" : "80vh",
-          width: "100%",
-          overflow: "auto",
-        }}
-      >
-        <Worker
-          workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
-        >
-          <Viewer
-            fileUrl="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
-            plugins={[defaultLayoutPluginInstance]}
-          />
-        </Worker>
-      </div>
-    </div>
-  );
-};
-
-// pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
-// const PdfViewer: React.FC = () => {
-//   const viewerRef = useRef<HTMLDivElement>(null);
-//   const [error, setError] = useState("toggle");
-
-//   const handleFullscreen = () => {
-//     if (viewerRef.current) {
-//       const elem = viewerRef.current as any;
-//       if (elem.requestFullscreen) {
-//         elem.requestFullscreen();
-//       } else if (elem.webkitRequestFullscreen) {
-//         // Safari for iOS
-//         elem.webkitRequestFullscreen();
-//       } else if (elem.msRequestFullscreen) {
-//         // IE11
-//         elem.msRequestFullscreen();
-//       } else if (elem.mozRequestFullScreen) {
-//         // Firefox
-//         elem.mozRequestFullScreen();
-//       } else {
-//         console.error(
-//           "Fullscreen API is not supported on this browser/device."
-//         );
-//         setError("snot support");
-//       }
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={handleFullscreen}>Toggle Fullscreen</button>
-
-//       <div ref={viewerRef} style={{ height: "100vh", width: "100vw" }}>
-//         <div>{/* <button>{error}</button> */}</div>
-//         <embed
-//           src="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
-//           width="100%"
-//           height="100%"
-//           type="application/pdf"
-//         />
 //       </div>
 //     </div>
 //   );

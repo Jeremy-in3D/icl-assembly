@@ -13,7 +13,9 @@ export const VideoPlayer = ({
   startTime = 0,
   videoRef,
   videoFit,
+  height,
 }: // height,
+// height,
 VideoPlayerProps) => {
   // const videoRef = useRef(null);
   useEffect(() => {
@@ -49,8 +51,8 @@ VideoPlayerProps) => {
         ref={videoRef}
         style={{
           width: "100%",
-          // height: height ? height : null,
-          height: "100%",
+          height: height ? height : "100%",
+          // height: "100%",
           objectFit: videoFit ? videoFit : "cover", // "containe"
         }}
       >

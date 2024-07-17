@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Questionaire } from "./questionnaire/Questionnaire";
 
-export function Homepage() {
+function Homepage() {
   const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
   return (
     <div style={{ height: "100vh" }}>
@@ -13,6 +13,8 @@ export function Homepage() {
     </div>
   );
 }
+
+export default Homepage;
 
 type SelectTypeProps = {
   setIsAssemble: React.Dispatch<React.SetStateAction<boolean | null>>;
