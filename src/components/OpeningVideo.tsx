@@ -21,7 +21,7 @@ export const OpeningVideo = ({ setViewedOpeningVid }: OpeningVideoProps) => {
       </button>
       <VideoPlayer
         // height="20em"
-        height="100%"
+        // height="100%"
         src={"/assets/video/Mesh Hololens - Remote Collaboration.mp4"}
         startTime={0}
         videoRef={openingVideoRef}
