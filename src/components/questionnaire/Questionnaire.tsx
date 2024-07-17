@@ -92,9 +92,7 @@ export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
                   padding: "4px",
                 }}
               >
-                <div style={{ fontFamily: "gotham" }}>
-                  A question about the video if relevant
-                </div>
+                <div className="questionaire-text">A description/question</div>
                 <div
                   style={{
                     width: "50%",
