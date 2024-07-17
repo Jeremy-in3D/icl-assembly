@@ -37,7 +37,7 @@ const MAX_NUM_OF_QUESTIONS = 10;
 export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
   const [surveyOption, setSurveyOption] = useState<number>(1);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [isTrueClicked, setIsTrueClicked] = useState(null);
+  // const [isTrueClicked, setIsTrueClicked] = useState(null);
 
   const videoRef = useRef(null);
 
