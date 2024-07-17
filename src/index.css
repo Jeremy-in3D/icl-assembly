@@ -383,8 +383,13 @@ body {
 }
 
 .questionaire-text {
-  font-family: gotham;
+  font-family: "Courier New", Courier, monospace;
   font-size: 1.1em;
+  color: white;
+}
+
+.nav-questionaire-type {
+  font-family: "Courier New", Courier, monospace;
 }
 
 .fullscreen {

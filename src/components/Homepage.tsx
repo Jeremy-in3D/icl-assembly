@@ -11,7 +11,11 @@ function Homepage({ setQuestionaireSelect }: any) {
           setQuestionaireSelect={setQuestionaireSelect}
         />
       ) : (
-        <Questionaire isAssemble={isAssemble} setIsAssemble={setIsAssemble} />
+        <Questionaire
+          isAssemble={isAssemble}
+          setIsAssemble={setIsAssemble}
+          setQuestionaireSelect={setQuestionaireSelect}
+        />
       )}
     </div>
   );

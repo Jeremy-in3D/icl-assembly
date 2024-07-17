@@ -47,7 +47,8 @@ function App() {
             className="icl-logo"
           />
           <div
-            style={{ color: "white", fontFamily: "gotham", fontSize: "1.2em" }}
+            className="nav-questionaire-type"
+            style={{ color: "white", fontSize: "1.2em" }}
           >
             {questionaireSelect
               ? questionaireSelect == "assemble"

@@ -15,6 +15,7 @@ Modal.setAppElement("#root");
 type QuestionaireProps = {
   isAssemble: boolean | null;
   setIsAssemble: React.Dispatch<React.SetStateAction<boolean | null>>;
+  setQuestionaireSelect: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const customStyles = {
@@ -34,7 +35,11 @@ const customStyles = {
 
 const MAX_NUM_OF_QUESTIONS = 10;
 
-export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
+export function Questionaire({
+  isAssemble,
+  setIsAssemble,
+  setQuestionaireSelect,
+}: QuestionaireProps) {
   const [surveyOption, setSurveyOption] = useState<number>(1);
   const [modalIsOpen, setIsOpen] = useState(false);
   // const [isTrueClicked, setIsTrueClicked] = useState(null);
@@ -83,7 +88,6 @@ export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
             {surveyOption == 2 ? (
               <div
                 style={{
-                  color: "white",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -159,13 +163,19 @@ export function Questionaire({ isAssemble, setIsAssemble }: QuestionaireProps) {
           closeModal={closeModal}
           modalIsOpen={modalIsOpen}
           setIsAssemble={setIsAssemble}
+          setQuestionaireSelect={setQuestionaireSelect}
         />
       </div>
     </div>
   );
 }
 
-const ModalComponent = ({ closeModal, modalIsOpen, setIsAssemble }: any) => (
+const ModalComponent = ({
+  closeModal,
+  modalIsOpen,
+  setIsAssemble,
+  setQuestionaireSelect,
+}: any) => (
   <>
     <Modal
       isOpen={modalIsOpen}
@@ -210,6 +220,7 @@ const ModalComponent = ({ closeModal, modalIsOpen, setIsAssemble }: any) => (
             onClick={() => {
               closeModal();
               setIsAssemble(null);
+              setQuestionaireSelect("");
             }}
           >
             Close
