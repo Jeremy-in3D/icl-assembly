@@ -1,11 +1,11 @@
 @font-face {
   font-family: gotham;
-  src: url("../src/fonts/GothamLight.ttf");
+  src: url("./fonts/GothamLight.ttf");
 }
 
 @font-face {
   font-family: gotham-bold;
-  src: url("../src/fonts/GothamBold.otf");
+  src: url("./fonts/GothamMedium.ttf");
 }
 
 :root {
@@ -61,10 +61,6 @@ body {
   height: 100vh;
   /* background: var(--radial-gradientTest); */
   overflow: hidden;
-}
-
-.test {
-  /* background: radial-gradient(var(--blue5), var(--blue4), var(--blue3)); */
 }
 
 @keyframes slideUp {
