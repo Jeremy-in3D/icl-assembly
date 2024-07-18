@@ -591,4 +591,23 @@ body {
     top: 0;
     left: 0;
   }
+
+  .assemble-dismantle-option.move-and-fade {
+    animation: moveToCenter_then_fadeOut 1.6s forwards;
+    animation-delay: 0.6s;
+  }
+
+  .assemble-dismantle-option.move-and-fade-backwards {
+    animation: moveToCenterBackwards_then_fadeOut 1.6s forwards;
+    animation-delay: 0.6s;
+  }
 }
+/* .language-flag.move-and-fade {
+  animation: moveToCenter_then_fadeOut 1.6s forwards;
+  animation-delay: 0.4s;
+}
+
+.language-flag.move-and-fade-backwards {
+  animation: moveToCenterBackwards_then_fadeOut 1.6s forwards;
+  animation-delay: 0.4s;
+} */
