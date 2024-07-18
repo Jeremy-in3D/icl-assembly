@@ -227,28 +227,28 @@ const ModalComponent = ({
 //   );
 // };
 
-const TextBox = () => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      background: "rgb(0,0,0,0.4)",
-      borderRadius: "12px",
-      padding: "4px",
-    }}
-  >
-    <div className="questionaire-text">A description/question</div>
-    <div
-      style={{
-        width: "50%",
-        display: "flex",
-        justifyContent: "space-between",
-        marginTop: "1em",
-      }}
-    >
-      <button className="prev-next-btn">True</button>
-      <button className="prev-next-btn">False</button>
-    </div>
-  </div>
-);
+// const TextBox = () => (
+//   <div
+//     style={{
+//       display: "flex",
+//       flexDirection: "column",
+//       alignItems: "center",
+//       background: "rgb(0,0,0,0.4)",
+//       borderRadius: "12px",
+//       padding: "4px",
+//     }}
+//   >
+//     <div className="questionaire-text">A description/question</div>
+//     <div
+//       style={{
+//         width: "50%",
+//         display: "flex",
+//         justifyContent: "space-between",
+//         marginTop: "1em",
+//       }}
+//     >
+//       <button className="prev-next-btn">True</button>
+//       <button className="prev-next-btn">False</button>
+//     </div>
+//   </div>
+// );

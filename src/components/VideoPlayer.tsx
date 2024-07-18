@@ -16,8 +16,8 @@ export const VideoPlayer = ({
   videoRef,
   videoFit,
   isQuestionaire,
-  question,
-}: // height,
+}: // question,
+// height,
 // height,
 // height,
 VideoPlayerProps) => {
