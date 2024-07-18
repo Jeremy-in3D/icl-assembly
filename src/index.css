@@ -134,6 +134,14 @@ body {
   z-index: 2;
 }
 
+.nav-logo-wrapper {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
 .homepage-wrapper {
   width: 100vw;
   height: 100vh;
@@ -416,6 +424,15 @@ body {
   height: 62vh;
 }
 
+.pdf-full-screen-icon {
+  position: absolute;
+  /* border: 2px solid red; */
+  z-index: 2;
+  /* top: 0; */
+  margin-top: 0.5em;
+  right: 2.4em;
+}
+
 .questionaire-wrapper {
   height: 100%;
   display: flex;
@@ -431,9 +448,26 @@ body {
 
 .video-player {
   height: 100%;
+  width: 100%;
 }
 .video-height {
   height: 18em;
+}
+
+.modal-complete-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.completed-msg-wrapper {
+  font-family: gotham-bold;
+  text-align: center;
+  color: black;
+  font-size: 1.6em;
+  padding: 4px;
 }
 
 @media screen and (orientation: portrait) {
@@ -481,16 +515,15 @@ body {
   }
 
   .prev-next-survey-wrapper {
-    width: 30%;
+    width: 24%;
     height: 40%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
     flex-direction: column-reverse;
-    border-top: 1px solid rgb(0, 0, 0, 0.4);
-    border-bottom: 1px solid rgb(0, 0, 0, 0.4);
-    position: inherit;
-    bottom: 1em;
+
+    /* position: absolute; */
+    top: 4em;
+    right: 0;
+    z-index: 2;
   }
 
   .questionaire-wrapper {
@@ -516,7 +549,46 @@ body {
     object-fit: cover;
   }
 
+  .skip-vid-container {
+    width: 8em;
+
+    z-index: 8;
+  }
+
   .smaller-vid {
-    top: -3em;
+    top: -3.4em;
+    /* top: 2.2em; */
+    width: 80%;
+    /* height: 10em; */
+
+    box-shadow: 1px 1px 15px 2px rgba(255, 255, 255, 0.4);
+    -webkit-box-shadow: 1px 1px 15px 2px rgba(255, 255, 255, 0.4);
+    -moz-box-shadow: 1px 1px 15px 2px rgba(255, 255, 255, 0.4);
+  }
+
+  .nav-border {
+    height: 3em;
+  }
+
+  .languages-container {
+    margin-top: 7em;
+  }
+
+  .assemble-dismantle-wrapper {
+    margin-top: 4em;
+  }
+
+  .completed-msg-wrapper {
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50000; */
+  }
+
+  .last-question-on-complete {
+    position: absolute;
+    z-index: 50000;
+    top: 0;
+    left: 0;
   }
 }

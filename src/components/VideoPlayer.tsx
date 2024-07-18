@@ -51,12 +51,14 @@ VideoPlayerProps) => {
         controls
         autoPlay
         playsInline
-        className={`video-player ${isQuestionaire ? "video-height" : ""} ${
-          question == 6 || question == 8 ? "smaller-vid" : ""
-        }`}
+        className={`video-player ${
+          isQuestionaire ? "video-height smaller-vid" : ""
+        } `}
+        // className={`video-player ${isQuestionaire ? "video-height" : ""} ${
+        //   question == 6 || question == 8 ? "smaller-vid" : ""
+        // }`}
         ref={videoRef}
         style={{
-          width: "100%",
           // height: height ? height : "100%",
           // height: "100%",
           objectFit: videoFit ? videoFit : "cover", // "containe"

@@ -69,35 +69,11 @@ export function Questionaire({
               videoFit="contain"
               question={surveyOption}
             />
-            {surveyOption == 2 ? (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  background: "rgb(0,0,0,0.4)",
-                  borderRadius: "12px",
-                  padding: "4px",
-                }}
-              >
-                <div className="questionaire-text">A description/question</div>
-                <div
-                  style={{
-                    width: "50%",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginTop: "1em",
-                  }}
-                >
-                  <button className="prev-next-btn">True</button>
-                  <button className="prev-next-btn">False</button>
-                </div>
-              </div>
-            ) : null}
+            {/* {surveyOption == 2 ? <TextBox /> : null} */}
           </>
-        ) : (
-          <PdfViewer question={surveyOption} />
-        )}
+        ) : !modalIsOpen ? (
+          <PdfViewer question={surveyOption} modalIsOpen={modalIsOpen} />
+        ) : null}
       </div>
 
       <div className="prev-next-survey-wrapper">
@@ -115,7 +91,7 @@ export function Questionaire({
             // left: "83%",
             bottom: "1.5em",
             fontSize: "1.5em",
-            color: "black",
+            color: "rgb(255, 255, 255, 0.8)",
           }}
         >
           {`${surveyOption}/10`}
@@ -166,29 +142,10 @@ const ModalComponent = ({
       onRequestClose={closeModal}
       style={customStyles}
       contentLabel="Example Modal"
+      // sty
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            fontFamily: "gotham-bold",
-            textAlign: "center",
-            color: "black",
-            // border: "1px solid black",
-            // height: "100%",
-            fontSize: "1.2em",
-            padding: "4px",
-          }}
-        >
-          Complete!
-        </div>
+      <div className="modal-complete-container">
+        <div className="completed-msg-wrapper">Complete!</div>
         <div>
           <TaskIcon sx={{ color: "rgb(52, 178, 51, 0.8)", fontSize: "4em" }} />
         </div>
@@ -269,3 +226,29 @@ const ModalComponent = ({
 //     </div>
 //   );
 // };
+
+const TextBox = () => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      background: "rgb(0,0,0,0.4)",
+      borderRadius: "12px",
+      padding: "4px",
+    }}
+  >
+    <div className="questionaire-text">A description/question</div>
+    <div
+      style={{
+        width: "50%",
+        display: "flex",
+        justifyContent: "space-between",
+        marginTop: "1em",
+      }}
+    >
+      <button className="prev-next-btn">True</button>
+      <button className="prev-next-btn">False</button>
+    </div>
+  </div>
+);

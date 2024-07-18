@@ -4,8 +4,9 @@ import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import screenfull from "screenfull";
+import OpenWithIcon from "@mui/icons-material/OpenWith";
 
-type PdfViewerProps = { question?: number };
+type PdfViewerProps = { question?: number; modalIsOpen: boolean };
 
 export const PdfViewer: React.FC<PdfViewerProps> = ({ question }) => {
   const viewerRef = useRef<HTMLDivElement>(null);
@@ -50,6 +51,12 @@ export const PdfViewer: React.FC<PdfViewerProps> = ({ question }) => {
         <Worker
           workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
         >
+          <div
+            className="pdf-full-screen-icon"
+            onClick={() => handleFullscreen()}
+          >
+            <OpenWithIcon />
+          </div>
           <Viewer
             fileUrl={
               question && question % 2 == 0

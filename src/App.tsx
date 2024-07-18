@@ -31,21 +31,8 @@ function App() {
           justifyContent: "center",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            height: "100%",
-            justifyContent: "space-between",
-            alignItems: "center",
-
-            width: "90%",
-          }}
-        >
-          <img
-            src="/assets/images/logo.webp"
-            // style={{ height: "50%", marginLeft: "2em" }}
-            className="icl-logo"
-          />
+        <div className="nav-logo-wrapper">
+          <img src="/assets/images/logo.webp" className="icl-logo" />
           {questionaireSelect ? (
             <div
               className="nav-questionaire-type"
