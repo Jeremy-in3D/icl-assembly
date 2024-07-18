@@ -86,17 +86,7 @@ export function Questionaire({
             />
           </div>
         ) : null}
-        <TextBox />
-        <button
-          style={{ width: "6em", marginTop: ".5em" }}
-          className="prev-next-btn"
-          onClick={() => {
-            setIsPdfModal(true);
-            openModal();
-          }}
-        >
-          PDF's
-        </button>
+        <TextBox setIsPdfModal={setIsPdfModal} openModal={openModal} />
       </div>
 
       <div className="prev-next-survey-wrapper">
@@ -182,11 +172,15 @@ const ModalComponent = ({
             alignItems: "center",
           }}
         >
-          <button onClick={() => setOpenPdf("pdf1")} className="prev-next-btn">
+          <button
+            style={{ width: "7em" }}
+            onClick={() => setOpenPdf("pdf1")}
+            className="prev-next-btn"
+          >
             PDF 1
           </button>
           <button
-            style={{ marginTop: "1em" }}
+            style={{ marginTop: "1em", width: "7em" }}
             onClick={() => setOpenPdf("pdf2")}
             className="prev-next-btn"
           >
@@ -285,7 +279,7 @@ const ImageViewer = ({ src }: ImageViewerProps) => {
   return <img src={src} alt="" style={{ height: "100%", width: "100%" }} />;
 };
 
-const TextBox = () => (
+const TextBox = ({ setIsPdfModal, openModal }: any) => (
   <div
     style={{
       display: "flex",
@@ -299,7 +293,29 @@ const TextBox = () => (
       width: "100%",
     }}
   >
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "flex-end",
+        padding: "12px",
+        borderBottom: "1px solid rgb(0,0,0,0.4)",
+      }}
+    >
+      <button
+        style={{ width: "6em" }}
+        className="prev-next-btn"
+        onClick={() => {
+          setIsPdfModal(true);
+          openModal();
+        }}
+      >
+        PDF's
+      </button>
+    </div>
+
     <div className="questionaire-text">A TextBox/Description</div>
+
     {/* <div
       style={{
         width: "50%",
