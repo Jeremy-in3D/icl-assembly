@@ -4,7 +4,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Modal from "react-modal";
 import TaskIcon from "@mui/icons-material/Task";
-import { PdfViewer } from "../common/PdfViewer";
+// import { PdfViewer } from "../common/PdfViewer";
 
 Modal.setAppElement("#root");
 type QuestionaireProps = {
