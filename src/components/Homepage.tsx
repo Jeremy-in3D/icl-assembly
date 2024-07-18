@@ -21,28 +21,24 @@ function Homepage({ setQuestionaireSelect, isAssemble, setIsAssemble }: any) {
           setOpenPdf={setOpenPdf}
         />
       )}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "3em",
-        }}
-      >
-        <div
-          style={{
-            width: "94%",
-            justifyContent: "space-evenly",
-            display: "flex",
-          }}
-        >
-          <button onClick={() => setOpenPdf("pdf1")} className="prev-next-btn">
-            PDF 1
-          </button>
-          <button onClick={() => setOpenPdf("pdf2")} className="prev-next-btn">
-            PDF 2
-          </button>
+      {isAssemble === null ? (
+        <div className="hmpg-btns-container">
+          <div className="homepage-pdf-btns-wrapper">
+            <button
+              onClick={() => setOpenPdf("pdf1")}
+              className="prev-next-btn telp"
+            >
+              PDF 1
+            </button>
+            <button
+              onClick={() => setOpenPdf("pdf2")}
+              className="prev-next-btn telp"
+            >
+              PDF 2
+            </button>
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }

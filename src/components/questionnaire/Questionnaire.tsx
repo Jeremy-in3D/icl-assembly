@@ -58,7 +58,7 @@ export function Questionaire({
     <div className="questionaire-wrapper">
       <div className="questionaire-content-container">
         {surveyOption == 2 || surveyOption == 6 || surveyOption == 8 ? (
-          <>
+          <div style={{ height: "200%" }}>
             <VideoPlayer
               // height={"18em"}
               isQuestionaire
@@ -72,14 +72,12 @@ export function Questionaire({
               videoFit="contain"
               question={surveyOption}
             />
-          </>
+          </div>
         ) : !modalIsOpen ? (
-          <div
-            style={{ border: "1px solid rgb(0,0,0,0.4)", borderRadius: "4px" }}
-          >
+          <div className="img-viewer-wrapper">
             <ImageViewer
               src={`/assets/images/${
-                surveyOption == 1 || surveyOption == 4
+                surveyOption == 1 || surveyOption == 4 || surveyOption == 10
                   ? "assemble_dismantle.webp"
                   : "automation.jpg"
               }`}
