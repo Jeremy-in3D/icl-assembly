@@ -3,14 +3,19 @@ import { useState } from "react";
 
 type ChooseLanguageProps = {
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
+  setCurrentLanguage: React.Dispatch<React.SetStateAction<string>>;
 };
-export const ChooseLanguage = ({ setLanguage }: ChooseLanguageProps) => {
+export const ChooseLanguage = ({
+  setLanguage,
+  setCurrentLanguage,
+}: ChooseLanguageProps) => {
   const [clickedButton, setClickedButton] = useState<string | null>(null);
 
   const handleLanguagePick = (language: string) => {
     setClickedButton(language);
     setTimeout(() => {
       setLanguage(language);
+      setCurrentLanguage(language);
     }, 1600);
   };
 
@@ -28,7 +33,9 @@ export const ChooseLanguage = ({ setLanguage }: ChooseLanguageProps) => {
                   ? "fade-out-now"
                   : ""
               }`}
-              onClick={() => handleLanguagePick("he")}
+              onClick={() => {
+                handleLanguagePick("he");
+              }}
             ></button>
           </div>
           <div>

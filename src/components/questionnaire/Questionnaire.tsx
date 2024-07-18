@@ -11,6 +11,7 @@ type QuestionaireProps = {
   isAssemble: boolean | null;
   setIsAssemble: React.Dispatch<React.SetStateAction<boolean | null>>;
   setQuestionaireSelect: React.Dispatch<React.SetStateAction<string>>;
+  setOpenPdf: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const customStyles = {
@@ -34,9 +35,11 @@ export function Questionaire({
   isAssemble,
   setIsAssemble,
   setQuestionaireSelect,
+  setOpenPdf,
 }: QuestionaireProps) {
   const [surveyOption, setSurveyOption] = useState<number>(1);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [isPdfModal, setIsPdfModal] = useState(false);
   // const [isTrueClicked, setIsTrueClicked] = useState(null);
 
   const videoRef = useRef(null);
@@ -53,7 +56,7 @@ export function Questionaire({
 
   return (
     <div className="questionaire-wrapper">
-      <div style={{ width: "96%" }}>
+      <div className="questionaire-content-container">
         {surveyOption == 2 || surveyOption == 6 || surveyOption == 8 ? (
           <>
             <VideoPlayer
@@ -69,11 +72,31 @@ export function Questionaire({
               videoFit="contain"
               question={surveyOption}
             />
-            {/* {surveyOption == 2 ? <TextBox /> : null} */}
           </>
         ) : !modalIsOpen ? (
-          <PdfViewer question={surveyOption} modalIsOpen={modalIsOpen} />
+          <div
+            style={{ border: "1px solid rgb(0,0,0,0.4)", borderRadius: "4px" }}
+          >
+            <ImageViewer
+              src={`/assets/images/${
+                surveyOption == 1 || surveyOption == 4
+                  ? "assemble_dismantle.webp"
+                  : "automation.jpg"
+              }`}
+            />
+          </div>
         ) : null}
+        <TextBox />
+        <button
+          style={{ width: "6em", marginTop: ".5em" }}
+          className="prev-next-btn"
+          onClick={() => {
+            setIsPdfModal(true);
+            openModal();
+          }}
+        >
+          PDF's
+        </button>
       </div>
 
       <div className="prev-next-survey-wrapper">
@@ -81,6 +104,7 @@ export function Questionaire({
           onClick={() =>
             surveyOption > 1 ? setSurveyOption(surveyOption - 1) : null
           }
+          style={{ opacity: surveyOption == 1 ? 0.4 : 1 }}
           className="prev-next-btn"
         >
           <NavigateBeforeIcon fontSize="large" />
@@ -118,12 +142,14 @@ export function Questionaire({
       </div>
 
       <div>
-        {/* <button onClick={openModal}>Open Modal</button> */}
         <ModalComponent
           closeModal={closeModal}
           modalIsOpen={modalIsOpen}
           setIsAssemble={setIsAssemble}
           setQuestionaireSelect={setQuestionaireSelect}
+          isPdfModal={isPdfModal}
+          setOpenPdf={setOpenPdf}
+          setIsPdfModal={setIsPdfModal}
         />
       </div>
     </div>
@@ -135,6 +161,9 @@ const ModalComponent = ({
   modalIsOpen,
   setIsAssemble,
   setQuestionaireSelect,
+  isPdfModal,
+  setOpenPdf,
+  setIsPdfModal,
 }: any) => (
   <>
     <Modal
@@ -142,32 +171,56 @@ const ModalComponent = ({
       onRequestClose={closeModal}
       style={customStyles}
       contentLabel="Example Modal"
+      onAfterClose={() => setIsPdfModal(false)}
       // sty
     >
-      <div className="modal-complete-container">
-        <div className="completed-msg-wrapper">Complete!</div>
-        <div>
-          <TaskIcon sx={{ color: "rgb(52, 178, 51, 0.8)", fontSize: "4em" }} />
-        </div>
-        <div>
+      {isPdfModal ? (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <button onClick={() => setOpenPdf("pdf1")} className="prev-next-btn">
+            PDF 1
+          </button>
           <button
-            style={{
-              borderRadius: "12px",
-              color: "white",
-              width: "7em",
-              height: "1.8em",
-              background: "var(--blue5opaque)",
-            }}
-            onClick={() => {
-              closeModal();
-              setIsAssemble(null);
-              setQuestionaireSelect("");
-            }}
+            style={{ marginTop: "1em" }}
+            onClick={() => setOpenPdf("pdf2")}
+            className="prev-next-btn"
           >
-            Close
+            PDF 2
           </button>
         </div>
-      </div>
+      ) : (
+        <div className="modal-complete-container">
+          <div className="completed-msg-wrapper">Complete!</div>
+          <div>
+            <TaskIcon
+              sx={{ color: "rgb(52, 178, 51, 0.8)", fontSize: "4em" }}
+            />
+          </div>
+          <div>
+            <button
+              style={{
+                borderRadius: "12px",
+                color: "white",
+                width: "7em",
+                height: "1.8em",
+                background: "var(--blue5opaque)",
+              }}
+              onClick={() => {
+                closeModal();
+                setIsAssemble(null);
+                setQuestionaireSelect("");
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </Modal>
   </>
 );
@@ -227,28 +280,36 @@ const ModalComponent = ({
 //   );
 // };
 
-// const TextBox = () => (
-//   <div
-//     style={{
-//       display: "flex",
-//       flexDirection: "column",
-//       alignItems: "center",
-//       background: "rgb(0,0,0,0.4)",
-//       borderRadius: "12px",
-//       padding: "4px",
-//     }}
-//   >
-//     <div className="questionaire-text">A description/question</div>
-//     <div
-//       style={{
-//         width: "50%",
-//         display: "flex",
-//         justifyContent: "space-between",
-//         marginTop: "1em",
-//       }}
-//     >
-//       <button className="prev-next-btn">True</button>
-//       <button className="prev-next-btn">False</button>
-//     </div>
-//   </div>
-// );
+type ImageViewerProps = { src: string };
+const ImageViewer = ({ src }: ImageViewerProps) => {
+  return <img src={src} alt="" style={{ height: "100%", width: "100%" }} />;
+};
+
+const TextBox = () => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      background: "rgb(0,0,0,0.4)",
+      borderRadius: "12px",
+      padding: "4px",
+      height: "100%",
+      marginTop: "1em",
+      width: "100%",
+    }}
+  >
+    <div className="questionaire-text">A TextBox/Description</div>
+    {/* <div
+      style={{
+        width: "50%",
+        display: "flex",
+        justifyContent: "space-between",
+        marginTop: "1em",
+      }}
+    >
+      <button className="prev-next-btn">True</button>
+      <button className="prev-next-btn">False</button>
+    </div> */}
+  </div>
+);

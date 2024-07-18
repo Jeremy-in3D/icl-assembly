@@ -7,6 +7,8 @@ type VideoPlayerProps = {
   videoFit?: "contain";
   isQuestionaire?: boolean | undefined;
   question?: number;
+  isOpeningVid?: boolean | undefined;
+  setViewedOpeningVid?: React.Dispatch<React.SetStateAction<boolean>>;
   // height: any;
 };
 
@@ -16,6 +18,8 @@ export const VideoPlayer = ({
   videoRef,
   videoFit,
   isQuestionaire,
+  setViewedOpeningVid,
+  isOpeningVid,
 }: // question,
 // height,
 // height,
@@ -63,6 +67,9 @@ VideoPlayerProps) => {
           // height: "100%",
           objectFit: videoFit ? videoFit : "cover", // "containe"
         }}
+        onEnded={() =>
+          setViewedOpeningVid && isOpeningVid ? setViewedOpeningVid(true) : null
+        }
       >
         <source
           // src={process.env.PUBLIC_URL + "/path-to-your-video.mp4"}

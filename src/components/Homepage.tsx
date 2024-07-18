@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Questionaire } from "./questionnaire/Questionnaire";
+import { PdfViewer } from "./common/PdfViewer";
 
-function Homepage({ setQuestionaireSelect }: any) {
-  const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
+function Homepage({ setQuestionaireSelect, isAssemble, setIsAssemble }: any) {
+  // const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
+  const [openPdf, setOpenPdf] = useState<string>("");
   return (
     <div style={{ height: "100vh" }}>
+      {openPdf ? <PdfViewer openPdf={openPdf} setOpenPdf={setOpenPdf} /> : null}
       {isAssemble === null ? (
         <SelectType
           setIsAssemble={setIsAssemble}
@@ -15,8 +18,31 @@ function Homepage({ setQuestionaireSelect }: any) {
           isAssemble={isAssemble}
           setIsAssemble={setIsAssemble}
           setQuestionaireSelect={setQuestionaireSelect}
+          setOpenPdf={setOpenPdf}
         />
       )}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "3em",
+        }}
+      >
+        <div
+          style={{
+            width: "94%",
+            justifyContent: "space-evenly",
+            display: "flex",
+          }}
+        >
+          <button onClick={() => setOpenPdf("pdf1")} className="prev-next-btn">
+            PDF 1
+          </button>
+          <button onClick={() => setOpenPdf("pdf2")} className="prev-next-btn">
+            PDF 2
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
