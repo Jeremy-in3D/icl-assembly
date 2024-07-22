@@ -28,46 +28,13 @@ function App() {
     <>
       {fadeOutHappenedAlready ? null : <div className="tester-two"></div>}
       <Background />
-      <div
-        className="nav-border"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <div className="nav-logo-wrapper">
-          <img
-            src="/assets/images/logo.webp"
-            className="icl-logo"
-            onClick={() => setIsAssemble(null)}
-          />
-          {questionaireSelect ? (
-            <div
-              className="nav-questionaire-type"
-              style={{ color: "white", fontSize: "1.2em" }}
-            >
-              {questionaireSelect
-                ? questionaireSelect == "assemble"
-                  ? "Assemble"
-                  : "Dismantle"
-                : null}
-            </div>
-          ) : null}
-          {currentLanguage && viewedOpeningVid ? (
-            <img
-              style={{ height: "2.5em", width: "2.5em", borderRadius: "50%" }}
-              onClick={() =>
-                setCurrentLanguage(currentLanguage == hebrew ? "zh" : "he")
-              }
-              src={
-                currentLanguage == hebrew
-                  ? "/assets/images/israel-flag.png"
-                  : "/assets/images/Flag_of_the_People's_Republic_of_China.png"
-              }
-            />
-          ) : null}
-        </div>
-      </div>
+      <Navbar
+        setIsAssemble={setIsAssemble}
+        questionaireSelect={questionaireSelect}
+        currentLanguage={currentLanguage}
+        viewedOpeningVid={viewedOpeningVid}
+        setCurrentLanguage={setCurrentLanguage}
+      />
       {viewedOpeningVid ? (
         <Suspense fallback={null}>
           <LazyHomepage
@@ -109,4 +76,54 @@ const Background = () => (
       <div className="background-two"></div>
     </div>
   </>
+);
+
+const Navbar = ({
+  setIsAssemble,
+  questionaireSelect,
+  currentLanguage,
+  viewedOpeningVid,
+  setCurrentLanguage,
+}: any) => (
+  <div
+    className="nav-border"
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      zIndex: 3,
+    }}
+  >
+    <div className="nav-logo-wrapper">
+      <img
+        src="/assets/images/logo.webp"
+        className="icl-logo"
+        onClick={() => setIsAssemble(null)}
+      />
+      {questionaireSelect ? (
+        <div
+          className="nav-questionaire-type"
+          style={{ color: "white", fontSize: "1.2em" }}
+        >
+          {questionaireSelect
+            ? questionaireSelect == "assemble"
+              ? "Assemble"
+              : "Dismantle"
+            : null}
+        </div>
+      ) : null}
+      {currentLanguage && viewedOpeningVid ? (
+        <img
+          style={{ height: "2.5em", width: "2.5em", borderRadius: "50%" }}
+          onClick={() =>
+            setCurrentLanguage(currentLanguage == hebrew ? "zh" : "he")
+          }
+          src={
+            currentLanguage == hebrew
+              ? "/assets/images/israel-flag.png"
+              : "/assets/images/Flag_of_the_People's_Republic_of_China.png"
+          }
+        />
+      ) : null}
+    </div>
+  </div>
 );

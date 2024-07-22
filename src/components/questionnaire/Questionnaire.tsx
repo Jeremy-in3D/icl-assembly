@@ -58,7 +58,7 @@ export function Questionaire({
     <div className="questionaire-wrapper">
       <div className="questionaire-content-container">
         {surveyOption == 2 || surveyOption == 6 || surveyOption == 8 ? (
-          <div style={{ height: "200%" }}>
+          <div className="questionaire-video-wrapper">
             <VideoPlayer
               // height={"18em"}
               isQuestionaire
@@ -84,8 +84,8 @@ export function Questionaire({
             />
           </div>
         ) : null}
-        <TextBox setIsPdfModal={setIsPdfModal} openModal={openModal} />
       </div>
+      <TextBox setIsPdfModal={setIsPdfModal} openModal={openModal} />
 
       <div className="prev-next-survey-wrapper">
         <button
@@ -98,16 +98,7 @@ export function Questionaire({
           <NavigateBeforeIcon fontSize="large" />
           {/* Previous */}
         </button>
-        <div
-          style={{
-            // left: "83%",
-            bottom: "1.5em",
-            fontSize: "1.5em",
-            color: "rgb(255, 255, 255, 0.8)",
-          }}
-        >
-          {`${surveyOption}/10`}
-        </div>
+        <div className="questionaire-counter">{`${surveyOption}/10`}</div>
         <button
           className="prev-next-btn"
           onClick={
@@ -217,61 +208,6 @@ const ModalComponent = ({
   </>
 );
 
-// const PdfViewer: React.FC = () => {
-//   const viewerRef = useRef<HTMLDivElement>(null);
-//   const [isFullscreen, setIsFullscreen] = useState(false);
-
-//   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-
-//   const handleFullscreen = () => {
-//     if (screenfull.isEnabled && viewerRef && viewerRef.current) {
-//       screenfull.toggle(viewerRef.current).catch((err) => {
-//         console.error(
-//           "Fullscreen API is not supported on this browser/device.",
-//           err
-//         );
-//         setIsFullscreen(!isFullscreen);
-//       });
-//     } else {
-//       setIsFullscreen(!isFullscreen);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       {/* <button
-//         style={{ background: "black", position: "absolute", zIndex: 5 }}
-//         onClick={handleFullscreen}
-//       >
-//         {isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
-//       </button> */}
-//       <div
-//         ref={viewerRef}
-//         className={isFullscreen ? "fullscreen" : ""}
-//         style={{
-//           height: isFullscreen ? "100vh" : "70vh",
-//           width: "100%",
-//           overflow: "auto",
-//         }}
-//         // onClick={() => {
-//         //   console.log("Worker clicked");
-//         //   handleFullscreen();
-//         // }}
-//         onDoubleClick={() => handleFullscreen()}
-//       >
-//         <Worker
-//           workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
-//         >
-//           <Viewer
-//             fileUrl="/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
-//             plugins={[defaultLayoutPluginInstance]}
-//           />
-//         </Worker>
-//       </div>
-//     </div>
-//   );
-// };
-
 type ImageViewerProps = { src: string };
 const ImageViewer = ({ src }: ImageViewerProps) => {
   return <img src={src} alt="" style={{ height: "100%", width: "100%" }} />;
@@ -279,29 +215,16 @@ const ImageViewer = ({ src }: ImageViewerProps) => {
 
 const TextBox = ({ setIsPdfModal, openModal }: any) => (
   <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      background: "rgb(0,0,0,0.4)",
-      borderRadius: "12px",
-      padding: "4px",
-      height: "100%",
-      marginTop: "1em",
-      width: "100%",
-    }}
+    style={
+      {
+        // visibility: "hidden",
+      }
+    }
+    className="questionaire-textbox-wrapper"
   >
-    <div
-      style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "flex-end",
-        padding: "12px",
-        borderBottom: "1px solid rgb(0,0,0,0.4)",
-      }}
-    >
+    <div className="questionare-pdfs-container">
       <button
-        style={{ width: "6em" }}
+        style={{ width: "6em", marginLeft: "1em" }}
         className="prev-next-btn"
         onClick={() => {
           setIsPdfModal(true);
@@ -312,18 +235,6 @@ const TextBox = ({ setIsPdfModal, openModal }: any) => (
       </button>
     </div>
 
-    <div className="questionaire-text">A TextBox/Description</div>
-
-    {/* <div
-      style={{
-        width: "50%",
-        display: "flex",
-        justifyContent: "space-between",
-        marginTop: "1em",
-      }}
-    >
-      <button className="prev-next-btn">True</button>
-      <button className="prev-next-btn">False</button>
-    </div> */}
+    <div className="questionaire-text">TextBox/Description</div>
   </div>
 );

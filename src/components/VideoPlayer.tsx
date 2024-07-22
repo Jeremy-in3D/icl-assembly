@@ -27,17 +27,14 @@ VideoPlayerProps) => {
   useEffect(() => {
     const videoElement = videoRef?.current;
     if (videoElement) {
-      console.log("dont think we ever got in here");
-      // Set the start time when the video metadata is loaded
+      // Set start time (when video metadata loaded)
       const handleLoadedMetadata = () => {
         videoElement.currentTime = startTime;
         videoElement.play();
       };
 
-      // Add event listener
       videoElement.addEventListener("loadedmetadata", handleLoadedMetadata);
 
-      // Cleanup event listener
       return () => {
         videoElement.removeEventListener(
           "loadedmetadata",

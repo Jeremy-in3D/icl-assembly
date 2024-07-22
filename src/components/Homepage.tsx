@@ -6,7 +6,7 @@ function Homepage({ setQuestionaireSelect, isAssemble, setIsAssemble }: any) {
   // const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
   const [openPdf, setOpenPdf] = useState<string>("");
   return (
-    <div style={{ height: "100vh" }}>
+    <div className="homepage-wrapper">
       {openPdf ? <PdfViewer openPdf={openPdf} setOpenPdf={setOpenPdf} /> : null}
       {isAssemble === null ? (
         <SelectType
@@ -66,18 +66,20 @@ const SelectType = ({
   // const assembleClassName =
 
   return (
-    <div className="assemble-dismantle-wrapper">
-      <AssembleBtn
-        clickedButton={clickedButton}
-        handleLanguagePick={handleLanguagePick}
-        isAssemble
-        setQuestionaireSelect={setQuestionaireSelect}
-      />
-      <DismantleBtn
-        clickedButton={clickedButton}
-        handleLanguagePick={handleLanguagePick}
-        setQuestionaireSelect={setQuestionaireSelect}
-      />
+    <div className="select-type-container-wrapper">
+      <div className="assemble-dismantle-wrapper">
+        <AssembleBtn
+          clickedButton={clickedButton}
+          handleLanguagePick={handleLanguagePick}
+          isAssemble
+          setQuestionaireSelect={setQuestionaireSelect}
+        />
+        <DismantleBtn
+          clickedButton={clickedButton}
+          handleLanguagePick={handleLanguagePick}
+          setQuestionaireSelect={setQuestionaireSelect}
+        />
+      </div>
     </div>
   );
 };
