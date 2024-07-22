@@ -87,38 +87,11 @@ export function Questionaire({
       </div>
       <TextBox setIsPdfModal={setIsPdfModal} openModal={openModal} />
 
-      <div className="prev-next-survey-wrapper">
-        <button
-          onClick={() =>
-            surveyOption > 1 ? setSurveyOption(surveyOption - 1) : null
-          }
-          style={{ opacity: surveyOption == 1 ? 0.4 : 1 }}
-          className="prev-next-btn"
-        >
-          <NavigateBeforeIcon fontSize="large" />
-          {/* Previous */}
-        </button>
-        <div className="questionaire-counter">{`${surveyOption}/10`}</div>
-        <button
-          className="prev-next-btn"
-          onClick={
-            surveyOption == MAX_NUM_OF_QUESTIONS
-              ? () => openModal()
-              : () => {
-                  surveyOption < MAX_NUM_OF_QUESTIONS
-                    ? setSurveyOption(surveyOption + 1)
-                    : null;
-                }
-          }
-        >
-          {/* Next */}
-          {surveyOption == 10 ? (
-            "Complete"
-          ) : (
-            <NavigateNextIcon fontSize="large" />
-          )}
-        </button>
-      </div>
+      <Counter
+        surveyOption={surveyOption}
+        setSurveyOption={setSurveyOption}
+        openModal={openModal}
+      />
 
       <div>
         <ModalComponent
@@ -236,5 +209,36 @@ const TextBox = ({ setIsPdfModal, openModal }: any) => (
     </div>
 
     <div className="questionaire-text">TextBox/Description</div>
+  </div>
+);
+
+const Counter = ({ surveyOption, setSurveyOption, openModal }: any) => (
+  <div className="prev-next-survey-wrapper">
+    <button
+      onClick={() =>
+        surveyOption > 1 ? setSurveyOption(surveyOption - 1) : null
+      }
+      style={{ opacity: surveyOption == 1 ? 0.4 : 1 }}
+      className="prev-next-btn"
+    >
+      <NavigateBeforeIcon fontSize="large" />
+      {/* Previous */}
+    </button>
+    <div className="questionaire-counter">{`${surveyOption}/10`}</div>
+    <button
+      className="prev-next-btn"
+      onClick={
+        surveyOption == MAX_NUM_OF_QUESTIONS
+          ? () => openModal()
+          : () => {
+              surveyOption < MAX_NUM_OF_QUESTIONS
+                ? setSurveyOption(surveyOption + 1)
+                : null;
+            }
+      }
+    >
+      {/* Next */}
+      {surveyOption == 10 ? "Complete" : <NavigateNextIcon fontSize="large" />}
+    </button>
   </div>
 );
