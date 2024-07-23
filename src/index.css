@@ -195,8 +195,8 @@ body {
 } */
 
 .language-flag {
-  height: 13em;
-  width: 13em;
+  height: 12em;
+  width: 12em;
   background-image: url("/assets/images/israel-flg.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -320,6 +320,16 @@ body {
   }
 }
 
+.questionaire-text-counter-wrapper {
+  all: unset;
+  flex: 1;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .language-flag.fade-out-now {
   animation: fadeOut 0.4s forwards;
 }
@@ -404,15 +414,15 @@ body {
 }
 
 .prev-next-survey-wrapper {
-  margin-top: 3em;
+  /* margin-top: 3em; */
   width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgb(0, 0, 0, 0.4);
-  border-bottom: 1px solid rgb(0, 0, 0, 0.4);
-  position: absolute;
-  bottom: 1em;
+  /* border-top: 1px solid rgb(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgb(0, 0, 0, 0.4); */
+  /* position: absolute; */
+  /* bottom: 1em; */
 }
 
 .prev-next-btn {
@@ -435,7 +445,8 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-size: 1.1em;
   color: white;
-  height: 50%;
+  /* height: 50%; */
+  flex: 2;
 }
 
 .nav-questionaire-type {
@@ -446,9 +457,8 @@ body {
 .questionare-pdfs-container {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   padding: 12px;
-  border-bottom: 1px solid rgb(0, 0, 0, 0.4);
 }
 
 .questionaire-textbox-wrapper {
@@ -458,8 +468,8 @@ body {
   background: rgb(0, 0, 0, 0.4);
   border-radius: 12px;
   padding: 4px;
-  height: 100%;
-  margin-top: 1em;
+  /* height: 100%; */
+  /* margin-top: 1em; */
   width: 100%;
 }
 
@@ -475,9 +485,7 @@ body {
 
 .img-viewer-wrapper {
   border: 1px solid rgb(0, 0, 0, 0.4);
-
   border-radius: 4px;
-  /* height: 200%; */
 }
 
 .hmpg-btns-container {
@@ -485,9 +493,6 @@ body {
   justify-content: center;
   margin-top: 0em;
 }
-
-/* @media screen and (max-width: 768px) {
-} */
 
 .pdf-wrapper {
   width: 100%;
@@ -515,11 +520,12 @@ body {
 
 .questionaire-content-container {
   width: 96%;
-  height: 80%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  flex: 1;
   /* border: 1px solid rgb(0, 0, 0, 0.4); */
   /* border: 1px solid red; */
 }
@@ -538,6 +544,7 @@ body {
 .video-player {
   height: 100%;
   width: 100%;
+  border-radius: 12px;
 }
 .video-height {
   height: 18em;
@@ -574,8 +581,12 @@ body {
     height: 100%;
   }
   .questionaire-content-container {
-    flex-direction: row;
+    /* flex-direction: row; */
+    /* flex: 5; */
+    /* border: 1px solid yellow; */
+    margin-top: 1.2em;
     width: 100%;
+    height: 100%;
   }
   .assemble-dismantle-wrapper {
     display: flex;
@@ -588,15 +599,6 @@ body {
     height: 50%;
     width: 60%;
   }
-
-  /* .assemble-dismantle-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 60%;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 6em;
-  } */
 
   .languages-container {
     margin-top: 8em;
@@ -627,24 +629,14 @@ body {
   }
 
   .prev-next-survey-wrapper {
-    width: 24%;
-    height: 40%;
-
-    /* flex-direction: column-reverse; */
-
-    /* position: absolute; */
-    bottom: -0.5em;
-    right: 1.5em;
-    z-index: 2;
-    border: none;
+    margin-top: 2em;
+    /* z-index: 0; */
+    width: 96%;
   }
 
   .questionaire-wrapper {
-    height: 100%;
-    /* align-items: center; */
     flex-direction: row;
-    margin-top: 4em;
-    align-items: flex-start;
+    margin-top: 2em;
   }
 
   .prev-next-btn {
@@ -670,11 +662,6 @@ body {
   }
 
   .smaller-vid {
-    /* top: -3.4em; */
-    /* top: 2.2em; */
-    /* width: 80%; */
-    /* height: 10em; */
-
     box-shadow: 1px 1px 15px 2px rgba(255, 255, 255, 0.4);
     -webkit-box-shadow: 1px 1px 15px 2px rgba(255, 255, 255, 0.4);
     -moz-box-shadow: 1px 1px 15px 2px rgba(255, 255, 255, 0.4);
@@ -706,16 +693,6 @@ body {
     margin-top: 1em;
   }
 
-  /* .assemble-dismantle-option.move-and-fade-portrait {
-    animation: moveToCenter_then_fadeOut 1.6s forwards;
-    animation-delay: 0.6s;
-  }
-
-  .assemble-dismantle-option.move-and-fade-backwards-portrait {
-    animation: moveToCenterBackwards_then_fadeOut 1.6s forwards;
-    animation-delay: 0.6s;
-  } */
-
   .assemble-dismantle-option.move-and-fade {
     animation: moveToCenter_then_fadeOut_portrait 1.6s forwards;
     animation-delay: 0.6s;
@@ -736,10 +713,13 @@ body {
   }
 
   .img-viewer-wrapper {
-    height: 120%;
+    /* height: 120%; */
     /* width: 58%; */
     /* width: 100%; */
-    margin-top: 3em;
+    /* margin-top: 3em; */
+    border: none;
+    /* border-radius: 12px; */
+    height: 100%;
   }
 
   body {
@@ -755,13 +735,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    /* justify-content: space-evenly; */
     background: rgb(0, 0, 0, 0.4);
     border-radius: 12px;
-    padding: 4px;
+    /* padding: 4px; */
     height: 60%;
-    width: 36%;
-    margin-left: 0.5em;
-    margin-top: 0em;
+    width: 96%;
+    /* width: 36%; */
   }
 
   .homepage-wrapper {
@@ -776,14 +757,34 @@ body {
   .questionaire-counter {
     font-size: 1.3em;
     color: rgba(255, 255, 255, 0.8);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+
+  .language-flag.move-and-fade {
+    animation: moveToCenter_then_fadeOut_portrait 1.6s forwards;
+    animation-delay: 0.4s;
+  }
+
+  .language-flag.move-and-fade-backwards {
+    animation: moveToCenterBackwards_then_fadeOut_portrait 1.6s forwards;
+    animation-delay: 0.4s;
+  }
+
+  .questionare-pdfs-container {
+    justify-content: space-evenly;
+    font-size: 0.9em;
+  }
+
+  .questionaire-text-counter-wrapper {
+    all: unset;
+    /* flex: 1; */
+    width: 30%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 0.8em;
   }
 }
-/* .language-flag.move-and-fade {
-  animation: moveToCenter_then_fadeOut 1.6s forwards;
-  animation-delay: 0.4s;
-}
-
-.language-flag.move-and-fade-backwards {
-  animation: moveToCenterBackwards_then_fadeOut 1.6s forwards;
-  animation-delay: 0.4s;
-} */

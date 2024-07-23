@@ -40,6 +40,7 @@ export function Questionaire({
   const [surveyOption, setSurveyOption] = useState<number>(1);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isPdfModal, setIsPdfModal] = useState(false);
+  const [isDescriptionModal, setIsDescriptionModal] = useState(false);
   // const [isTrueClicked, setIsTrueClicked] = useState(null);
 
   const videoRef = useRef(null);
@@ -85,14 +86,22 @@ export function Questionaire({
           </div>
         ) : null}
       </div>
-      <TextBox setIsPdfModal={setIsPdfModal} openModal={openModal} />
+      <div
+        className="questionaire-text-counter-wrapper"
+        // style={{ all: "unset" }}
+      >
+        <TextBox
+          setIsPdfModal={setIsPdfModal}
+          openModal={openModal}
+          setIsDescriptionModal={setIsDescriptionModal}
+        />
 
-      <Counter
-        surveyOption={surveyOption}
-        setSurveyOption={setSurveyOption}
-        openModal={openModal}
-      />
-
+        <Counter
+          surveyOption={surveyOption}
+          setSurveyOption={setSurveyOption}
+          openModal={openModal}
+        />
+      </div>
       <div>
         <ModalComponent
           closeModal={closeModal}
@@ -102,6 +111,8 @@ export function Questionaire({
           isPdfModal={isPdfModal}
           setOpenPdf={setOpenPdf}
           setIsPdfModal={setIsPdfModal}
+          isDescriptionModal={isDescriptionModal}
+          setIsDescriptionModal={setIsDescriptionModal}
         />
       </div>
     </div>
@@ -116,6 +127,8 @@ const ModalComponent = ({
   isPdfModal,
   setOpenPdf,
   setIsPdfModal,
+  isDescriptionModal,
+  setIsDescriptionModal,
 }: any) => (
   <>
     <Modal
@@ -123,7 +136,10 @@ const ModalComponent = ({
       onRequestClose={closeModal}
       style={customStyles}
       contentLabel="Example Modal"
-      onAfterClose={() => setIsPdfModal(false)}
+      onAfterClose={() => {
+        setIsPdfModal(false);
+        setIsDescriptionModal(false);
+      }}
       // sty
     >
       {isPdfModal ? (
@@ -148,6 +164,10 @@ const ModalComponent = ({
           >
             PDF 2
           </button>
+        </div>
+      ) : isDescriptionModal ? (
+        <div style={{ fontFamily: "sans-serif", fontSize: "1.2em" }}>
+          Some description
         </div>
       ) : (
         <div className="modal-complete-container">
@@ -183,10 +203,20 @@ const ModalComponent = ({
 
 type ImageViewerProps = { src: string };
 const ImageViewer = ({ src }: ImageViewerProps) => {
-  return <img src={src} alt="" style={{ height: "100%", width: "100%" }} />;
+  return (
+    <img
+      src={src}
+      alt="alt"
+      style={{
+        height: "100%",
+        width: "100%",
+        objectFit: "contain",
+      }}
+    />
+  );
 };
 
-const TextBox = ({ setIsPdfModal, openModal }: any) => (
+const TextBox = ({ setIsPdfModal, openModal, setIsDescriptionModal }: any) => (
   <div
     style={
       {
@@ -197,7 +227,7 @@ const TextBox = ({ setIsPdfModal, openModal }: any) => (
   >
     <div className="questionare-pdfs-container">
       <button
-        style={{ width: "6em", marginLeft: "1em" }}
+        style={{ width: "44%" }}
         className="prev-next-btn"
         onClick={() => {
           setIsPdfModal(true);
@@ -206,9 +236,19 @@ const TextBox = ({ setIsPdfModal, openModal }: any) => (
       >
         PDF's
       </button>
+      <button
+        style={{ width: "44%" }}
+        className="prev-next-btn"
+        onClick={() => {
+          setIsDescriptionModal(true);
+          openModal();
+        }}
+      >
+        Description
+      </button>
     </div>
 
-    <div className="questionaire-text">TextBox/Description</div>
+    {/* <div className="questionaire-text">TextBox/Description</div> */}
   </div>
 );
 
