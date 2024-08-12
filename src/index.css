@@ -841,4 +841,13 @@ body {
     width: 6em;
     font-size: 0.9em;
   }
+
+  .menu-open-list-item {
+    margin-top: 0.6em;
+    font-size: 1em;
+  }
+
+  .questainre-open {
+    width: 30vw; /* The width when menu is open */
+  }
 }

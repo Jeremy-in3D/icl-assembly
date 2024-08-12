@@ -348,9 +348,7 @@ const QuestionaireMenu = ({
         <div
           onClick={() => setMenuOpen(false)}
           className="menu-open-content-cover"
-        >
-          hello world
-        </div>
+        ></div>
       ) : null}
       <div
         className={`questionaire-items-menu-open ${
