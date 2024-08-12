@@ -1,10 +1,13 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { VideoPlayer } from "../VideoPlayer";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Modal from "react-modal";
 import TaskIcon from "@mui/icons-material/Task";
 // import { PdfViewer } from "../common/PdfViewer";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import ListIcon from "@mui/icons-material/List";
 
 Modal.setAppElement("#root");
 type QuestionaireProps = {
@@ -94,6 +97,10 @@ export function Questionaire({
           setIsPdfModal={setIsPdfModal}
           openModal={openModal}
           setIsDescriptionModal={setIsDescriptionModal}
+        />
+        <QuestionaireMenu
+          surveyOption={surveyOption}
+          setSurveyOption={setSurveyOption}
         />
 
         <Counter
@@ -202,20 +209,48 @@ const ModalComponent = ({
 );
 
 type ImageViewerProps = { src: string };
+
 const ImageViewer = ({ src }: ImageViewerProps) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => {
+    setIsLoading(false); // Set loading to false when the image is fully loaded
+  };
+
   return (
-    <img
-      src={src}
-      alt="alt"
-      style={{
-        height: "100%",
-        width: "100%",
-        objectFit: "contain",
-      }}
-    />
+    <div style={{ position: "relative", height: "100%", width: "100%" }}>
+      {isLoading && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 10,
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional: to make the loader more visible
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      )}
+      <img
+        src={src}
+        alt="alt"
+        onLoad={handleImageLoad} // Triggered when the image is fully loaded
+        style={{
+          height: "100%",
+          width: "100%",
+          objectFit: "cover",
+          display: isLoading ? "none" : "block", // Hide the image until it is loaded
+        }}
+      />
+    </div>
   );
 };
-
 const TextBox = ({ setIsPdfModal, openModal, setIsDescriptionModal }: any) => (
   <div
     style={
@@ -282,3 +317,73 @@ const Counter = ({ surveyOption, setSurveyOption, openModal }: any) => (
     </button>
   </div>
 );
+
+type QuestionaireMenuProps = {
+  surveyOption: number;
+  setSurveyOption: React.Dispatch<React.SetStateAction<number>>;
+};
+
+const QuestionaireMenu = ({
+  surveyOption,
+  setSurveyOption,
+}: QuestionaireMenuProps) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const items = Array.from({ length: 10 }, (_, index) => `Item ${index + 1}`);
+
+  return (
+    <>
+      <div>
+        <button
+          onClick={() => setMenuOpen(true)}
+          className="questionair-all-items-btn"
+        >
+          <ListIcon style={{ marginRight: "0.5em" }} /> All Items
+        </button>
+      </div>
+      {menuOpen ? (
+        <div
+          onClick={() => setMenuOpen(false)}
+          className="menu-open-content-cover"
+        >
+          hello world
+        </div>
+      ) : null}
+      <div
+        className={`questionaire-items-menu-open ${
+          menuOpen ? "questainre-open" : ""
+        }`}
+      >
+        <div style={{ height: "6em" }}>
+          <button
+            style={{
+              all: "unset",
+              position: "absolute",
+              right: "1em",
+              top: "0.8em",
+            }}
+            onClick={() => setMenuOpen(false)}
+          >
+            <ListIcon fontSize="large" />
+          </button>
+        </div>
+        <div style={{ height: "100%" }}>
+          <div>
+            <ul>
+              {items.map((item, index) => (
+                <li
+                  onClick={() => setSurveyOption(index + 1)}
+                  style={surveyOption === index + 1 ? { color: "white" } : {}}
+                  className="menu-open-list-item"
+                  key={index}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
