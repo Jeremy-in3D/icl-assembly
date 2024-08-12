@@ -301,7 +301,10 @@ const Counter = ({ surveyOption, setSurveyOption, openModal }: any) => (
     </button>
     <div className="questionaire-counter">{`${surveyOption}/10`}</div>
     <button
-      className="prev-next-btn"
+      className={`prev-next-btn ${
+        surveyOption == 10 ? "complete-btn-landscape" : ""
+      }`}
+      // style={surveyOption == 10 ? { width: "6em", fontSize: "0.9em" } : {}}
       onClick={
         surveyOption == MAX_NUM_OF_QUESTIONS
           ? () => openModal()
