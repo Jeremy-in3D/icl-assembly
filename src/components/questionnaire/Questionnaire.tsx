@@ -214,7 +214,7 @@ const ImageViewer = ({ src }: ImageViewerProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleImageLoad = () => {
-    setIsLoading(false); // Set loading to false when the image is fully loaded
+    setIsLoading(false);
   };
 
   return (
@@ -231,7 +231,7 @@ const ImageViewer = ({ src }: ImageViewerProps) => {
             width: "100%",
             height: "100%",
             zIndex: 10,
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional: to make the loader more visible
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
           }}
         >
           <CircularProgress />
@@ -240,12 +240,12 @@ const ImageViewer = ({ src }: ImageViewerProps) => {
       <img
         src={src}
         alt="alt"
-        onLoad={handleImageLoad} // Triggered when the image is fully loaded
+        onLoad={handleImageLoad}
         style={{
           height: "100%",
           width: "100%",
           objectFit: "cover",
-          display: isLoading ? "none" : "block", // Hide the image until it is loaded
+          display: isLoading ? "none" : "block",
         }}
       />
     </div>

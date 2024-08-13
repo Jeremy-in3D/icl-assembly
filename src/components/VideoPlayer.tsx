@@ -59,7 +59,7 @@ export const VideoPlayer = ({
             width: "100%",
             height: "100%",
             zIndex: 10,
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional: to make the loader more visible
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
           }}
         >
           <CircularProgress />
@@ -80,7 +80,7 @@ export const VideoPlayer = ({
         onEnded={() =>
           setViewedOpeningVid && isOpeningVid ? setViewedOpeningVid(true) : null
         }
-        onCanPlayThrough={() => setIsLoading(false)} // Set loading to false when the video is ready to play
+        onCanPlayThrough={() => setIsLoading(false)}
       >
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
