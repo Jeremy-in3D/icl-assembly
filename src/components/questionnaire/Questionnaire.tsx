@@ -345,46 +345,46 @@ const QuestionaireMenu = ({
         </button>
       </div>
       {menuOpen ? (
-        <div
-          onClick={() => setMenuOpen(false)}
-          className="menu-open-content-cover"
-        ></div>
-      ) : null}
-      <div
-        className={`questionaire-items-menu-open ${
-          menuOpen ? "questainre-open" : ""
-        }`}
-      >
-        <div style={{ height: "6em" }}>
-          <button
-            style={{
-              all: "unset",
-              position: "absolute",
-              right: "1em",
-              top: "0.8em",
-            }}
+        <>
+          <div
             onClick={() => setMenuOpen(false)}
-          >
-            <ListIcon fontSize="large" />
-          </button>
-        </div>
-        <div style={{ height: "100%" }}>
-          <div>
-            <ul>
-              {items.map((item, index) => (
-                <li
-                  onClick={() => setSurveyOption(index + 1)}
-                  style={surveyOption === index + 1 ? { color: "white" } : {}}
-                  className="menu-open-list-item"
-                  key={index}
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
+            className="menu-open-content-cover"
+          ></div>
+          <div className={`questionaire-items-menu-open questainre-open`}>
+            <div style={{ height: "6em" }}>
+              <button
+                style={{
+                  all: "unset",
+                  position: "absolute",
+                  right: "1em",
+                  top: "0.8em",
+                }}
+                onClick={() => setMenuOpen(false)}
+              >
+                <ListIcon fontSize="large" />
+              </button>
+            </div>
+            <div style={{ height: "100%" }}>
+              <div>
+                <ul>
+                  {items.map((item, index) => (
+                    <li
+                      key={index}
+                      onClick={() => setSurveyOption(index + 1)}
+                      className={`menu-open-list-item fade-in-item-${index}`}
+                      style={
+                        surveyOption === index + 1 ? { color: "white" } : {}
+                      }
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      ) : null}
     </>
   );
 };

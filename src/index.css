@@ -617,6 +617,68 @@ body {
   /* height: 200%; */
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px); /* Slight move up effect */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the fade-in animation to each list item with increasing delay */
+.fade-in-item-0 {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.fade-in-item-1 {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.fade-in-item-2 {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* Continue for all items... */
+.fade-in-item-3 {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.fade-in-item-4 {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.fade-in-item-5 {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.fade-in-item-6 {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.fade-in-item-7 {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: 0.7s;
+}
+
+.fade-in-item-8 {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.fade-in-item-9 {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: 0.9s;
+}
+
 @media screen and (orientation: portrait) {
   .assemble-dismantle-wrapper {
     /* border: 1px solid black; */
