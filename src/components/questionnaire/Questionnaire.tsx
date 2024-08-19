@@ -214,7 +214,7 @@ const ImageViewer = ({ src }: ImageViewerProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleImageLoad = () => {
-    setIsLoading(false);
+    setIsLoading(false); // Set loading to false when the image is fully loaded
   };
 
   return (
@@ -231,7 +231,7 @@ const ImageViewer = ({ src }: ImageViewerProps) => {
             width: "100%",
             height: "100%",
             zIndex: 10,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional: to make the loader more visible
           }}
         >
           <CircularProgress />
@@ -240,12 +240,12 @@ const ImageViewer = ({ src }: ImageViewerProps) => {
       <img
         src={src}
         alt="alt"
-        onLoad={handleImageLoad}
+        onLoad={handleImageLoad} // Triggered when the image is fully loaded
         style={{
           height: "100%",
           width: "100%",
           objectFit: "cover",
-          display: isLoading ? "none" : "block",
+          display: isLoading ? "none" : "block", // Hide the image until it is loaded
         }}
       />
     </div>
@@ -331,60 +331,136 @@ const QuestionaireMenu = ({
   setSurveyOption,
 }: QuestionaireMenuProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [showMenuAnimation, setShowMenuAnimation] = useState(false);
   const items = Array.from({ length: 10 }, (_, index) => `Item ${index + 1}`);
 
   return (
     <>
       <div>
         <button
-          onClick={() => setMenuOpen(true)}
+          onClick={() => {
+            setMenuOpen(true);
+            setTimeout(() => setShowMenuAnimation(true), 400);
+          }}
           className="questionair-all-items-btn"
         >
           <ListIcon style={{ marginRight: "0.5em" }} /> All Items
         </button>
       </div>
       {menuOpen ? (
-        <>
-          <div
-            onClick={() => setMenuOpen(false)}
-            className="menu-open-content-cover"
-          ></div>
-          <div className={`questionaire-items-menu-open questainre-open`}>
-            <div style={{ height: "6em" }}>
-              <button
-                style={{
-                  all: "unset",
-                  position: "absolute",
-                  right: "1em",
-                  top: "0.8em",
-                }}
-                onClick={() => setMenuOpen(false)}
-              >
-                <ListIcon fontSize="large" />
-              </button>
-            </div>
-            <div style={{ height: "100%" }}>
-              <div>
-                <ul>
-                  {items.map((item, index) => (
-                    <li
-                      key={index}
-                      onClick={() => setSurveyOption(index + 1)}
-                      className={`menu-open-list-item fade-in-item-${index}`}
-                      style={
-                        surveyOption === index + 1 ? { color: "white" } : {}
-                      }
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </>
+        <div
+          onClick={() => {
+            setMenuOpen(false);
+            setShowMenuAnimation(false);
+          }}
+          className="menu-open-content-cover"
+        ></div>
       ) : null}
+      {/* {menuOpen ? ( */}
+      <div
+        className={`questionaire-items-menu-open ${
+          menuOpen ? "questainre-open" : ""
+        }`}
+      >
+        <div style={{ height: "6em" }}>
+          <button
+            style={{
+              all: "unset",
+              position: "absolute",
+              right: "1em",
+              top: "0.8em",
+            }}
+            onClick={() => {
+              setMenuOpen(false);
+              setShowMenuAnimation(false);
+            }}
+          >
+            <ListIcon fontSize="large" />
+          </button>
+        </div>
+        <div style={{ height: "100%" }}>
+          {showMenuAnimation ? (
+            <div>
+              <ul>
+                {items.map((item, index) => (
+                  <li
+                    key={index}
+                    onClick={() => setSurveyOption(index + 1)}
+                    className={`menu-open-list-item fade-in-item-${index}`}
+                    style={surveyOption === index + 1 ? { color: "white" } : {}}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+      </div>
+      {/* ) : null} */}
     </>
   );
 };
+
+// const QuestionaireMenu = ({
+//   surveyOption,
+//   setSurveyOption,
+// }: QuestionaireMenuProps) => {
+//   const [menuOpen, setMenuOpen] = useState(false);
+
+//   const items = Array.from({ length: 10 }, (_, index) => `Item ${index + 1}`);
+
+//   return (
+//     <>
+//       <div>
+//         <button
+//           onClick={() => setMenuOpen(true)}
+//           className="questionair-all-items-btn"
+//         >
+//           <ListIcon style={{ marginRight: "0.5em" }} /> All Items
+//         </button>
+//       </div>
+//       {menuOpen ? (
+//         <div
+//           onClick={() => setMenuOpen(false)}
+//           className="menu-open-content-cover"
+//         ></div>
+//       ) : null}
+//       <div
+//         className={`questionaire-items-menu-open ${
+//           menuOpen ? "questainre-open" : ""
+//         }`}
+//       >
+//         <div style={{ height: "6em" }}>
+//           <button
+//             style={{
+//               all: "unset",
+//               position: "absolute",
+//               right: "1em",
+//               top: "0.8em",
+//             }}
+//             onClick={() => setMenuOpen(false)}
+//           >
+//             <ListIcon fontSize="large" />
+//           </button>
+//         </div>
+//         <div style={{ height: "100%" }}>
+//           <div>
+//             <ul>
+//               {items.map((item, index) => (
+//                 <li
+//                   onClick={() => setSurveyOption(index + 1)}
+//                   style={surveyOption === index + 1 ? { color: "white" } : {}}
+//                   className="menu-open-list-item"
+//                   key={index}
+//                 >
+//                   {item}
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
