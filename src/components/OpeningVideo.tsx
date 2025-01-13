@@ -15,14 +15,13 @@ export const OpeningVideo = ({ setViewedOpeningVid }: OpeningVideoProps) => {
         className="skip-vid-container"
         onClick={() => setViewedOpeningVid(true)}
       >
-        {/* skip */}
         {t("skip")}
         <SkipNextIcon fontSize="large" />
       </button>
       <VideoPlayer
         // height="20em"
         // height="100%"
-        src={"/assets/video/Mesh Hololens - Remote Collaboration.mp4"}
+        src="/assets/video/5_compressed.mp4" //{"/assets/video/Mesh Hololens - Remote Collaboration.mp4"}
         startTime={0}
         videoRef={openingVideoRef}
         setViewedOpeningVid={setViewedOpeningVid}
