@@ -4,10 +4,9 @@ import { PdfViewer } from "./common/PdfViewer";
 // import { Item } from "./Item";
 import { ItemsMenu } from "./steps/ItemsMenu";
 
-function Homepage({ setQuestionaireSelectd }: any) {
+function Homepage() {
   // const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
   const [openPdf, setOpenPdf] = useState<string>("");
-  const [currentItem, setCurrentItem] = useState<any>(null); //({ item: 0, subItem: 1 });
   return (
     <div className="homepage-wrapper">
       {openPdf ? <PdfViewer openPdf={openPdf} setOpenPdf={setOpenPdf} /> : null}
@@ -17,10 +16,7 @@ function Homepage({ setQuestionaireSelectd }: any) {
         setQuestionaireSelect={setQuestionaireSelect}
         setOpenPdf={setOpenPdf}
       /> */}
-      {!currentItem ? <ItemsMenu setCurrentItem={setCurrentItem} /> : null}
-      {/* {itemNmbr > 0 ? (
-        <Item itemNmbr={itemNmbr} setItemNmbr={setItemNmbr} />
-      ) : null} */}
+      <ItemsMenu />
     </div>
   );
 }

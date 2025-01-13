@@ -17,8 +17,6 @@ function App() {
   const [viewedOpeningVid, setViewedOpeningVid] = useState<boolean>(false);
   // const [currentLanguage, setCurrentLanguage] = useState(language);
   const [fadeOutHappenedAlready, setFdOutHappenedAlready] = useState(false);
-  const [questionaireSelect, setQuestionaireSelect] = useState("");
-  const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
   const [currentLanguage, setCurrentLanguage] = useState<string>("");
 
   useEffect(() => {
@@ -44,18 +42,13 @@ function App() {
       )}
       <Background />
       <Topbar
-        questionaireSelect={questionaireSelect}
         currentLanguage={currentLanguage}
         viewedOpeningVid={viewedOpeningVid}
         setCurrentLanguage={setCurrentLanguage}
       />
       {viewedOpeningVid ? (
         <Suspense fallback={null}>
-          <LazyHomepage
-            setQuestionaireSelect={setQuestionaireSelect}
-            isAssemble={isAssemble}
-            setIsAssemble={setIsAssemble}
-          />
+          <LazyHomepage />
         </Suspense>
       ) : (
         <LandingPage

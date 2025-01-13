@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { getItemsData } from "../../common/getItemData";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
@@ -9,11 +9,7 @@ import { useAppContext } from "../../context/appContext";
 
 const numberOfSteps = 8;
 
-type ItemsMenuProps = {
-  setCurrentItem: Dispatch<SetStateAction<any>>;
-};
-
-export function ItemsMenu({ setCurrentItem }: ItemsMenuProps) {
+export function ItemsMenu() {
   const [menuData, setMenuData] = useState<any[]>([]);
   const [openedItems, setOpenedItems] = useState<number[]>([]);
 
