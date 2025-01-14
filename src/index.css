@@ -558,11 +558,11 @@ body {
 .menu-start-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background: rgba(0, 0, 0, 0.689);
   border-radius: 20px;
   font-size: 1.3em;
-  width: 6em;
+  width: 8em;
   color: white;
   border: 1px solid black;
   margin-right: 2em;
