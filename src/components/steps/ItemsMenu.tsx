@@ -147,7 +147,7 @@ const Menu = ({
           className="menu-start-btn"
           onClick={() => setCurrentStep({ item: 0, subItem: 0 })}
         >
-          {t("start")} <KeyboardArrowRightIcon />
+          {t("taskOne")} <KeyboardArrowRightIcon />
           {/* {t("taskOne")} <KeyboardArrowRightIcon /> */}
         </button>
       </div>
