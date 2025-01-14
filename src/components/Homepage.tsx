@@ -10,12 +10,6 @@ function Homepage() {
   return (
     <div className="homepage-wrapper">
       {openPdf ? <PdfViewer openPdf={openPdf} setOpenPdf={setOpenPdf} /> : null}
-      {/* <Questionaire
-        isAssemble={isAssemble}
-        setIsAssemble={setIsAssemble}
-        setQuestionaireSelect={setQuestionaireSelect}
-        setOpenPdf={setOpenPdf}
-      /> */}
       <ItemsMenu />
     </div>
   );

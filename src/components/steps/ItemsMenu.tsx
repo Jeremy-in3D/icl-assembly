@@ -7,7 +7,7 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Item from "./Steps";
 import { useAppContext } from "../../context/appContext";
 
-const numberOfSteps = 8;
+const numberOfSteps = 9;
 
 export function ItemsMenu() {
   const [menuData, setMenuData] = useState<any[]>([]);
@@ -86,7 +86,9 @@ const Menu = ({
                   className="item-text"
                   // onClick={() => handleItemClick(itemIdx)}
                 >
-                  <div>{item.item}</div>
+                  <div>
+                    {`${itemIdx + 1}. `} {item.item}
+                  </div>
                   <div>
                     {openedItems.includes(itemIdx) ? (
                       <ArrowDropUpIcon />
@@ -99,7 +101,7 @@ const Menu = ({
                 {openedItems.includes(itemIdx) ? (
                   <ul
                     style={{
-                      background: "rgb(206, 206, 206)",
+                      background: "rgb(233, 231, 231)",
                       borderRadius: "4px",
                       marginTop: "1em",
                     }}
@@ -138,6 +140,7 @@ const Menu = ({
           display: "flex",
           justifyContent: "flex-end",
           padding: "4px",
+          marginTop: "2em",
         }}
       >
         <button
@@ -148,6 +151,7 @@ const Menu = ({
           {/* {t("taskOne")} <KeyboardArrowRightIcon /> */}
         </button>
       </div>
+      <div style={{ height: "40px" }}></div>
     </div>
   );
 };

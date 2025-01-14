@@ -33,7 +33,7 @@ export const Topbar = ({
             }
             src={
               currentLanguage == hebrew
-                ? "/assets/images/israel-flag.png"
+                ? "/assets/images/uk.jpg"
                 : "/assets/images/Flag_of_the_People's_Republic_of_China.png"
             }
           />
