@@ -71,7 +71,7 @@ const Menu = ({
   setCurrentStep,
 }: any) => {
   return (
-    <div>
+    <div style={{ marginTop: "1em" }}>
       <ul className="ul-styles">
         {menuData.length
           ? menuData.map((item: any, itemIdx: number) => (
