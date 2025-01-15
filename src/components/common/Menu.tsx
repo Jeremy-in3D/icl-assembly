@@ -44,6 +44,7 @@ export function SlideMenu({ toggleMenu }: any) {
               background: "rgb(40, 39, 39)",
               borderRadius: "12px",
               color: "white",
+              padding: "6px",
             }}
             onClick={() => {
               setCurrentStep(null);
