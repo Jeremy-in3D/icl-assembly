@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 import { VideoPlayer } from "../VideoPlayer";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { getItemsData } from "../../common/getItemData";
 import { getVideoSrc } from "../../common/getVideoSrc";
+import { Typewriter } from "./TextTyper";
 
 const surveyOption = 2;
 const MAX_NUM_OF_iTEMS = 9;
@@ -23,7 +24,114 @@ function Item({ currentStep, setCurrentStep }: ItemProps) {
   const currentItemData = getItemsData(currentStep.item);
   const numberOfSubItemsInCurrentItem = currentItemData?.subItems?.length;
 
+  const videoToPlay = getVideoSrc(currentStep);
+  // console.log({ videoToPlay });
+
+  return (
+    <div>
+      <Text
+        currentStep={currentStep}
+        videoRef={videoRef}
+        videoToPlay={videoToPlay}
+        setCurrentStep={setCurrentStep}
+        numberOfSubItemsInCurrentItem={numberOfSubItemsInCurrentItem}
+      />
+    </div>
+  );
+}
+
+export default Item;
+
+const Text = ({
+  currentStep,
+  videoToPlay,
+  videoRef,
+  setCurrentStep,
+  numberOfSubItemsInCurrentItem,
+}: any) => {
+  const [voices, setVoices] = useState<any>([]);
+  const [utterance, setUtterance] = useState<any>(null);
+  const [narrationText, setNarrationText] = useState("");
+  // const speechRate = 25; // Speech rate used in the utterance
+
+  useEffect(() => {
+    const getVoices = () => {
+      const voiceList = window.speechSynthesis.getVoices();
+      setVoices(voiceList);
+    };
+
+    getVoices();
+    // Firefox does not support the voiceschanged event
+    if (window.speechSynthesis.onvoiceschanged !== undefined) {
+      window.speechSynthesis.onvoiceschanged = getVoices;
+    }
+  }, []);
+
+  const handleSpeech = (text: any) => {
+    if ("speechSynthesis" in window) {
+      if (utterance) {
+        window.speechSynthesis.cancel();
+        setNarrationText("");
+        setUtterance(null);
+        return;
+      }
+      console.log({ text });
+
+      const newUtterance = new SpeechSynthesisUtterance(text);
+
+      // Corrected voice selection logic
+      if (voices.length > 0) {
+        // Choose a female voice by name (names vary by platform)
+        const femaleVoice = voices.find(
+          (voice: any) =>
+            voice.name.includes("Zira") || // Zira Microsoft Asaf
+            voice.name.includes("Samantha") || // Common female names in macOS/iOS
+            (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
+        );
+
+        newUtterance.voice = femaleVoice || voices[0]; // fallback to first voice
+      }
+
+      newUtterance.rate = 0.8; // Adjust speed if necessary
+      setNarrationText(text); // Start typing the narration text
+      window.speechSynthesis.speak(newUtterance);
+      setUtterance(newUtterance);
+
+      newUtterance.onend = () => setUtterance(null);
+    } else {
+      alert("Sorry, your browser does not support text-to-speech.");
+    }
+  };
+
+  // useEffect(() => {
+  //   console.log(
+  //     "Available Voices: ",
+  //     voices.map((v: any) => v.name).join(", ")
+  //   );
+  // }, [voices]);
+
+  if (!currentStep) {
+    return null;
+  }
+
+  const data = getItemsData(currentStep.item);
+
+  const subSteps: any = {
+    0: "a",
+    1: "b",
+    2: "c",
+    3: "d",
+    4: "e",
+    5: "f",
+    6: "g",
+  };
+
   const handleCounterClick = (nextStepBtnClicked: any) => {
+    if (utterance) {
+      window.speechSynthesis.cancel();
+      setNarrationText("");
+      setUtterance(null);
+    }
     if (numberOfSubItemsInCurrentItem === undefined) {
       return null;
     }
@@ -80,13 +188,48 @@ function Item({ currentStep, setCurrentStep }: ItemProps) {
     }
   };
 
-  const videoToPlay = getVideoSrc(currentStep);
-  console.log({ videoToPlay });
-
   return (
-    <div>
-      <div>
-        <Text currentStep={currentStep} />
+    <div style={{ color: "white" }}>
+      <div style={{ height: "9em" }}>
+        <div
+          style={{
+            textAlign: "center",
+            fontSize: "1.2em",
+            padding: "3px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <h2 className="item-opened-title">
+            {`Step ${currentStep.item + 1}: `}
+            <span style={{ marginLeft: "0.3em" }}>{data?.item}</span>
+          </h2>
+        </div>
+      </div>
+      <div className="item-text-subItem-wrapper">
+        <div className="item-text-subItem-text">
+          <span style={{ marginLeft: "0.5em" }}>
+            {`${subSteps[currentStep.subItem]}`}.{" "}
+          </span>
+          <span style={{ marginLeft: "5px" }}>
+            {data?.subItems[currentStep.subItem][currentStep.subItem].text}
+          </span>
+        </div>
+        <div
+          className="narration-icon-container"
+          style={{ border: utterance ? "2px solid green" : "" }}
+        >
+          <RecordVoiceOverIcon
+            fontSize="medium"
+            sx={{ color: "white" }}
+            onClick={() => {
+              handleSpeech(
+                data?.subItems[currentStep.subItem][currentStep.subItem]
+                  .narration
+              );
+            }}
+          />
+        </div>
       </div>
       <div className="item-vid-player-wrapper">
         <VideoPlayer
@@ -98,110 +241,53 @@ function Item({ currentStep, setCurrentStep }: ItemProps) {
           question={surveyOption}
         />
       </div>
+      {/* {rate={speechRate}} */}
+      {narrationText && <Typewriter text={narrationText} />}
 
       <Counter
         setCurrentStep={setCurrentStep}
         currentStep={currentStep}
         handleCounterClick={handleCounterClick}
+        utterance={utterance}
+        setUtterance={setUtterance}
       />
-    </div>
-  );
-}
-
-export default Item;
-
-type TextProps = Pick<ItemProps, "currentStep">;
-
-const Text = ({ currentStep }: TextProps) => {
-  if (!currentStep) {
-    console.log("why in here");
-    return null;
-  }
-  const data = getItemsData(currentStep.item);
-
-  const handleSpeech = (text: string) => {
-    console.log({ text });
-    if ("speechSynthesis" in window) {
-      const utterance = new SpeechSynthesisUtterance(text);
-      window.speechSynthesis.speak(utterance);
-    } else {
-      alert("Sorry, your browser does not support text-to-speech.");
-    }
-  };
-
-  return (
-    <div style={{ color: "white" }}>
-      <div
-        style={{
-          height: "9em",
-        }}
-      >
-        <div
-          style={{
-            textAlign: "center",
-            fontSize: "1.2em",
-            padding: "3px",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <h2 className="item-opened-title">
-            {`${currentStep.item + 1}. `} {data?.item}
-          </h2>
-        </div>
-      </div>
-      <div className="item-text-subItem-wrapper">
-        <div className="item-text-subItem-text">
-          {`${currentStep.subItem + 1}`}.{" "}
-          <span style={{ marginLeft: "5px" }}>
-            {data?.subItems[currentStep.subItem][currentStep.subItem].text}
-          </span>
-        </div>
-        <div className="narration-icon-container">
-          <RecordVoiceOverIcon
-            fontSize="medium"
-            sx={{ color: "white" }}
-            onClick={() => {
-              console.log("jabadui");
-              handleSpeech(
-                data?.subItems[currentStep.subItem][currentStep.subItem]
-                  .narration
-              );
-            }}
-          />
-        </div>
-      </div>
     </div>
   );
 };
 
 const Counter = ({ currentStep, handleCounterClick }: any) => {
   return (
-    <div className="prev-next-survey-wrapper">
-      <button
-        onClick={() => handleCounterClick(false)}
-        style={{ opacity: currentStep.item == 0 ? 0.6 : 1 }}
-        className="prev-next-btn"
-      >
-        <NavigateBeforeIcon fontSize="large" /> Prev Step
-        {/* Previous */}
-      </button>
-      <button
-        className={`prev-next-btn ${
-          currentStep == 10 ? "complete-btn-landscape" : ""
-        }`}
-        // style={currentStep == 10 ? { width: "6em", fontSize: "0.9em" } : {}}
-        onClick={() => handleCounterClick(true)}
-      >
-        {/* Next */}
-        {currentStep.item == 9 ? (
-          "Complete"
-        ) : (
-          <>
-            Next Step <NavigateNextIcon fontSize="large" />
-          </>
-        )}
-      </button>
-    </div>
+    <>
+      <div className="prev-next-survey-wrapper">
+        <button
+          onClick={() => handleCounterClick(false)}
+          style={{
+            opacity: currentStep.item == 0 ? 0.6 : 1,
+            border: currentStep.item == 0 ? "1px solid grey" : "",
+          }}
+          className="prev-next-btn"
+        >
+          <NavigateBeforeIcon fontSize="large" /> Prev Step
+          {/* Previous */}
+        </button>
+        <button
+          className={`prev-next-btn ${
+            currentStep == 10 ? "complete-btn-landscape" : ""
+          }`}
+          // style={currentStep == 10 ? { width: "6em", fontSize: "0.9em" } : {}}
+          onClick={() => handleCounterClick(true)}
+        >
+          {/* Next */}
+          {currentStep.item == 9 ? (
+            "Complete"
+          ) : (
+            <>
+              Next Step <NavigateNextIcon fontSize="large" />
+            </>
+          )}
+        </button>
+      </div>
+      <div style={{ height: "30px" }}></div>
+    </>
   );
 };

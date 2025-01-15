@@ -1,5 +1,5 @@
 import { useState, Suspense } from "react";
-import { getItemsData } from "../../common/getItemData";
+// import { getItemsData } from "../../common/getItemData";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { t } from "../../common/t";
@@ -7,25 +7,25 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Item from "./Steps";
 import { useAppContext } from "../../context/appContext";
 
-const numberOfSteps = 9;
+// const numberOfSteps = 9;
 
 export function ItemsMenu() {
-  const [menuData, setMenuData] = useState<any[]>([]);
+  // const [menuData, setMenuData] = useState<any[]>([]);
   const [openedItems, setOpenedItems] = useState<number[]>([]);
 
-  const { currentStep, setCurrentStep } = useAppContext();
+  const { currentStep, setCurrentStep, menuData } = useAppContext();
 
-  let itemDataArr: any[] = [];
+  // let itemDataArr: any[] = [];
 
-  for (let i = 0; i <= numberOfSteps; i++) {
-    const itemDataByIdx = getItemsData(i);
-    // console.log(itemDataByIdx);
-    itemDataArr.push(itemDataByIdx);
-  }
+  // for (let i = 0; i <= numberOfSteps; i++) {
+  //   const itemDataByIdx = getItemsData(i);
+  //   // console.log(itemDataByIdx);
+  //   itemDataArr.push(itemDataByIdx);
+  // }
 
-  if (!menuData.length) {
-    setMenuData(itemDataArr);
-  }
+  // if (!menuData.length) {
+  //   setMenuData(itemDataArr);
+  // }
 
   const handleItemClick = (itemIdx: number) => {
     if (openedItems.includes(itemIdx)) {
@@ -82,12 +82,10 @@ const Menu = ({
                   itemIdx % 2 == 0 ? "lighter-grey" : "darker-grey"
                 }`}
               >
-                <div
-                  className="item-text"
-                  // onClick={() => handleItemClick(itemIdx)}
-                >
+                <div className="item-text">
                   <div>
-                    {`${itemIdx + 1}. `} {item.item}
+                    {`Step ${itemIdx + 1}: `}{" "}
+                    <span style={{ marginLeft: "0.5em" }}>{item.item}</span>
                   </div>
                   <div>
                     {openedItems.includes(itemIdx) ? (
@@ -101,9 +99,10 @@ const Menu = ({
                 {openedItems.includes(itemIdx) ? (
                   <ul
                     style={{
-                      background: "rgb(233, 231, 231)",
-                      borderRadius: "4px",
+                      // background: "rgb(233, 231, 231)",
+                      // borderRadius: "4px",
                       marginTop: "1em",
+                      paddingLeft: "1em",
                     }}
                   >
                     {item.subItems?.length
@@ -112,6 +111,13 @@ const Menu = ({
                             <li
                               key={`subItem-${subItemIdx}`}
                               style={{
+                                // background: "rgb(233, 231, 231)",
+                                background:
+                                  subItemIdx % 2 == 0
+                                    ? "rgb(233, 231, 231)"
+                                    : "rgb(197, 194, 194)",
+                                borderRadius: "4px",
+
                                 borderBottom:
                                   itemIdx == 4
                                     ? "1px solid rgb(0, 0, 0, 0.4)"
@@ -123,7 +129,10 @@ const Menu = ({
                               }
                             >
                               <span className="sub-item-menu-text">
-                                {subItem[subItemIdx].text}
+                                {`${itemIdx + 1}.${String.fromCharCode(
+                                  97 + subItemIdx
+                                )}.`}{" "}
+                                <span>{` ${subItem[subItemIdx].text}`}</span>
                               </span>
                             </li>
                           )
@@ -148,7 +157,6 @@ const Menu = ({
           onClick={() => setCurrentStep({ item: 0, subItem: 0 })}
         >
           {t("start")} <KeyboardArrowRightIcon />
-          {/* {t("taskOne")} <KeyboardArrowRightIcon /> */}
         </button>
       </div>
       <div style={{ height: "40px" }}></div>

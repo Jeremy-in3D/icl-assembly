@@ -2,6 +2,8 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import "./App.css";
 import { LandingPage } from "./components/LandingPage";
 import { Topbar } from "./components/common/TopBar";
+import { SlideMenu } from "./components/common/Menu";
+import { useAppContext } from "./context/appContext";
 
 // import Homepage from "./components/Homepage";
 // import { useTranslation } from "react-i18next";
@@ -18,6 +20,13 @@ function App() {
   // const [currentLanguage, setCurrentLanguage] = useState(language);
   const [fadeOutHappenedAlready, setFdOutHappenedAlready] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<string>("");
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { menuOpen, setMenuOpen } = useAppContext();
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   useEffect(() => {
     const updateHeight = () => {
@@ -45,6 +54,7 @@ function App() {
         currentLanguage={currentLanguage}
         viewedOpeningVid={viewedOpeningVid}
         setCurrentLanguage={setCurrentLanguage}
+        toggleMenu={toggleMenu}
       />
       {viewedOpeningVid ? (
         <Suspense fallback={null}>
@@ -56,6 +66,7 @@ function App() {
           setCurrentLanguage={setCurrentLanguage}
         />
       )}
+      {menuOpen ? <SlideMenu toggleMenu={toggleMenu} /> : null}
     </>
   );
 }

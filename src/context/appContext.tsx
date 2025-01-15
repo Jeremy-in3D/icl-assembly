@@ -9,6 +9,8 @@ type Context = {
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
   currentStep: any;
   setCurrentStep: React.Dispatch<React.SetStateAction<any>>;
+  menuData: any[];
+  setMenuData: React.Dispatch<React.SetStateAction<any[]>>;
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -18,6 +20,7 @@ export default function AppContextProvider({
 }: AppContextProviderProps) {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [currentStep, setCurrentStep] = useState<any>(null);
+  const [menuData, setMenuData] = useState<any[]>([]);
 
   return (
     <AppContext.Provider
@@ -26,6 +29,8 @@ export default function AppContextProvider({
         setMenuOpen,
         currentStep,
         setCurrentStep,
+        menuData,
+        setMenuData,
       }}
     >
       {children}
@@ -44,6 +49,8 @@ export function useAppContext() {
       setMenuOpen: () => {},
       currentStep: "",
       setCurrentStep: () => {},
+      menuData: [],
+      setMenuData: () => {},
     };
   }
 

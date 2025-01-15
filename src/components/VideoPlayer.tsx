@@ -23,7 +23,7 @@ export const VideoPlayer = ({
   setViewedOpeningVid,
   isOpeningVid,
 }: VideoPlayerProps) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const videoElement = videoRef?.current;

@@ -25,7 +25,7 @@
     "subTaskFiveOne": "Climbing the Isotank",
     "subTaskFiveOneNarration": "The operator should climb on the Isotank carefully using the ladder",
     "subTaskFiveTwo": "Review the Isotank dome",
-    "subTaskFiveTwoNarration": "The operator should review the following: 1. The GPS unit that is responsible for locating the Isotank unit globally. 2. The dome's security pin. 3. The safety pin. 4. The lock pin",
+    "subTaskFiveTwoNarration": "The operator should review the following: 1. The GPS unit that is responsible for locating the Isotank unit globally. 2. The dome's security pin. 3. The safety pin. 4. The lock pin.",
     "subTaskFiveThree": "Opening the dome protecting the Isotank valves",
     "subTaskFiveThreeNarration": "1. Disconnect the security pin. 2. Remove the safety pin. 3. Remove the lock pin. 4.Slowly and carefully open the dom.",
     "subTaskFiveFour": "Isotank's valves role",
