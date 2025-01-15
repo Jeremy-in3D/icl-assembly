@@ -72,7 +72,7 @@ export function SlideMenu({ toggleMenu }: any) {
                 >
                   <div className="item-text">
                     <div>
-                      {`Step ${itemIdx + 1}: `}{" "}
+                      {`${itemIdx + 1}. `}{" "}
                       <span style={{ marginLeft: "0.5em" }}>{item.item}</span>
                     </div>
                     <div>
@@ -117,9 +117,7 @@ export function SlideMenu({ toggleMenu }: any) {
                                 }
                               >
                                 <span className="sub-item-menu-text">
-                                  {`${itemIdx + 1}.${String.fromCharCode(
-                                    97 + subItemIdx
-                                  )}.`}{" "}
+                                  {`${String.fromCharCode(97 + subItemIdx)}.`}{" "}
                                   <span>{` ${subItem[subItemIdx].text}`}</span>
                                 </span>
                               </li>

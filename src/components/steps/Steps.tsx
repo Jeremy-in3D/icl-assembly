@@ -186,6 +186,7 @@ const Text = ({
         return null;
       }
     }
+    setNarrationText("");
   };
 
   return (
