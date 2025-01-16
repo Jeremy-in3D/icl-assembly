@@ -28,7 +28,7 @@ export const Topbar = ({
                 height: "2em",
                 width: "2em",
                 borderRadius: "50%",
-                marginRight: "1.5em",
+                // marginRight: "1.5em",
                 border: "1px solid black",
               }}
               onClick={() =>
@@ -41,7 +41,7 @@ export const Topbar = ({
               }
             />
           ) : null}
-          <div style={{ marginRight: "2em" }}>
+          <div>
             <MenuBookIcon
               fontSize="large"
               onClick={() => setOpenPdf(!openPdf)}

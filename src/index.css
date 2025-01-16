@@ -178,7 +178,9 @@ body {
 
 .top-bar-language-items-container {
   display: flex;
+  justify-content: space-evenly;
   margin-right: 2em;
+  width: 40%;
 }
 
 .slide-menu {
@@ -199,7 +201,7 @@ body {
 }
 
 .slide-menu.open {
-  width: 60%;
+  width: 66%;
   opacity: 1;
   overflow-y: scroll;
 }
@@ -692,7 +694,7 @@ body {
 .item-opened-title {
   width: 96%;
   font-family: crimson-reg;
-  border-bottom: 1px solid white;
+  /* border-bottom: 1px solid white; */
 }
 
 .narration-icon-container {

@@ -196,8 +196,11 @@ const Text = ({
           }}
         >
           <h2 className="item-opened-title">
-            {`Step ${currentStep.item + 1}: `}
-            <span style={{ marginLeft: "0.3em" }}>{data?.item}</span>
+            <span
+              style={{ marginLeft: "0.3em", borderBottom: "1px solid white" }}
+            >
+              {data?.item}
+            </span>
           </h2>
         </div>
       </div>
