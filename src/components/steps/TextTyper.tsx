@@ -1,7 +1,7 @@
 // import { useEffect, useState } from "react";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 
-export const Typewriter = ({ text, currentStep }: any) => {
+export const Typewriter = ({ currentStep }: any) => {
   // {rate}
   //   const [displayedText, setDisplayedText] = useState<any>("");
   //   const typingSpeed = 1000 / rate; // Calculate time per character based on the speech rate
