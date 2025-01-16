@@ -267,7 +267,7 @@ const Text = ({
         )}
       </div>
       {/* {rate={speechRate}} */}
-      {narrationText && <Typewriter text={narrationText} />}
+      {<Typewriter text={narrationText} currentStep={currentStep} />}
 
       <Counter
         setCurrentStep={setCurrentStep}
@@ -292,7 +292,18 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
           }}
           className="prev-next-btn"
         >
-          <NavigateBeforeIcon fontSize="large" /> Prev Step
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              width: "100%",
+              alignItems: "center",
+              marginRight: "5px",
+            }}
+          >
+            <NavigateBeforeIcon fontSize="medium" />
+            Prev Step
+          </div>
           {/* Previous */}
         </button>
         <button
@@ -306,9 +317,16 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
           {currentStep.item == 9 ? (
             "Complete"
           ) : (
-            <>
-              Next Step <NavigateNextIcon fontSize="large" />
-            </>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "center",
+                marginLeft: "5px",
+              }}
+            >
+              Next Step <NavigateNextIcon fontSize="medium" />
+            </div>
           )}
         </button>
       </div>
@@ -320,10 +338,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
 const ImageToDisplay = () => {
   return (
     <div>
-      <img
-        src="/public/assets/images/Tools-gaskets.png"
-        style={{ width: "100%" }}
-      />
+      <img src="/assets/images/tools-gaskets.png" style={{ width: "100%" }} />
     </div>
   );
 };

@@ -506,12 +506,11 @@ body {
 }
 
 .prev-next-btn {
-  width: 42%;
-  height: 2em;
+  /* width: 42%; */
+  /* height: 2em; */
   font-size: 1.1em;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  padding: 8px;
+  /* justify-content: space-evenly; */
   border-radius: 12px;
   color: black;
   background: var(--blue2);
@@ -580,7 +579,7 @@ body {
 
   border-bottom: 1px solid #ddd;
 
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

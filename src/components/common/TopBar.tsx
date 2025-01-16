@@ -41,18 +41,43 @@ export const Topbar = ({
               }
             />
           ) : null}
-          <div>
-            <MenuBookIcon
-              fontSize="large"
+          {currentLanguage ? (
+            <div
+              style={{
+                border: "1px solid black",
+                borderRadius: "50%",
+                height: "2em",
+                width: "2em",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "rgb(255,255,255,0.9)",
+              }}
               onClick={() => setOpenPdf(!openPdf)}
-            />
-          </div>
+            >
+              <MenuBookIcon fontSize="medium" sx={{ color: "#006a88ff" }} />
+            </div>
+          ) : null}
           {viewedOpeningVid && currentStep ? (
-            <ListIcon
-              className="fade-in-ani"
-              fontSize="large"
+            <div
+              style={{
+                border: "1px solid black",
+                borderRadius: "50%",
+                height: "2em",
+                width: "2em",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "rgb(255,255,255,0.9)",
+              }}
               onClick={toggleMenu}
-            />
+            >
+              <ListIcon
+                className="fade-in-ani"
+                fontSize="medium"
+                sx={{ color: "#006a88ff" }}
+              />
+            </div>
           ) : null}
         </div>
       </div>
