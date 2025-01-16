@@ -39,6 +39,7 @@ export function ItemsMenu() {
   };
 
   const handleSubItemClick = (itemIdx: number, subItemIdx: number) => {
+    setOpenedItems([]);
     setCurrentStep({ item: itemIdx, subItem: subItemIdx });
   };
 

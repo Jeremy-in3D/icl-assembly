@@ -9,7 +9,7 @@ export const Topbar = ({
   setCurrentLanguage,
   toggleMenu,
 }: any) => {
-  const { setCurrentStep, currentStep } = useAppContext();
+  const { currentStep } = useAppContext();
   return (
     <div className="nav-outer-wrapper">
       <div className="nav-actual-container">
@@ -17,7 +17,7 @@ export const Topbar = ({
           <img
             src="/assets/images/logo.webp"
             className="icl-logo"
-            onClick={() => setCurrentStep(null)}
+            // onClick={() => setCurrentStep(null)}
           />
         </div>
         <div className="top-bar-language-items-container">

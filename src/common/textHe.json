@@ -19,7 +19,7 @@
 
     "taskFour": "Personal protective equipment",
     "subTaskFour": "Personal protective equipment required before connecting",
-    "subTaskFourNarration": "he operator must protect himself using his personal protective equipment (or PPE) according to the safety information brochure: 1. Wear a protection suit. 2. Wear neoprene gloves, make sure that the sleeve is on top of the glove. 3. Wear a mask. 4. Perform an impermeability test to the mask. 5. Put on the head-dress and close the zipper of the suit. 6. In case of a leak, close the green faucet immediately (air pressure/Nitrogen discharge).",
+    "subTaskFourNarration": "The operator must protect himself using his personal protective equipment (or PPE) according to the safety information brochure: 1. Wear a protection suit. 2. Wear neoprene gloves, make sure that the sleeve is on top of the glove. 3. Wear a mask. 4. Perform an impermeability test to the mask. 5. Put on the head-dress and close the zipper of the suit. 6. In case of a leak, close the green faucet immediately (air pressure/Nitrogen discharge).",
 
     "taskFive": "Isotank unloading operations",
     "subTaskFiveOne": "Climbing the Isotank",

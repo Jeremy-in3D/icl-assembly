@@ -79,9 +79,7 @@ const Text = ({
 
       const newUtterance = new SpeechSynthesisUtterance(text);
 
-      // Corrected voice selection logic
       if (voices.length > 0) {
-        // Choose a female voice by name (names vary by platform)
         const femaleVoice = voices.find(
           (voice: any) =>
             voice.name.includes("Zira") || // Zira Microsoft Asaf
@@ -89,11 +87,11 @@ const Text = ({
             (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
         );
 
-        newUtterance.voice = femaleVoice || voices[0]; // fallback to first voice
+        newUtterance.voice = femaleVoice || voices[0];
       }
 
-      newUtterance.rate = 0.8; // Adjust speed if necessary
-      setNarrationText(text); // Start typing the narration text
+      newUtterance.rate = 0.8;
+      setNarrationText(text);
       window.speechSynthesis.speak(newUtterance);
       setUtterance(newUtterance);
 
@@ -102,13 +100,6 @@ const Text = ({
       alert("Sorry, your browser does not support text-to-speech.");
     }
   };
-
-  // useEffect(() => {
-  //   console.log(
-  //     "Available Voices: ",
-  //     voices.map((v: any) => v.name).join(", ")
-  //   );
-  // }, [voices]);
 
   if (!currentStep) {
     return null;
@@ -190,7 +181,7 @@ const Text = ({
   };
 
   return (
-    <div style={{ color: "white" }}>
+    <div style={{ color: "white", background: "rgb(0,0,0,0.5)" }}>
       <div style={{ height: "9em" }}>
         <div
           style={{

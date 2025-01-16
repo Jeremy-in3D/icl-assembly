@@ -110,7 +110,7 @@ body {
 }
 
 .icl-logo {
-  height: 46%;
+  height: 42%;
   /* margin-left: 2em; */
   animation: slideUp 1s ease-out forwards;
 }
@@ -626,6 +626,7 @@ body {
   border-radius: 20px;
   font-size: 1.3em;
   width: 8em;
+  padding: 8px;
   color: white;
   border: 1px solid black;
   margin-right: 2em;
@@ -684,7 +685,7 @@ body {
 }
 
 .item-vid-player-wrapper {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 .hmpg-btns-container {
