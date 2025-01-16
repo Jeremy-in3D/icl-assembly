@@ -23,6 +23,7 @@ function Item({ currentStep, setCurrentStep }: ItemProps) {
   if (!currentStep) {
     return null;
   }
+  const containerRef: any = useRef();
   const videoRef = useRef(null);
   const currentItemData = getItemsData(currentStep.item);
   const numberOfSubItemsInCurrentItem = currentItemData?.subItems?.length;
@@ -31,13 +32,14 @@ function Item({ currentStep, setCurrentStep }: ItemProps) {
   // console.log({ videoToPlay });
 
   return (
-    <div>
+    <div ref={containerRef}>
       <Text
         currentStep={currentStep}
         videoRef={videoRef}
         videoToPlay={videoToPlay}
         setCurrentStep={setCurrentStep}
         numberOfSubItemsInCurrentItem={numberOfSubItemsInCurrentItem}
+        // containerRef={containerRef}
       />
     </div>
   );
@@ -51,7 +53,8 @@ const Text = ({
   videoRef,
   setCurrentStep,
   numberOfSubItemsInCurrentItem,
-}: any) => {
+}: // containerRef,
+any) => {
   const [voices, setVoices] = useState<any>([]);
   const [utterance, setUtterance] = useState<any>(null);
   const [narrationText, setNarrationText] = useState("");
@@ -129,6 +132,19 @@ const Text = ({
     if (numberOfSubItemsInCurrentItem === undefined) {
       return null;
     }
+    // if (containerRef.current) {
+    //   console.log("JAJAJAHA");
+    //   const newScrollTop = 0; // containerRef.current.scrollHeight * 0.1; // Calculating 10% down from the top
+    //   containerRef.current.scrollTo({
+    //     top: newScrollTop,
+    //     behavior: "smooth", // Adds a smooth scrolling effect
+    //   });
+    //   window.scrollTo({
+    //     top: newScrollTop,
+    //     behavior: "smooth", // Adds a smooth scrolling effect
+    //   });
+    // }
+
     if (nextStepBtnClicked) {
       // NEXT BTN
       const currentStepCopy = { ...currentStep };
