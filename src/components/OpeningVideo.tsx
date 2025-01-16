@@ -10,7 +10,14 @@ type OpeningVideoProps = {
 export const OpeningVideo = ({ setViewedOpeningVid }: OpeningVideoProps) => {
   const openingVideoRef = useRef(null);
   return (
-    <div style={{ height: "89.3%", position: "absolute" }}>
+    <div
+      style={{
+        height: "89.3%",
+        position: "absolute",
+        border: "1px solid red",
+        width: "100%",
+      }}
+    >
       <button
         className="skip-vid-container"
         onClick={() => setViewedOpeningVid(true)}
