@@ -72,9 +72,11 @@ export function SlideMenu({ toggleMenu }: any) {
                   }}
                 >
                   <div className="item-text">
-                    <div>
-                      {`${itemIdx + 1}. `}{" "}
-                      <span style={{ marginLeft: "0.5em" }}>{item.item}</span>
+                    <div style={{ display: "flex" }}>
+                      <div>{`${itemIdx + 1}. `}</div>
+                      <div style={{ padding: "0px 3px" }}>
+                        <span style={{ marginLeft: "0.5em" }}>{item.item}</span>
+                      </div>
                     </div>
                     <div>
                       {openedItems.includes(itemIdx) ? (
@@ -90,6 +92,8 @@ export function SlideMenu({ toggleMenu }: any) {
                       style={{
                         // background: "rgb(233, 231, 231)",
                         // borderRadius: "4px",
+                        margin: 0,
+                        padding: 0,
                         marginTop: "1em",
                         paddingLeft: "1em",
                       }}
@@ -112,14 +116,22 @@ export function SlideMenu({ toggleMenu }: any) {
                                       ? "1px solid rgb(0, 0, 0, 0.4)"
                                       : "",
                                 }}
-                                className="menu-subitem-list-item"
+                                className="menu-subitem-list-item-slide"
                                 onClick={() =>
                                   handleSubItemClick(itemIdx, subItemIdx)
                                 }
                               >
-                                <span className="sub-item-menu-text">
-                                  {`${String.fromCharCode(97 + subItemIdx)}.`}{" "}
-                                  <span>{` ${subItem[subItemIdx].text}`}</span>
+                                <span className="sub-item-menu-text-slide">
+                                  <div>
+                                    {`${String.fromCharCode(97 + subItemIdx)}.`}
+                                  </div>
+                                  <div
+                                    style={{
+                                      textAlign: "left",
+                                    }}
+                                  >
+                                    <span>{` ${subItem[subItemIdx].text}`}</span>
+                                  </div>
                                 </span>
                               </li>
                             )

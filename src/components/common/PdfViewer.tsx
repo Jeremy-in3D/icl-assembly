@@ -4,18 +4,13 @@ import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import screenfull from "screenfull";
 import CloseFullscreenIcon from "@mui/icons-material/CloseFullscreen";
+import { useAppContext } from "../../context/appContext";
 
-type PdfViewerProps = {
-  openPdf: string;
-  setOpenPdf: React.Dispatch<React.SetStateAction<string>>;
-};
-
-export const PdfViewer: React.FC<PdfViewerProps> = ({
-  openPdf,
-  setOpenPdf,
-}) => {
+export const PdfViewer: React.FC = () => {
   const viewerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const { setOpenPdf } = useAppContext();
 
   const handleFullscreen = () => {
     if (screenfull.isEnabled && viewerRef && viewerRef.current) {
@@ -54,17 +49,13 @@ export const PdfViewer: React.FC<PdfViewerProps> = ({
             className="pdf-full-screen-icon"
             onClick={() => {
               // handleFullscreen();
-              setOpenPdf("");
+              setOpenPdf(false);
             }}
           >
             <CloseFullscreenIcon />
           </div>
           <Viewer
-            fileUrl={
-              openPdf == "pdf2"
-                ? "/assets/Waltz_in_C-_Minor_Op._64_No._2.pdf"
-                : "/assets/buildchair.pdf"
-            }
+            fileUrl={"/assets/Bromine Safety HandBook-compressed-2.pdf"}
           />
         </Worker>
       </div>

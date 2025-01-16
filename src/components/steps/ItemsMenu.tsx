@@ -10,22 +10,8 @@ import { useAppContext } from "../../context/appContext";
 // const numberOfSteps = 9;
 
 export function ItemsMenu() {
-  // const [menuData, setMenuData] = useState<any[]>([]);
   const [openedItems, setOpenedItems] = useState<number[]>([]);
-
   const { currentStep, setCurrentStep, menuData } = useAppContext();
-
-  // let itemDataArr: any[] = [];
-
-  // for (let i = 0; i <= numberOfSteps; i++) {
-  //   const itemDataByIdx = getItemsData(i);
-  //   // console.log(itemDataByIdx);
-  //   itemDataArr.push(itemDataByIdx);
-  // }
-
-  // if (!menuData.length) {
-  //   setMenuData(itemDataArr);
-  // }
 
   const handleItemClick = (itemIdx: number) => {
     if (openedItems.includes(itemIdx)) {
@@ -85,7 +71,7 @@ const Menu = ({
               >
                 <div className="item-text">
                   <div>
-                    {`Step ${itemIdx + 1}: `}{" "}
+                    {`Item ${itemIdx + 1}: `}{" "}
                     <span style={{ marginLeft: "0.5em" }}>{item.item}</span>
                   </div>
                   <div>
@@ -100,8 +86,6 @@ const Menu = ({
                 {openedItems.includes(itemIdx) ? (
                   <ul
                     style={{
-                      // background: "rgb(233, 231, 231)",
-                      // borderRadius: "4px",
                       marginTop: "1em",
                       paddingLeft: "1em",
                     }}
@@ -130,9 +114,7 @@ const Menu = ({
                               }
                             >
                               <span className="sub-item-menu-text">
-                                {`${itemIdx + 1}.${String.fromCharCode(
-                                  97 + subItemIdx
-                                )}.`}{" "}
+                                {`${String.fromCharCode(97 + subItemIdx)}.`}{" "}
                                 <span>{` ${subItem[subItemIdx].text}`}</span>
                               </span>
                             </li>

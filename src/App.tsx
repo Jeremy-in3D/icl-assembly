@@ -4,6 +4,7 @@ import { LandingPage } from "./components/LandingPage";
 import { Topbar } from "./components/common/TopBar";
 import { SlideMenu } from "./components/common/Menu";
 import { useAppContext } from "./context/appContext";
+import { PdfViewer } from "./components/common/PdfViewer";
 
 // import Homepage from "./components/Homepage";
 // import { useTranslation } from "react-i18next";
@@ -22,7 +23,7 @@ function App() {
   const [currentLanguage, setCurrentLanguage] = useState<string>("");
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { menuOpen, setMenuOpen } = useAppContext();
+  const { menuOpen, setMenuOpen, openPdf } = useAppContext();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -66,6 +67,11 @@ function App() {
           setCurrentLanguage={setCurrentLanguage}
         />
       )}
+      {openPdf ? (
+        <Suspense fallback={null}>
+          <PdfViewer />
+        </Suspense>
+      ) : null}
       {menuOpen ? <SlideMenu toggleMenu={toggleMenu} /> : null}
     </>
   );

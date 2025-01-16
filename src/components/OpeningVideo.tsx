@@ -14,7 +14,6 @@ export const OpeningVideo = ({ setViewedOpeningVid }: OpeningVideoProps) => {
       style={{
         height: "89.3%",
         position: "absolute",
-        border: "1px solid red",
         width: "100%",
       }}
     >

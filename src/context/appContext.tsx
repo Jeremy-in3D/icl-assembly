@@ -11,6 +11,8 @@ type Context = {
   setCurrentStep: React.Dispatch<React.SetStateAction<any>>;
   menuData: any[];
   setMenuData: React.Dispatch<React.SetStateAction<any[]>>;
+  openPdf: boolean;
+  setOpenPdf: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -21,6 +23,7 @@ export default function AppContextProvider({
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [currentStep, setCurrentStep] = useState<any>(null);
   const [menuData, setMenuData] = useState<any[]>([]);
+  const [openPdf, setOpenPdf] = useState<boolean>(false);
 
   return (
     <AppContext.Provider
@@ -31,6 +34,8 @@ export default function AppContextProvider({
         setCurrentStep,
         menuData,
         setMenuData,
+        openPdf,
+        setOpenPdf,
       }}
     >
       {children}
@@ -45,12 +50,14 @@ export function useAppContext() {
       "Error with a Context - likely that must be used within AppContextProvider"
     );
     return {
-      menuOpen: "",
+      menuOpen: false,
       setMenuOpen: () => {},
       currentStep: "",
       setCurrentStep: () => {},
       menuData: [],
       setMenuData: () => {},
+      openPdf: false,
+      setOpenPdf: () => {},
     };
   }
 

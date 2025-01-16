@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import { Questionaire } from "./questionnaire/Questionnaire";
-import { PdfViewer } from "./common/PdfViewer";
+// import { PdfViewer } from "./common/PdfViewer";
 // import { Item } from "./Item";
 import { ItemsMenu } from "./steps/ItemsMenu";
 import { useAppContext } from "../context/appContext";
@@ -10,7 +10,7 @@ const numberOfSteps = 9;
 
 function Homepage() {
   // const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
-  const [openPdf, setOpenPdf] = useState<string>("");
+  // const [openPdf, setOpenPdf] = useState<boolean>(false);
   const { menuData, setMenuData } = useAppContext();
 
   let itemDataArr: any[] = [];
@@ -28,7 +28,7 @@ function Homepage() {
 
   return (
     <div className="homepage-wrapper">
-      {openPdf ? <PdfViewer openPdf={openPdf} setOpenPdf={setOpenPdf} /> : null}
+      {/* {openPdf ? <PdfViewer openPdf={openPdf} setOpenPdf={setOpenPdf} /> : null} */}
       <ItemsMenu />
     </div>
   );

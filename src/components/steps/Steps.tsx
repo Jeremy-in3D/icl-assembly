@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
-import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+// import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+import VolumeOffIcon from "@mui/icons-material/VolumeOff";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import { VideoPlayer } from "../VideoPlayer";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -8,6 +10,7 @@ import { getVideoSrc } from "../../common/getVideoSrc";
 import { Typewriter } from "./TextTyper";
 
 const surveyOption = 2;
+const requiredTools = 2;
 const MAX_NUM_OF_iTEMS = 9;
 // const TOTAL_ITEMS_IN_STEP_5 = 7;
 
@@ -209,9 +212,32 @@ const Text = ({
         </div>
         <div
           className="narration-icon-container"
-          style={{ border: utterance ? "2px solid green" : "" }}
+          // style={{ border: utterance ? "2px solid green" : "" }}
         >
-          <RecordVoiceOverIcon
+          {utterance ? (
+            <VolumeOffIcon
+              fontSize="medium"
+              sx={{ color: "white" }}
+              onClick={() => {
+                handleSpeech(
+                  data?.subItems[currentStep.subItem][currentStep.subItem]
+                    .narration
+                );
+              }}
+            />
+          ) : (
+            <VolumeUpIcon
+              fontSize="medium"
+              sx={{ color: "white" }}
+              onClick={() => {
+                handleSpeech(
+                  data?.subItems[currentStep.subItem][currentStep.subItem]
+                    .narration
+                );
+              }}
+            />
+          )}
+          {/* <RecordVoiceOverIcon
             fontSize="medium"
             sx={{ color: "white" }}
             onClick={() => {
@@ -220,18 +246,22 @@ const Text = ({
                   .narration
               );
             }}
-          />
+          /> */}
         </div>
       </div>
       <div className="item-vid-player-wrapper">
-        <VideoPlayer
-          isQuestionaire
-          startTime={0}
-          videoRef={videoRef}
-          src={`/assets/video/${videoToPlay}`} //{"/assets/video/13_compressed.mp4"}
-          // videoFit="contain"
-          question={surveyOption}
-        />
+        {currentStep.item == requiredTools ? (
+          <ImageToDisplay />
+        ) : (
+          <VideoPlayer
+            isQuestionaire
+            startTime={0}
+            videoRef={videoRef}
+            src={`/assets/video/${videoToPlay}`} //{"/assets/video/13_compressed.mp4"}
+            // videoFit="contain"
+            question={surveyOption}
+          />
+        )}
       </div>
       {/* {rate={speechRate}} */}
       {narrationText && <Typewriter text={narrationText} />}
@@ -281,5 +311,16 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
       </div>
       <div style={{ height: "30px" }}></div>
     </>
+  );
+};
+
+const ImageToDisplay = () => {
+  return (
+    <div>
+      <img
+        src="/public/assets/images/Tools-gaskets.png"
+        style={{ width: "100%" }}
+      />
+    </div>
   );
 };

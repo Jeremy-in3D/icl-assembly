@@ -1,5 +1,6 @@
 import ListIcon from "@mui/icons-material/List";
 import { useAppContext } from "../../context/appContext";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 const hebrew = "he";
 
@@ -9,7 +10,7 @@ export const Topbar = ({
   setCurrentLanguage,
   toggleMenu,
 }: any) => {
-  const { currentStep } = useAppContext();
+  const { currentStep, openPdf, setOpenPdf } = useAppContext();
   return (
     <div className="nav-outer-wrapper">
       <div className="nav-actual-container">
@@ -40,6 +41,12 @@ export const Topbar = ({
               }
             />
           ) : null}
+          <div style={{ marginRight: "2em" }}>
+            <MenuBookIcon
+              fontSize="large"
+              onClick={() => setOpenPdf(!openPdf)}
+            />
+          </div>
           {viewedOpeningVid && currentStep ? (
             <ListIcon
               className="fade-in-ani"
