@@ -70,9 +70,23 @@ const Menu = ({
                 }`}
               >
                 <div className="item-text">
-                  <div>
-                    {`Item ${itemIdx + 1}: `}{" "}
-                    <span style={{ marginLeft: "0.5em" }}>{item.item}</span>
+                  <div style={{ display: "flex" }}>
+                    {/* item text? */}
+                    <div
+                      style={{
+                        flex: 1,
+                        textWrap: "nowrap",
+                        // width: "50%",
+                      }}
+                    >{`Item ${itemIdx + 1}: `}</div>
+                    {/* text text */}
+                    <div
+                      style={{
+                        marginLeft: "0.5em",
+                      }}
+                    >
+                      {item.item}
+                    </div>
                   </div>
                   <div>
                     {openedItems.includes(itemIdx) ? (

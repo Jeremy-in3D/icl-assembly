@@ -201,7 +201,7 @@ any) => {
 
   return (
     <div style={{ color: "white", background: "rgb(0,0,0,0.5)" }}>
-      <div style={{ height: "9em" }}>
+      <div>
         <div
           style={{
             textAlign: "center",
@@ -222,12 +222,12 @@ any) => {
       </div>
       <div className="item-text-subItem-wrapper">
         <div className="item-text-subItem-text">
-          <span style={{ marginLeft: "0.5em" }}>
+          <div style={{ marginLeft: "0.5em" }}>
             {`${subSteps[currentStep.subItem]}`}.{" "}
-          </span>
-          <span style={{ marginLeft: "5px" }}>
+          </div>
+          <div style={{ marginLeft: "5px" }}>
             {data?.subItems[currentStep.subItem][currentStep.subItem].text}
-          </span>
+          </div>
         </div>
         <div
           className="narration-icon-container"
