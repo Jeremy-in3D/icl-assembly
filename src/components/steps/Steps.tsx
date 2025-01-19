@@ -107,6 +107,22 @@ any) => {
     }
   };
 
+  useEffect(() => {
+    if (currentStep) {
+      const textToSpeak =
+        data?.subItems[currentStep.subItem][currentStep.subItem].narration;
+
+      if (textToSpeak && !utterance) {
+        const timer = setTimeout(() => {
+          handleSpeech(textToSpeak);
+        }, 1200);
+
+        // Cleanup the timer if the component unmounts or if currentStep changes again
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [currentStep]); // Remove `utterance` and `voices` from dependencies
+
   if (!currentStep) {
     return null;
   }
@@ -225,15 +241,15 @@ any) => {
           <div style={{ marginLeft: "0.5em" }}>
             {`${subSteps[currentStep.subItem]}`}.{" "}
           </div>
-          <div style={{ marginLeft: "5px" }}>
+          <div style={{ marginLeft: "8px", fontSize: "1.1em" }}>
             {data?.subItems[currentStep.subItem][currentStep.subItem].text}
           </div>
         </div>
         <div
           className="narration-icon-container"
-          // style={{ border: utterance ? "2px solid green" : "" }}
+          style={{ border: utterance ? "1px solid green" : "" }}
         >
-          {utterance ? (
+          {!utterance ? (
             <VolumeOffIcon
               fontSize="medium"
               sx={{ color: "white" }}
