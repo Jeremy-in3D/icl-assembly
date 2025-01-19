@@ -8,10 +8,14 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { getItemsData } from "../../common/getItemData";
 import { getVideoSrc } from "../../common/getVideoSrc";
 import { Typewriter } from "./TextTyper";
+import { useAppContext } from "../../context/appContext";
 
 const surveyOption = 2;
 const requiredTools = 2;
 const MAX_NUM_OF_iTEMS = 9;
+const stepWithNoNarration = 2;
+const secondLastStep = 8;
+const lastStep = 9;
 // const TOTAL_ITEMS_IN_STEP_5 = 7;
 
 type ItemProps = {
@@ -62,6 +66,8 @@ any) => {
     useState<boolean>(false);
   // const speechRate = 25; // Speech rate used in the utterance
 
+  const { setOpenPdf } = useAppContext();
+
   useEffect(() => {
     const getVoices = () => {
       const voiceList = window.speechSynthesis.getVoices();
@@ -76,6 +82,13 @@ any) => {
   }, []);
 
   const handleSpeech = (text: any) => {
+    if (
+      currentStep.item == stepWithNoNarration ||
+      currentStep.item == secondLastStep ||
+      currentStep.item == lastStep
+    ) {
+      return;
+    }
     if ("speechSynthesis" in window) {
       if (utterance) {
         window.speechSynthesis.cancel();
@@ -110,7 +123,10 @@ any) => {
   };
 
   useEffect(() => {
-    if (currentStep) {
+    if (currentStep && currentStep.item !== stepWithNoNarration) {
+      if (currentStep.item == secondLastStep || currentStep.item == lastStep) {
+        return;
+      }
       const textToSpeak =
         data?.subItems[currentStep.subItem][currentStep.subItem].narration;
 
@@ -290,6 +306,27 @@ any) => {
           /> */}
         </div>
       </div>
+      {currentStep.item == secondLastStep ? (
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <button
+            className="menu-start-btn"
+            style={{
+              width: "50%",
+              textDecoration: "underline",
+              marginTop: "2em",
+            }}
+            onClick={() => setOpenPdf(true)}
+          >
+            Open Handbook
+          </button>
+        </div>
+      ) : null}
       <div className="item-vid-player-wrapper">
         {currentStep.item == requiredTools ? (
           <ImageToDisplay />
