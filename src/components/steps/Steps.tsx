@@ -36,7 +36,7 @@ function Item({ currentStep, setCurrentStep }: ItemProps) {
   // console.log({ videoToPlay });
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} style={{ height: "100%" }}>
       <Text
         currentStep={currentStep}
         videoRef={videoRef}
@@ -66,7 +66,7 @@ any) => {
     useState<boolean>(false);
   // const speechRate = 25; // Speech rate used in the utterance
 
-  const { setOpenPdf } = useAppContext();
+  const { setOpenPdf, isNarrationMuted, setIsNarrationMuted } = useAppContext();
 
   useEffect(() => {
     const getVoices = () => {
@@ -96,7 +96,6 @@ any) => {
         setUtterance(null);
         return;
       }
-      console.log({ text });
 
       const newUtterance = new SpeechSynthesisUtterance(text);
 
@@ -124,7 +123,11 @@ any) => {
 
   useEffect(() => {
     if (currentStep && currentStep.item !== stepWithNoNarration) {
-      if (currentStep.item == secondLastStep || currentStep.item == lastStep) {
+      if (
+        currentStep.item == secondLastStep ||
+        currentStep.item == lastStep ||
+        isNarrationMuted
+      ) {
         return;
       }
       const textToSpeak =
@@ -238,7 +241,9 @@ any) => {
   };
 
   return (
-    <div style={{ color: "white", background: "rgb(0,0,0,0.5)" }}>
+    <div
+      style={{ color: "white", background: "rgb(0,0,0,0.5)", height: "100%" }}
+    >
       <div>
         <div
           style={{
@@ -280,6 +285,7 @@ any) => {
                   data?.subItems[currentStep.subItem][currentStep.subItem]
                     .narration
                 );
+                setIsNarrationMuted(false);
               }}
             />
           ) : (
@@ -291,6 +297,7 @@ any) => {
                   data?.subItems[currentStep.subItem][currentStep.subItem]
                     .narration
                 );
+                setIsNarrationMuted(true);
               }}
             />
           )}
@@ -379,7 +386,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
             }}
           >
             <NavigateBeforeIcon fontSize="medium" />
-            Prev Step
+            Prev Item
           </div>
           {/* Previous */}
         </button>
@@ -402,7 +409,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
                 marginLeft: "5px",
               }}
             >
-              Next Step <NavigateNextIcon fontSize="medium" />
+              Next Item <NavigateNextIcon fontSize="medium" />
             </div>
           )}
         </button>

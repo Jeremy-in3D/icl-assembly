@@ -13,6 +13,8 @@ type Context = {
   setMenuData: React.Dispatch<React.SetStateAction<any[]>>;
   openPdf: boolean;
   setOpenPdf: React.Dispatch<React.SetStateAction<boolean>>;
+  isNarrationMuted: boolean;
+  setIsNarrationMuted: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -24,6 +26,7 @@ export default function AppContextProvider({
   const [currentStep, setCurrentStep] = useState<any>(null);
   const [menuData, setMenuData] = useState<any[]>([]);
   const [openPdf, setOpenPdf] = useState<boolean>(false);
+  const [isNarrationMuted, setIsNarrationMuted] = useState<boolean>(false);
 
   return (
     <AppContext.Provider
@@ -36,6 +39,8 @@ export default function AppContextProvider({
         setMenuData,
         openPdf,
         setOpenPdf,
+        isNarrationMuted,
+        setIsNarrationMuted,
       }}
     >
       {children}
@@ -58,6 +63,8 @@ export function useAppContext() {
       setMenuData: () => {},
       openPdf: false,
       setOpenPdf: () => {},
+      isNarrationMuted: false,
+      setIsNarrationMuted: () => {},
     };
   }
 

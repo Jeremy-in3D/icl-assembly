@@ -21,7 +21,7 @@ export const Typewriter = ({ currentStep }: any) => {
   //   }, [text, typingSpeed]);
 
   const narrationText = getNarrationText(currentStep);
-  console.log({ narrationText });
+  // console.log({ narrationText });
 
   return (
     <div

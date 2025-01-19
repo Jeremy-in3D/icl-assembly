@@ -32,7 +32,7 @@ export function ItemsMenu() {
   // console.log({ menuData });
 
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       {!currentStep ? (
         <Menu
           menuData={menuData}
@@ -58,7 +58,7 @@ const Menu = ({
   setCurrentStep,
 }: any) => {
   return (
-    <div style={{ marginTop: "1em" }}>
+    <div style={{ marginTop: "1em", height: "100%" }}>
       <ul className="ul-styles">
         {menuData.length
           ? menuData.map((item: any, itemIdx: number) => (
