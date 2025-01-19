@@ -76,8 +76,13 @@ export function SlideMenu({ toggleMenu }: any) {
                   <div className="item-text">
                     <div style={{ display: "flex" }}>
                       <div>{`${itemIdx + 1}. `}</div>
-                      <div style={{ padding: "0px 3px" }}>
-                        <span style={{ marginLeft: "0.5em" }}>{item.item}</span>
+                      <div
+                        style={{
+                          padding: "0px 3px",
+                          marginLeft: "3px",
+                        }}
+                      >
+                        <span>{item.item}</span>
                       </div>
                     </div>
                     <div>
@@ -129,10 +134,11 @@ export function SlideMenu({ toggleMenu }: any) {
                                   </div>
                                   <div
                                     style={{
-                                      textAlign: "left",
+                                      // textAlign: "left",
+                                      marginLeft: "3px",
                                     }}
                                   >
-                                    <span>{` ${subItem[subItemIdx].text}`}</span>
+                                    {` ${subItem[subItemIdx].text}`}
                                   </div>
                                 </span>
                               </li>
