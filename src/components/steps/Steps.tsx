@@ -422,7 +422,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
 const ImageToDisplay = () => {
   return (
     <div>
-      <img src="/assets/images/tools-gaskets.png" style={{ width: "100%" }} />
+      <img src="/assets/images/tools-gaskets.jpg" style={{ width: "100%" }} />
     </div>
   );
 };
