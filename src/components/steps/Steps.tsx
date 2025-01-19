@@ -58,6 +58,8 @@ any) => {
   const [voices, setVoices] = useState<any>([]);
   const [utterance, setUtterance] = useState<any>(null);
   const [narrationText, setNarrationText] = useState("");
+  const [isShouldShowNarrationText, setIsShouldShowNarrationText] =
+    useState<boolean>(false);
   // const speechRate = 25; // Speech rate used in the utterance
 
   useEffect(() => {
@@ -115,10 +117,13 @@ any) => {
       if (textToSpeak && !utterance) {
         const timer = setTimeout(() => {
           handleSpeech(textToSpeak);
+          setIsShouldShowNarrationText(true);
         }, 1200);
 
         // Cleanup the timer if the component unmounts or if currentStep changes again
-        return () => clearTimeout(timer);
+        return () => {
+          clearTimeout(timer);
+        };
       }
     }
   }, [currentStep]); // Remove `utterance` and `voices` from dependencies
@@ -140,6 +145,7 @@ any) => {
   };
 
   const handleCounterClick = (nextStepBtnClicked: any) => {
+    setIsShouldShowNarrationText(false);
     if (utterance) {
       window.speechSynthesis.cancel();
       setNarrationText("");
@@ -299,7 +305,9 @@ any) => {
         )}
       </div>
       {/* {rate={speechRate}} */}
-      {<Typewriter text={narrationText} currentStep={currentStep} />}
+      {isShouldShowNarrationText ? (
+        <Typewriter text={narrationText} currentStep={currentStep} />
+      ) : null}
 
       <Counter
         setCurrentStep={setCurrentStep}

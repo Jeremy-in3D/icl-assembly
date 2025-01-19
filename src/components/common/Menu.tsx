@@ -25,6 +25,7 @@ export function SlideMenu({ toggleMenu }: any) {
   };
 
   const handleSubItemClick = (itemIdx: number, subItemIdx: number) => {
+    window.speechSynthesis.cancel();
     setCurrentStep({ item: itemIdx, subItem: subItemIdx });
     setMenuOpen(false);
   };
@@ -49,6 +50,7 @@ export function SlideMenu({ toggleMenu }: any) {
             onClick={() => {
               setCurrentStep(null);
               setMenuOpen(false);
+              window.speechSynthesis.cancel();
             }}
           >
             Back To Menu
