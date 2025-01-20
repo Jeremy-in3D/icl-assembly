@@ -68,7 +68,7 @@ any) => {
 
   const {
     setOpenPdf,
-    isNarrationMuted,
+    // isNarrationMuted,
     setIsNarrationMuted,
     hasUserUnmutedNarrationOnce,
     setHasUserUnmutedNarrationOnce,
@@ -396,9 +396,14 @@ any) => {
 };
 
 const Counter = ({ currentStep, handleCounterClick }: any) => {
-  const getBtnText = () => {
+  const getBtnText = (isPrevBtn: boolean) => {
     if (currentStep.item == 4) {
-      console.log("step items");
+      if (isPrevBtn && currentStep.subItem == 0) {
+        return "Item";
+      }
+      if (!isPrevBtn && currentStep.subItem == 6) {
+        return "Item";
+      }
       return "Step";
     } else {
       return "Item";
@@ -426,7 +431,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
             }}
           >
             <NavigateBeforeIcon fontSize="medium" />
-            Prev Item
+            {`Prev ${getBtnText(true)}`}
           </div>
           {/* Previous */}
         </button>
@@ -449,7 +454,8 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
                 marginLeft: "5px",
               }}
             >
-              Next Item <NavigateNextIcon fontSize="medium" />
+              {`Next ${getBtnText(false)}`}{" "}
+              <NavigateNextIcon fontSize="medium" />
             </div>
           )}
         </button>

@@ -67,7 +67,12 @@ const getNarrationText = (currentStep: any) => {
         "3. Remove the lock pin.",
         "4.Slowly and carefully open the dom.",
       ],
-      3: ["Isotank's valves role"],
+      3: [
+        "Isotank's valves roles.",
+        "Important!",
+        "After emptying the Isotank, make sure that the valves are properly closed. Replace the gaskets for the blind flanges with the new ones provided.",
+        "Make sure that all the bolts are tight. ",
+      ],
       4: [
         "1. Make sure the pressure gauge shows 0.",
         "2. Make sure all valves are tightly closed.",
