@@ -59,7 +59,7 @@ const Text = ({
   numberOfSubItemsInCurrentItem,
 }: // containerRef,
 any) => {
-  const [voices, setVoices] = useState<any>([]);
+  // const [voices, setVoices] = useState<any>([]);
   const [utterance, setUtterance] = useState<any>(null);
   const [narrationText, setNarrationText] = useState("");
   const [isShouldShowNarrationText, setIsShouldShowNarrationText] =
@@ -68,18 +68,18 @@ any) => {
 
   const { setOpenPdf, isNarrationMuted, setIsNarrationMuted } = useAppContext();
 
-  useEffect(() => {
-    const getVoices = () => {
-      const voiceList = window.speechSynthesis.getVoices();
-      setVoices(voiceList);
-    };
+  // useEffect(() => {
+  //   const getVoices = () => {
+  //     const voiceList = window.speechSynthesis.getVoices();
+  //     setVoices(voiceList);
+  //   };
 
-    getVoices();
-    // Firefox does not support the voiceschanged event
-    if (window.speechSynthesis.onvoiceschanged !== undefined) {
-      window.speechSynthesis.onvoiceschanged = getVoices;
-    }
-  }, []);
+  //   getVoices();
+  //   // Firefox does not support the voiceschanged event
+  //   if (window.speechSynthesis.onvoiceschanged !== undefined) {
+  //     window.speechSynthesis.onvoiceschanged = getVoices;
+  //   }
+  // }, []);
 
   const handleSpeech = (text: any) => {
     if (
@@ -100,16 +100,16 @@ any) => {
 
       const newUtterance = new SpeechSynthesisUtterance(text);
 
-      if (voices.length > 0) {
-        // const femaleVoice = voices.find(
-        //   (voice: any) =>
-        //     voice.name.includes("Zira") || // Zira Microsoft Asaf
-        //     voice.name.includes("Samantha") || // Common female names in macOS/iOS
-        //     (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
-        // );
+      // if (voices.length > 0) {
+      //   const femaleVoice = voices.find(
+      //     (voice: any) =>
+      //       voice.name.includes("Zira") || // Zira Microsoft Asaf
+      //       voice.name.includes("Samantha") || // Common female names in macOS/iOS
+      //       (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
+      //   );
 
-        newUtterance.voice = voices[0]; // femaleVoice || voices[0];
-      }
+      //   newUtterance.voice = femaleVoice || voices[0];
+      // }
 
       newUtterance.rate = 0.8;
       setNarrationText(text);
