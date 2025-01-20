@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChooseLanguage } from "./ChooseLanguage";
-import { OpeningVideo } from "./OpeningVideo";
+// import { OpeningVideo } from "./OpeningVideo";
 
 type LandingPageProps = {
   setViewedOpeningVid: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,14 +15,19 @@ export function LandingPage({
   //   const [isShouldShowQuestions, setIsShouldShowQuestions] =
   //     useState<boolean>(false);
 
-  const appStart = language ? (
-    <OpeningVideo setViewedOpeningVid={setViewedOpeningVid} />
-  ) : (
-    <ChooseLanguage
-      setLanguage={setLanguage}
-      setCurrentLanguage={setCurrentLanguage}
-    />
-  );
+  console.log(language);
+
+  const appStart = // language ? (
+    (
+      //   <OpeningVideo setViewedOpeningVid={setViewedOpeningVid} />
+      // ) : (
+      <ChooseLanguage
+        setLanguage={setLanguage}
+        setCurrentLanguage={setCurrentLanguage}
+        setViewedOpeningVid={setViewedOpeningVid}
+      />
+    );
+  // );
 
   return <div>{appStart}</div>;
 }
