@@ -4,16 +4,19 @@ import { useState } from "react";
 type ChooseLanguageProps = {
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
   setCurrentLanguage: React.Dispatch<React.SetStateAction<string>>;
+  setViewedOpeningVid: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export const ChooseLanguage = ({
   setLanguage,
   setCurrentLanguage,
+  setViewedOpeningVid,
 }: ChooseLanguageProps) => {
   const [clickedButton, setClickedButton] = useState<string | null>(null);
 
   const handleLanguagePick = (language: string) => {
     setClickedButton(language);
     setTimeout(() => {
+      setViewedOpeningVid(true);
       setLanguage(language);
       setCurrentLanguage(language);
     }, 1600);

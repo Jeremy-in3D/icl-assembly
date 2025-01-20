@@ -89,6 +89,7 @@ any) => {
     ) {
       return;
     }
+
     if ("speechSynthesis" in window) {
       if (utterance) {
         window.speechSynthesis.cancel();
@@ -100,14 +101,14 @@ any) => {
       const newUtterance = new SpeechSynthesisUtterance(text);
 
       if (voices.length > 0) {
-        const femaleVoice = voices.find(
-          (voice: any) =>
-            voice.name.includes("Zira") || // Zira Microsoft Asaf
-            voice.name.includes("Samantha") || // Common female names in macOS/iOS
-            (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
-        );
+        // const femaleVoice = voices.find(
+        //   (voice: any) =>
+        //     voice.name.includes("Zira") || // Zira Microsoft Asaf
+        //     voice.name.includes("Samantha") || // Common female names in macOS/iOS
+        //     (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
+        // );
 
-        newUtterance.voice = femaleVoice || voices[0];
+        newUtterance.voice = voices[0]; // femaleVoice || voices[0];
       }
 
       newUtterance.rate = 0.8;
@@ -122,6 +123,7 @@ any) => {
   };
 
   useEffect(() => {
+    console.log("we should always be seeing this!@");
     if (currentStep && currentStep.item !== stepWithNoNarration) {
       if (
         currentStep.item == secondLastStep ||
@@ -134,6 +136,7 @@ any) => {
         data?.subItems[currentStep.subItem][currentStep.subItem].narration;
 
       if (textToSpeak && !utterance) {
+        console.log("but shoudl this always be seen????");
         const timer = setTimeout(() => {
           handleSpeech(textToSpeak);
           setIsShouldShowNarrationText(true);

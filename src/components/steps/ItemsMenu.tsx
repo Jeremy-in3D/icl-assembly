@@ -127,10 +127,14 @@ const Menu = ({
                                 handleSubItemClick(itemIdx, subItemIdx)
                               }
                             >
-                              <span className="sub-item-menu-text">
-                                {`${String.fromCharCode(97 + subItemIdx)}.`}{" "}
-                                <span>{` ${subItem[subItemIdx].text}`}</span>
-                              </span>
+                              <div className="sub-item-menu-text">
+                                <div>{`${String.fromCharCode(
+                                  97 + subItemIdx
+                                )}.`}</div>
+                                <div
+                                  style={{ marginLeft: "5px" }}
+                                >{` ${subItem[subItemIdx].text}`}</div>
+                              </div>
                             </li>
                           )
                         )
@@ -153,7 +157,7 @@ const Menu = ({
           className="menu-start-btn"
           onClick={() => setCurrentStep({ item: 0, subItem: 0 })}
         >
-          {t("start")} <KeyboardArrowRightIcon />
+          {t("start")} <KeyboardArrowRightIcon sx={{ marginLeft: "5px" }} />
         </button>
       </div>
       <div style={{ height: "40px" }}></div>

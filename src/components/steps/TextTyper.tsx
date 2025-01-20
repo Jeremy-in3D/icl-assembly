@@ -38,7 +38,9 @@ export const Typewriter = ({ currentStep }: any) => {
       {/* {text} */}
       <ul style={{ listStyle: "none" }}>
         {narrationText.length
-          ? narrationText.map((narrationTxt: string) => <li>{narrationTxt}</li>)
+          ? narrationText.map((narrationTxt: string, idx: number) => (
+              <li key={`key-${idx}`}>{narrationTxt}</li>
+            ))
           : null}
       </ul>
     </div>
