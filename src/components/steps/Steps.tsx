@@ -109,7 +109,7 @@ any) => {
             (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
         );
 
-        newUtterance.voice = voices[0] || femaleVoice;
+        newUtterance.voice = voices[1] || femaleVoice;
       }
 
       newUtterance.rate = 0.8;
