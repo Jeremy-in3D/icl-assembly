@@ -56,7 +56,7 @@ export const getItemsData = (itemIdx: number) => {
         {
           3: {
             text: t("subTaskFiveFour"),
-            narration: t("subTaskFiveTwoNarration"),
+            narration: t("subTaskFiveFourNarration"),
           },
         },
         {
