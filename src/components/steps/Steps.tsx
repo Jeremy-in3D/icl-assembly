@@ -92,6 +92,7 @@ any) => {
 
     if ("speechSynthesis" in window) {
       if (utterance) {
+        console.log("whattttt");
         window.speechSynthesis.cancel();
         setNarrationText("");
         setUtterance(null);
@@ -101,7 +102,6 @@ any) => {
       const newUtterance = new SpeechSynthesisUtterance(text);
 
       if (voices.length > 0) {
-        console.log(voices);
         const femaleVoice = voices.find(
           (voice: any) =>
             voice.name.includes("Zira") || // Zira Microsoft Asaf
@@ -109,7 +109,7 @@ any) => {
             (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
         );
 
-        newUtterance.voice = voices[1] || femaleVoice;
+        newUtterance.voice = femaleVoice || voices[0];
       }
 
       newUtterance.rate = 0.8;
@@ -352,6 +352,7 @@ any) => {
           />
         )}
       </div>
+      <div style={{ background: "red", height: "600px", width: "100%" }}></div>
       {/* {rate={speechRate}} */}
       {isShouldShowNarrationText ? (
         <Typewriter text={narrationText} currentStep={currentStep} />
