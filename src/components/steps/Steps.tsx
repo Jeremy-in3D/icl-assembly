@@ -63,10 +63,16 @@ any) => {
   const [utterance, setUtterance] = useState<any>(null);
   const [narrationText, setNarrationText] = useState("");
   const [isShouldShowNarrationText, setIsShouldShowNarrationText] =
-    useState<boolean>(false);
+    useState<boolean>(true);
   // const speechRate = 25; // Speech rate used in the utterance
 
-  const { setOpenPdf, isNarrationMuted, setIsNarrationMuted } = useAppContext();
+  const {
+    setOpenPdf,
+    isNarrationMuted,
+    setIsNarrationMuted,
+    hasUserUnmutedNarrationOnce,
+    setHasUserUnmutedNarrationOnce,
+  } = useAppContext();
 
   useEffect(() => {
     const getVoices = () => {
@@ -136,8 +142,7 @@ any) => {
       const textToSpeak =
         data?.subItems[currentStep.subItem][currentStep.subItem].narration;
 
-      if (textToSpeak && !utterance) {
-        console.log("but shoudl this always be seen????");
+      if (textToSpeak && !utterance && hasUserUnmutedNarrationOnce) {
         const timer = setTimeout(() => {
           handleSpeech(textToSpeak);
           setIsShouldShowNarrationText(true);
@@ -149,7 +154,7 @@ any) => {
         };
       }
     }
-  }, [currentStep]); // Remove `utterance` and `voices` from dependencies
+  }, [currentStep]);
 
   if (!currentStep) {
     return null;
@@ -277,14 +282,29 @@ any) => {
           </div>
         </div>
         <div
-          className="narration-icon-container"
+          className={`narration-icon-container ${
+            !hasUserUnmutedNarrationOnce ? "narration-icon-container-ani" : ""
+          }`}
           style={{ border: utterance ? "1px solid green" : "" }}
         >
           {!utterance ? (
             <VolumeOffIcon
               fontSize="medium"
-              sx={{ color: "white" }}
+              sx={{
+                color: "white",
+                // border: "2px solid transparent", // Initial border setup
+                // animation: "border-flash 1.4s infinite",
+                // "@keyframes border-flash": {
+                //   "0%": { borderColor: "green" },
+                //   "50%": { borderColor: "transparent" },
+                //   "100%": { borderColor: "green" },
+                // },
+              }}
               onClick={() => {
+                if (!hasUserUnmutedNarrationOnce) {
+                  console.log("HASHADHASHD");
+                  setHasUserUnmutedNarrationOnce(true);
+                }
                 handleSpeech(
                   data?.subItems[currentStep.subItem][currentStep.subItem]
                     .narration
@@ -358,10 +378,6 @@ any) => {
         )}
       </div>
       {/* {rate={speechRate}} */}
-      {isShouldShowNarrationText ? (
-        <Typewriter text={narrationText} currentStep={currentStep} />
-      ) : null}
-
       <Counter
         setCurrentStep={setCurrentStep}
         currentStep={currentStep}
@@ -369,13 +385,22 @@ any) => {
         utterance={utterance}
         setUtterance={setUtterance}
       />
+      {isShouldShowNarrationText ? (
+        <Typewriter text={narrationText} currentStep={currentStep} />
+      ) : null}
+      <div
+        style={{
+          height: "50px",
+          background: "rgb(0,0,0,0.5)",
+        }}
+      ></div>
     </div>
   );
 };
 
 const Counter = ({ currentStep, handleCounterClick }: any) => {
   return (
-    <>
+    <div style={{ background: "rgb(0,0,0,0.5)", margin: 0 }}>
       <div className="prev-next-survey-wrapper">
         <button
           onClick={() => handleCounterClick(false)}
@@ -423,13 +448,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
           )}
         </button>
       </div>
-      <div
-        style={{
-          height: "50px",
-          background: "rgb(0,0,0,0.5)",
-        }}
-      ></div>
-    </>
+    </div>
   );
 };
 
