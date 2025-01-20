@@ -130,22 +130,19 @@ any) => {
   };
 
   useEffect(() => {
-    console.log("we should always be seeing this!@");
     if (currentStep && currentStep.item !== stepWithNoNarration) {
-      if (
-        currentStep.item == secondLastStep ||
-        currentStep.item == lastStep ||
-        isNarrationMuted
-      ) {
+      if (currentStep.item == secondLastStep || currentStep.item == lastStep) {
         return;
       }
       const textToSpeak =
         data?.subItems[currentStep.subItem][currentStep.subItem].narration;
 
-      if (textToSpeak && !utterance && hasUserUnmutedNarrationOnce) {
+      if (textToSpeak && !utterance) {
         const timer = setTimeout(() => {
-          handleSpeech(textToSpeak);
           setIsShouldShowNarrationText(true);
+          if (hasUserUnmutedNarrationOnce) {
+            handleSpeech(textToSpeak);
+          }
         }, 1200);
 
         // Cleanup the timer if the component unmounts or if currentStep changes again
@@ -257,7 +254,7 @@ any) => {
         <div
           style={{
             textAlign: "center",
-            fontSize: "1.2em",
+            fontSize: "1em",
             padding: "3px",
             display: "flex",
             justifyContent: "center",
@@ -399,6 +396,15 @@ any) => {
 };
 
 const Counter = ({ currentStep, handleCounterClick }: any) => {
+  const getBtnText = () => {
+    if (currentStep.item == 4) {
+      console.log("step items");
+      return "Step";
+    } else {
+      return "Item";
+    }
+  };
+
   return (
     <div style={{ background: "rgb(0,0,0,0.5)", margin: 0 }}>
       <div className="prev-next-survey-wrapper">
