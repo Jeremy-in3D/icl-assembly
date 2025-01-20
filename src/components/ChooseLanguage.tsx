@@ -24,6 +24,7 @@ export const ChooseLanguage = ({
 
   return (
     <div className="homepage-wrapper">
+      <div style={{ height: "100px" }}></div>
       <div className="choose-language-wrapper">
         <div style={{ textAlign: "center" }}></div>
         <div className="languages-container">

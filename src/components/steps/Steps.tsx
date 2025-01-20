@@ -352,7 +352,6 @@ any) => {
           />
         )}
       </div>
-      <div style={{ background: "red", height: "600px", width: "100%" }}></div>
       {/* {rate={speechRate}} */}
       {isShouldShowNarrationText ? (
         <Typewriter text={narrationText} currentStep={currentStep} />

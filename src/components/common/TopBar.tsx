@@ -12,75 +12,75 @@ export const Topbar = ({
 }: any) => {
   const { currentStep, openPdf, setOpenPdf } = useAppContext();
   return (
-    <div className="nav-outer-wrapper">
-      <div className="nav-actual-container">
-        <div className="nav-logo-wrapper">
+    // <div className="nav-outer-wrapper">
+    <div className="nav-actual-container">
+      <div className="nav-logo-wrapper">
+        <img
+          src="/assets/images/logo.webp"
+          className="icl-logo"
+          // onClick={() => setCurrentStep(null)}
+        />
+      </div>
+      <div className="top-bar-language-items-container">
+        {currentLanguage ? (
           <img
-            src="/assets/images/logo.webp"
-            className="icl-logo"
-            // onClick={() => setCurrentStep(null)}
+            style={{
+              height: "2em",
+              width: "2em",
+              borderRadius: "50%",
+              // marginRight: "1.5em",
+              border: "1px solid black",
+            }}
+            onClick={() =>
+              setCurrentLanguage(currentLanguage == hebrew ? "zh" : "he")
+            }
+            src={
+              currentLanguage == hebrew
+                ? "/assets/images/uk.jpg"
+                : "/assets/images/Flag_of_the_People's_Republic_of_China.png"
+            }
           />
-        </div>
-        <div className="top-bar-language-items-container">
-          {currentLanguage ? (
-            <img
-              style={{
-                height: "2em",
-                width: "2em",
-                borderRadius: "50%",
-                // marginRight: "1.5em",
-                border: "1px solid black",
-              }}
-              onClick={() =>
-                setCurrentLanguage(currentLanguage == hebrew ? "zh" : "he")
-              }
-              src={
-                currentLanguage == hebrew
-                  ? "/assets/images/uk.jpg"
-                  : "/assets/images/Flag_of_the_People's_Republic_of_China.png"
-              }
+        ) : null}
+        {currentLanguage ? (
+          <div
+            style={{
+              border: "1px solid black",
+              borderRadius: "50%",
+              height: "2em",
+              width: "2em",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              background: "rgb(255,255,255,0.9)",
+            }}
+            onClick={() => setOpenPdf(!openPdf)}
+          >
+            <MenuBookIcon fontSize="medium" sx={{ color: "#006a88ff" }} />
+          </div>
+        ) : null}
+        {viewedOpeningVid && currentStep ? (
+          <div
+            style={{
+              border: "1px solid black",
+              borderRadius: "50%",
+              height: "2em",
+              width: "2em",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              background: "rgb(255,255,255,0.9)",
+            }}
+            onClick={toggleMenu}
+          >
+            <ListIcon
+              className="fade-in-ani"
+              fontSize="medium"
+              sx={{ color: "#006a88ff" }}
             />
-          ) : null}
-          {currentLanguage ? (
-            <div
-              style={{
-                border: "1px solid black",
-                borderRadius: "50%",
-                height: "2em",
-                width: "2em",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                background: "rgb(255,255,255,0.9)",
-              }}
-              onClick={() => setOpenPdf(!openPdf)}
-            >
-              <MenuBookIcon fontSize="medium" sx={{ color: "#006a88ff" }} />
-            </div>
-          ) : null}
-          {viewedOpeningVid && currentStep ? (
-            <div
-              style={{
-                border: "1px solid black",
-                borderRadius: "50%",
-                height: "2em",
-                width: "2em",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                background: "rgb(255,255,255,0.9)",
-              }}
-              onClick={toggleMenu}
-            >
-              <ListIcon
-                className="fade-in-ani"
-                fontSize="medium"
-                sx={{ color: "#006a88ff" }}
-              />
-            </div>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
       </div>
     </div>
+    // </div>
   );
 };

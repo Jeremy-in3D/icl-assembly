@@ -29,6 +29,7 @@ function Homepage() {
   return (
     <div className="homepage-wrapper">
       {/* {openPdf ? <PdfViewer openPdf={openPdf} setOpenPdf={setOpenPdf} /> : null} */}
+      <div style={{ height: "100px", background: "rgb(0,0,0,0.5)" }}></div>
       <ItemsMenu />
     </div>
   );
