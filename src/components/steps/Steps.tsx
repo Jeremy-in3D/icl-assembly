@@ -331,6 +331,7 @@ any) => {
               width: "50%",
               textDecoration: "underline",
               marginTop: "2em",
+              marginLeft: "2em",
             }}
             onClick={() => setOpenPdf(true)}
           >
@@ -346,7 +347,11 @@ any) => {
             isQuestionaire
             startTime={0}
             videoRef={videoRef}
-            src={`/assets/video/${videoToPlay}`} //{"/assets/video/13_compressed.mp4"}
+            src={
+              currentStep.item == secondLastStep
+                ? "https://in3dwebsite.blob.core.windows.net/video/ICL bromine safety (1).mp4"
+                : `/assets/video/${videoToPlay}`
+            } //{"/assets/video/13_compressed.mp4"}
             // videoFit="contain"
             question={surveyOption}
           />
