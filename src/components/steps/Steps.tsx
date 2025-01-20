@@ -418,7 +418,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
           )}
         </button>
       </div>
-      <div style={{ height: "30px" }}></div>
+      <div style={{ height: "50px" }}></div>
     </>
   );
 };
