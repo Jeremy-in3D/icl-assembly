@@ -28,10 +28,10 @@
     "subTaskFiveTwoNarration": "The operator should review the following: One. The GPS unit that is responsible for locating the Isotank unit globally. Two. The dome's security pin. Three. The safety pin. Four. The lock pin. Make sure the pressure gauge shows zero.",
     "subTaskFiveThree": "Opening the dome protecting the Isotank valves",
     "subTaskFiveThreeNarration": "One. Disconnect the security pin. Two. Remove the safety pin. Three. Remove the lock pin. Four. Slowly and carefully open the dom.",
-    "subTaskFiveFour": "Isotank's valves roles.",
-    "subTaskFiveFourNarration": "Isotank's valves roles. Important. After emptying the Isotank, make sure that the valves are properly closed. Replace the gaskets for the blind flanges with the new ones provided. Make sure that all the bolts are tight. ",
+    "subTaskFiveFour": "Isotank's valves roles. Yellow Valve. Dip Pipe. Red Valve. Pressure Relief (vent). Green Valve. Nitrogen Inlet.",
+    "subTaskFiveFourNarration": "Isotank's valves roles. ",
     "subTaskFiveFive": "Disconnecting blind flanges",
-    "subTaskFiveFiveNarration": "One. Make sure the pressure gauge shows zero. Two. Make sure all valves are tightly closed. Three. Open the blind flanges – open from the far side (far side screws). Four. Make sure open gaskets are present. Five. Switch the blind gaskets with open gaskets.",
+    "subTaskFiveFiveNarration": "One. Make sure all valves are tightly closed. Two. Make sure the pressure gauge shows zero. Three. Open the blind flanges – open from the far side (far side screws). Four. Make sure open gaskets are present. Five. Switch the blind gaskets with open gaskets.",
     "subTaskFiveSix": "Connect pipes to valves for start to unloading",
     "subTaskFiveSixNarration": "One. Connect the vent pipe to the red valve. Two. Connect the liquid pipe to the yellow valve. Three. Connect the Nitrogen/air entry pipe to the green valve. Four. Cross-tighten the flange screws while observing the balance.",
     "subTaskFiveSeven": "Opening valves and start unloading the Bromine",
@@ -50,6 +50,7 @@
     "subTaskNine": "Safety Bromine Handbook",
 
     "taskTen": "Menu",
-    "subTaskTen": "Brom assigned safety gear"
+    "subTaskTen": "Brom assigned safety gear",
+    "subTaskTenNarration": "Personal protective equipment. This includes: Respiratory protection. Self-contained breathing apparatus. An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only. The national Institute for occupational safety and health recommendations for respirator selection includes any chemical cartridge respirator with a full facepiece and cartridge. Only nonoxidizable sorbents are allowed. Hand protection. PVC or neoprene gloves. Eye protection. Chemical safety goggles or face shield with safety glasses. Skin and body protection. Protective impervious clothing, hard hat and neoprene or rubber boots."
   }
 }

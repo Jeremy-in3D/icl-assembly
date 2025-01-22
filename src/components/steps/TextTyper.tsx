@@ -67,15 +67,21 @@ const getNarrationText = (currentStep: any) => {
         "3. Remove the lock pin.",
         "4.Slowly and carefully open the dom.",
       ],
+      // 3: [
+      //   "Isotank's valves roles.",
+      //   "Important!",
+      //   "After emptying the Isotank, make sure that the valves are properly closed. Replace the gaskets for the blind flanges with the new ones provided.",
+      //   "Make sure that all the bolts are tight. ",
+      // ],
       3: [
-        "Isotank's valves roles.",
-        "Important!",
-        "After emptying the Isotank, make sure that the valves are properly closed. Replace the gaskets for the blind flanges with the new ones provided.",
-        "Make sure that all the bolts are tight. ",
+        "Isotank's valves roles:",
+        "Yellow Valve: Dip Pipe.",
+        "Red Valve: Pressure Relief (vent).",
+        "Green Valve: Nitrogen Inlet.",
       ],
       4: [
-        "1. Make sure the pressure gauge shows 0.",
-        "2. Make sure all valves are tightly closed.",
+        "1. Make sure all valves are tightly closed.",
+        "2.  Make sure the pressure gauge shows 0.",
         "3. Open the blind flanges – open from the far side (far side screws).",
         "4. Make sure open gaskets are present.",
         "5. Switch the blind gaskets with open gaskets.",
@@ -149,7 +155,15 @@ const getNarrationText = (currentStep: any) => {
       "8. End of process.",
     ],
     8: ["Safety Bromine Handbook"],
-    9: ["Brom assigned safety gear"],
+    9: [
+      "Personal protective equipment: ",
+      "Respiratory protection: Self-contained breathing apparatus.",
+      "An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only.",
+      "NIOSH recommendations for respirator selection includes any chemical cartridge respirator with a full facepiece and cartridge. Only nonoxidizable sorbents are allowed",
+      "Hand protection: PVC or neoprene gloves.",
+      "Eye protection: Chemical safety goggles or face shield with safety glasses.",
+      "Skin and body protection: Protective impervious clothing, hard hat and neoprene or rubber boots.",
+    ],
   };
 
   return textByItem[currentStep.item] || [""];

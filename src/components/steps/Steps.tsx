@@ -357,8 +357,8 @@ any) => {
         </div>
       ) : null}
       <div className="item-vid-player-wrapper">
-        {currentStep.item == requiredTools ? (
-          <ImageToDisplay />
+        {currentStep.item == requiredTools || currentStep.item == lastStep ? (
+          <ImageToDisplay currentStep={currentStep} />
         ) : (
           <VideoPlayer
             isQuestionaire
@@ -464,10 +464,15 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
   );
 };
 
-const ImageToDisplay = () => {
+const ImageToDisplay = (currentStep: any) => {
   return (
     <div>
-      <img src="/assets/images/tools-gaskets.jpg" style={{ width: "100%" }} />
+      <img
+        src={`/assets/images/${
+          currentStep.item == 9 ? "gear.png" : "tools-gaskets.jpg"
+        } `}
+        style={{ width: "100%" }}
+      />
     </div>
   );
 };

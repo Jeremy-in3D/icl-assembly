@@ -21,7 +21,7 @@ export const getVideoSrc = (currentStep: any) => {
   } else {
     switch (currentStep.item) {
       case 0:
-        return "1_compressed.mp4";
+        return "drone_compressed.mp4";
       case 1:
         return "1_compressed.mp4";
       case 2:

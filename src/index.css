@@ -177,10 +177,12 @@ body {
 }
 
 .top-bar-language-items-container {
+  flex: 0.8;
   display: flex;
   justify-content: space-evenly;
   margin-right: 2em;
   width: 40%;
+  margin-top: 1em;
 }
 
 .slide-menu {
@@ -763,6 +765,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
   /* margin-top: 6em; */
   border: 1px solid yellow;
 }

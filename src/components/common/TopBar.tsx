@@ -21,6 +21,7 @@ export const Topbar = ({
           // onClick={() => setCurrentStep(null)}
         />
       </div>
+
       <div className="top-bar-language-items-container">
         {currentLanguage ? (
           <img
@@ -41,42 +42,65 @@ export const Topbar = ({
             }
           />
         ) : null}
+
         {currentLanguage ? (
           <div
             style={{
-              border: "1px solid black",
-              borderRadius: "50%",
-              height: "2em",
-              width: "2em",
               display: "flex",
-              justifyContent: "center",
+              flexDirection: "column",
               alignItems: "center",
-              background: "rgb(255,255,255,0.9)",
             }}
-            onClick={() => setOpenPdf(!openPdf)}
           >
-            <MenuBookIcon fontSize="medium" sx={{ color: "#006a88ff" }} />
+            <div
+              style={{
+                border: "1px solid black",
+                borderRadius: "50%",
+                height: "2em",
+                width: "2em",
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+                background: "rgb(255,255,255,0.9)",
+              }}
+              onClick={() => setOpenPdf(!openPdf)}
+            >
+              <div>
+                <MenuBookIcon fontSize="medium" sx={{ color: "#006a88ff" }} />
+              </div>
+            </div>
+            <div style={{ color: "white" }}>Safety Handbook</div>
           </div>
         ) : null}
+
         {viewedOpeningVid && currentStep ? (
           <div
             style={{
-              border: "1px solid black",
-              borderRadius: "50%",
-              height: "2em",
-              width: "2em",
               display: "flex",
-              justifyContent: "center",
+              flexDirection: "column",
               alignItems: "center",
-              background: "rgb(255,255,255,0.9)",
             }}
-            onClick={toggleMenu}
           >
-            <ListIcon
-              className="fade-in-ani"
-              fontSize="medium"
-              sx={{ color: "#006a88ff" }}
-            />
+            <div
+              style={{
+                border: "1px solid black",
+                borderRadius: "50%",
+                height: "2em",
+                width: "2em",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "rgb(255,255,255,0.9)",
+              }}
+              onClick={toggleMenu}
+            >
+              <ListIcon
+                className="fade-in-ani"
+                fontSize="medium"
+                sx={{ color: "#006a88ff" }}
+              />
+            </div>
+            <div style={{ color: "white" }}>Menu</div>
           </div>
         ) : null}
       </div>
