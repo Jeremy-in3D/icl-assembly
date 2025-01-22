@@ -464,9 +464,6 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
 };
 
 const ImageToDisplay = ({ currentStep }: any) => {
-  console.log({ currentStep });
-  console.log(currentStep.item == 9);
-  console.log("heyo", currentStep);
   return (
     <div>
       <img
