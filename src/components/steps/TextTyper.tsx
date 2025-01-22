@@ -101,6 +101,25 @@ const getNarrationText = (currentStep: any) => {
         "6. Using Ammonia 3%, check for leaks. In case of a leak or if the valve connection is inadequate a white smoke will appear. In this case, valves must be closed and all connections are to be rechecked.",
       ],
     };
+
+    const lastItemSubTexts: any = {
+      0: [],
+      1: [
+        "Emergency call center phone numbers",
+        "Emergency #1: 999-999-9999",
+        "emergency #2: 00-000-0000",
+      ],
+      2: [
+        "Personal protective equipment: ",
+        "Respiratory protection: Self-contained breathing apparatus.",
+        "An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only.",
+        "NIOSH recommendations for respirator selection includes any chemical cartridge respirator with a full facepiece and cartridge. Only nonoxidizable sorbents are allowed",
+        "Hand protection: PVC or neoprene gloves.",
+        "Eye protection: Chemical safety goggles or face shield with safety glasses.",
+        "Skin and body protection: Protective impervious clothing, hard hat and neoprene or rubber boots.",
+      ],
+    };
+
     return subTexts[subItemIdx] || [""];
   };
 

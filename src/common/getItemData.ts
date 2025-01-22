@@ -101,7 +101,16 @@ export const getItemsData = (itemIdx: number) => {
     8: {
       item: t("taskNine"),
       subItems: [
-        { 0: { text: t("subTaskNine"), narration: t("subTaskNine") } },
+        { 0: { text: t("subTaskNineOne"), narration: t("subTaskNine") } },
+        {
+          1: { text: t("subTaskNineTwo"), narration: t("subTaskTenNarration") },
+        },
+        {
+          2: {
+            text: t("subTaskNineThree"),
+            narration: t("subTaskTenNarration"),
+          },
+        },
       ],
     },
     9: {

@@ -16,7 +16,7 @@ function Homepage() {
   let itemDataArr: any[] = [];
   for (let i = 0; i <= numberOfSteps; i++) {
     const itemDataByIdx = getItemsData(i);
-    // console.log(itemDataByIdx);
+
     itemDataArr.push(itemDataByIdx);
   }
 

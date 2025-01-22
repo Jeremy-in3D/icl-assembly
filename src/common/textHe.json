@@ -47,7 +47,9 @@
     "taskEightNarration": "One. Before closing the dome, double-check that all valves are closed and that the blind flanges are tightened. Two. Close the dome. Three. Connect the lock pin. Four. Connect the safety pin. Five. Install the security closure and register the number showing on the closure in the transport document. Six. Carefully climb down using the ladder Isotank. Seven. Conduct a visual examination around the Isotank. Eight. End of process",
 
     "taskNine": "Emergency call center phone numbers",
-    "subTaskNine": "Safety Bromine Handbook",
+    "subTaskNineOne": "Safety Bromine Handbook",
+    "subTaskNineTwo": "Emergency call center phone numbers",
+    "subTaskNineThree": "Brom assigned safety gear",
 
     "taskTen": "Menu",
     "subTaskTen": "Brom assigned safety gear",

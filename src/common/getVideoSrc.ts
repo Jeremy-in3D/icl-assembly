@@ -18,6 +18,18 @@ export const getVideoSrc = (currentStep: any) => {
       default:
         return "1_compressed.mp4";
     }
+  } else if (currentStep.item === 9) {
+    switch (currentStep.subItem) {
+      case 0:
+        return "10_compressed.mp4";
+      case 1:
+        return "10_compressed.mp4";
+      case 2:
+        return "10_compressed.mp4";
+
+      default:
+        return "10_compressed.mp4";
+    }
   } else {
     switch (currentStep.item) {
       case 0:

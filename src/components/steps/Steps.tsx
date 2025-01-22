@@ -67,8 +67,6 @@ any) => {
   // const speechRate = 25; // Speech rate used in the utterance
 
   const {
-    setOpenPdf,
-    // isNarrationMuted,
     setIsNarrationMuted,
     hasUserUnmutedNarrationOnce,
     setHasUserUnmutedNarrationOnce,
@@ -97,7 +95,6 @@ any) => {
 
     if ("speechSynthesis" in window) {
       if (utterance) {
-        console.log("whattttt");
         window.speechSynthesis.cancel();
         setNarrationText("");
         setUtterance(null);
@@ -298,7 +295,6 @@ any) => {
               }}
               onClick={() => {
                 if (!hasUserUnmutedNarrationOnce) {
-                  console.log("HASHADHASHD");
                   setHasUserUnmutedNarrationOnce(true);
                 }
                 handleSpeech(
@@ -333,28 +329,7 @@ any) => {
           /> */}
         </div>
       </div>
-      {currentStep.item == secondLastStep ? (
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <button
-            className="menu-start-btn"
-            style={{
-              width: "50%",
-              textDecoration: "underline",
-              marginTop: "2em",
-              marginLeft: "2em",
-            }}
-            onClick={() => setOpenPdf(true)}
-          >
-            Open Handbook
-          </button>
-        </div>
-      ) : null}
+
       <div className="item-vid-player-wrapper">
         {currentStep.item == requiredTools || currentStep.item == lastStep ? (
           <ImageToDisplay currentStep={currentStep} />
@@ -404,6 +379,14 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
         return "Item";
       }
       return "Step";
+    } else if (currentStep.item == 8) {
+      if (isPrevBtn && currentStep.subItem == 0) {
+        return "Item";
+      }
+      if (!isPrevBtn && currentStep.subItem == 2) {
+        return "complete";
+      }
+      return "Step";
     } else {
       return "Item";
     }
@@ -440,10 +423,15 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
           }`}
           // style={currentStep == 10 ? { width: "6em", fontSize: "0.9em" } : {}}
           onClick={() => handleCounterClick(true)}
-          style={{ padding: currentStep.item == 9 ? "12px" : "" }}
+          style={{
+            padding:
+              currentStep.item == secondLastStep && currentStep.subItem == 2
+                ? "12px"
+                : "",
+          }}
         >
           {/* Next */}
-          {currentStep.item == 9 ? (
+          {currentStep.item == 8 && currentStep.subItem == 2 ? (
             "Complete"
           ) : (
             <div
