@@ -90,8 +90,7 @@ any) => {
   const handleSpeech = (text: any) => {
     if (
       currentStep.item == stepWithNoNarration ||
-      currentStep.item == secondLastStep ||
-      currentStep.item == lastStep
+      currentStep.item == secondLastStep
     ) {
       return;
     }
@@ -131,7 +130,7 @@ any) => {
 
   useEffect(() => {
     if (currentStep && currentStep.item !== stepWithNoNarration) {
-      if (currentStep.item == secondLastStep || currentStep.item == lastStep) {
+      if (currentStep.item == secondLastStep) {
         return;
       }
       const textToSpeak =
@@ -464,7 +463,10 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
   );
 };
 
-const ImageToDisplay = (currentStep: any) => {
+const ImageToDisplay = ({ currentStep }: any) => {
+  console.log({ currentStep });
+  console.log(currentStep.item == 9);
+  console.log("heyo", currentStep);
   return (
     <div>
       <img
