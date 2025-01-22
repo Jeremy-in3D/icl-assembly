@@ -440,6 +440,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
           }`}
           // style={currentStep == 10 ? { width: "6em", fontSize: "0.9em" } : {}}
           onClick={() => handleCounterClick(true)}
+          style={{ padding: currentStep.item == 9 ? "12px" : "" }}
         >
           {/* Next */}
           {currentStep.item == 9 ? (
