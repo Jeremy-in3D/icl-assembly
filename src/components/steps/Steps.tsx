@@ -358,7 +358,11 @@ any) => {
         setUtterance={setUtterance}
       />
       {isShouldShowNarrationText ? (
-        <Typewriter text={narrationText} currentStep={currentStep} />
+        <Typewriter
+          text={narrationText}
+          currentStep={currentStep}
+          isRegularStep
+        />
       ) : null}
       <div
         style={{
