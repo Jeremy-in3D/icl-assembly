@@ -15,6 +15,10 @@ export function LandingPage({
   //   const [isShouldShowQuestions, setIsShouldShowQuestions] =
   //     useState<boolean>(false);
 
+  if (language) {
+    console.log(language);
+  }
+
   const appStart = // language ? (
     (
       //   <OpeningVideo setViewedOpeningVid={setViewedOpeningVid} />

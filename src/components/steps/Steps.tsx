@@ -454,7 +454,6 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
 };
 
 const ImageToDisplay = ({ currentStep }: any) => {
-  console.log(currentStep);
   if (currentStep.item == secondLastStep && currentStep.subItem == 1) {
     return <Typewriter currentStep={currentStep} />;
   }
