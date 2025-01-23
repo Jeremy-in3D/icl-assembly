@@ -13,9 +13,9 @@ import { useAppContext } from "../../context/appContext";
 const surveyOption = 2;
 const requiredTools = 2;
 const MAX_NUM_OF_iTEMS = 9;
-const stepWithNoNarration = 2;
+// const stepWithNoNarration = 2;
 const secondLastStep = 8;
-const lastStep = 9;
+// const lastStep = 9;
 // const TOTAL_ITEMS_IN_STEP_5 = 7;
 
 type ItemProps = {
@@ -86,10 +86,7 @@ any) => {
   }, []);
 
   const handleSpeech = (text: any) => {
-    if (
-      currentStep.item == stepWithNoNarration ||
-      currentStep.item == secondLastStep
-    ) {
+    if (currentStep.item == secondLastStep) {
       return;
     }
 
@@ -126,9 +123,11 @@ any) => {
   };
 
   useEffect(() => {
-    if (currentStep && currentStep.item !== stepWithNoNarration) {
+    if (currentStep) {
       if (currentStep.item == secondLastStep) {
-        return;
+        if (currentStep.subItem == 0 || currentStep.subItem == 1) {
+          return;
+        }
       }
       const textToSpeak =
         data?.subItems[currentStep.subItem][currentStep.subItem].narration;
@@ -331,7 +330,9 @@ any) => {
       </div>
 
       <div className="item-vid-player-wrapper">
-        {currentStep.item == requiredTools || currentStep.item == lastStep ? (
+        {currentStep.item == requiredTools ||
+        (currentStep.item == secondLastStep && currentStep.subItem == 2) ||
+        (currentStep.item == secondLastStep && currentStep.subItem == 1) ? (
           <ImageToDisplay currentStep={currentStep} />
         ) : (
           <VideoPlayer
@@ -453,11 +454,15 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
 };
 
 const ImageToDisplay = ({ currentStep }: any) => {
+  console.log(currentStep);
+  if (currentStep.item == secondLastStep && currentStep.subItem == 1) {
+    return <Typewriter currentStep={currentStep} />;
+  }
   return (
     <div>
       <img
         src={`/assets/images/${
-          currentStep.item == 9 ? "gear.png" : "tools-gaskets.jpg"
+          currentStep.item == 8 ? "gear.png" : "tools-gaskets.jpg"
         } `}
         style={{ width: "100%" }}
       />

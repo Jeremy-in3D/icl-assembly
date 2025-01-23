@@ -46,13 +46,9 @@
     "taskEight": "Closing the dome and preparing the isotanks for transport back",
     "taskEightNarration": "One. Before closing the dome, double-check that all valves are closed and that the blind flanges are tightened. Two. Close the dome. Three. Connect the lock pin. Four. Connect the safety pin. Five. Install the security closure and register the number showing on the closure in the transport document. Six. Carefully climb down using the ladder Isotank. Seven. Conduct a visual examination around the Isotank. Eight. End of process",
 
-    "taskNine": "Emergency call center phone numbers",
+    "taskNine": "Safety and Emergency",
     "subTaskNineOne": "Safety Bromine Handbook",
     "subTaskNineTwo": "Emergency call center phone numbers",
-    "subTaskNineThree": "Brom assigned safety gear",
-
-    "taskTen": "Menu",
-    "subTaskTen": "Brom assigned safety gear",
-    "subTaskTenNarration": "Personal protective equipment. This includes: Respiratory protection. Self-contained breathing apparatus. An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only. The national Institute for occupational safety and health recommendations for respirator selection includes any chemical cartridge respirator with a full facepiece and cartridge. Only nonoxidizable sorbents are allowed. Hand protection. PVC or neoprene gloves. Eye protection. Chemical safety goggles or face shield with safety glasses. Skin and body protection. Protective impervious clothing, hard hat and neoprene or rubber boots."
+    "subTaskNineThree": "Brom assigned safety gear"
   }
 }

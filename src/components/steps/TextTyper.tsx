@@ -21,7 +21,6 @@ export const Typewriter = ({ currentStep }: any) => {
   //   }, [text, typingSpeed]);
 
   const narrationText = getNarrationText(currentStep);
-  // console.log({ narrationText });
 
   return (
     <div
@@ -105,22 +104,27 @@ const getNarrationText = (currentStep: any) => {
     const lastItemSubTexts: any = {
       0: [],
       1: [
-        "Emergency call center phone numbers",
-        "Emergency #1: 999-999-9999",
-        "emergency #2: 00-000-0000",
+        "Emergency call center phone numbers:",
+        <br />,
+        "1. Emergency #1: 999-999-9999",
+        "2. Emergency #2: 00-000-0000",
+        "3. Emergency #3: 12-345-6789",
       ],
       2: [
         "Personal protective equipment: ",
-        "Respiratory protection: Self-contained breathing apparatus.",
+        <br />,
+        "1. Respiratory protection: Self-contained breathing apparatus.",
         "An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only.",
         "NIOSH recommendations for respirator selection includes any chemical cartridge respirator with a full facepiece and cartridge. Only nonoxidizable sorbents are allowed",
-        "Hand protection: PVC or neoprene gloves.",
-        "Eye protection: Chemical safety goggles or face shield with safety glasses.",
-        "Skin and body protection: Protective impervious clothing, hard hat and neoprene or rubber boots.",
+        "2. Hand protection: PVC or neoprene gloves.",
+        "3. Eye protection: Chemical safety goggles or face shield with safety glasses.",
+        "4. Skin and body protection: Protective impervious clothing, hard hat and neoprene or rubber boots.",
       ],
     };
 
-    return subTexts[subItemIdx] || [""];
+    return currentStep.item == 8
+      ? lastItemSubTexts[subItemIdx]
+      : subTexts[subItemIdx];
   };
 
   const textByItem: any = {
@@ -173,16 +177,7 @@ const getNarrationText = (currentStep: any) => {
       "7. Conduct a visual examination around the Isotank.",
       "8. End of process.",
     ],
-    8: ["Safety Bromine Handbook"],
-    9: [
-      "Personal protective equipment: ",
-      "Respiratory protection: Self-contained breathing apparatus.",
-      "An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only.",
-      "NIOSH recommendations for respirator selection includes any chemical cartridge respirator with a full facepiece and cartridge. Only nonoxidizable sorbents are allowed",
-      "Hand protection: PVC or neoprene gloves.",
-      "Eye protection: Chemical safety goggles or face shield with safety glasses.",
-      "Skin and body protection: Protective impervious clothing, hard hat and neoprene or rubber boots.",
-    ],
+    8: subCategoryTexts(currentStep.subItem),
   };
 
   return textByItem[currentStep.item] || [""];

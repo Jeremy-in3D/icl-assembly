@@ -85,7 +85,7 @@ const Menu = ({
                         marginLeft: "0.5em",
                       }}
                     >
-                      {item.item}
+                      {item?.item}
                     </div>
                   </div>
                   <div>

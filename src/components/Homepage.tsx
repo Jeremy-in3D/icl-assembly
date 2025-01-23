@@ -6,7 +6,7 @@ import { ItemsMenu } from "./steps/ItemsMenu";
 import { useAppContext } from "../context/appContext";
 import { getItemsData } from "../common/getItemData";
 
-const numberOfSteps = 9;
+const numberOfSteps = 8;
 
 function Homepage() {
   // const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
