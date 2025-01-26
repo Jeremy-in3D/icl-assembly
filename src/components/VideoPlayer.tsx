@@ -69,6 +69,7 @@ export const VideoPlayer = ({
         key={src}
         controls
         autoPlay
+        preload="metadata"
         playsInline
         className={`video-player ${
           isQuestionaire ? "video-height smaller-vid" : ""
