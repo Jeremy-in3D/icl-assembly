@@ -67,7 +67,7 @@ const getNarrationText = (currentStep: any) => {
         "1. Disconnect the security pin.",
         "2. Remove the safety pin.",
         "3. Remove the lock pin.",
-        "4.Slowly and carefully open the dom.",
+        "4.Slowly and carefully open the dome.",
       ],
       // 3: [
       //   "Isotank's valves roles.",

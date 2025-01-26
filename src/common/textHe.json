@@ -27,7 +27,7 @@
     "subTaskFiveTwo": "Review the Isotank dome",
     "subTaskFiveTwoNarration": "The operator should review the following: One. The GPS unit that is responsible for locating the Isotank unit globally. Two. The dome's security pin. Three. The safety pin. Four. The lock pin.",
     "subTaskFiveThree": "Opening the dome protecting the Isotank valves",
-    "subTaskFiveThreeNarration": "One. Disconnect the security pin. Two. Remove the safety pin. Three. Remove the lock pin. Four. Slowly and carefully open the dom.",
+    "subTaskFiveThreeNarration": "One. Disconnect the security pin. Two. Remove the safety pin. Three. Remove the lock pin. Four. Slowly and carefully open the dome.",
     "subTaskFiveFour": "Isotank's valves roles.",
     "subTaskFiveFourNarration": "Isotank's valves roles. Yellow Valve. Dip Pipe. Red Valve. Pressure Relief (vent). Green Valve. Nitrogen Inlet.",
     "subTaskFiveFive": "Disconnecting blind flanges",
