@@ -101,7 +101,7 @@ any) => {
       const newUtterance = new SpeechSynthesisUtterance(text);
 
       if (voices.length > 0) {
-        console.log({ voices });
+        // console.log({ voices });
         const femaleVoice = voices.find(
           (voice: any) =>
             voice.name.includes("Zira") || // Zira Microsoft Asaf
@@ -109,8 +109,8 @@ any) => {
             (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
         );
 
-        // newUtterance.voice = femaleVoice || voices[0];
-        newUtterance.voice = voices[6];
+        newUtterance.voice = femaleVoice || voices[0];
+        // newUtterance.voice = voices[6];
       }
 
       newUtterance.rate = 0.8;
