@@ -12,9 +12,9 @@ import { useAppContext } from "../../context/appContext";
 
 const surveyOption = 2;
 const requiredTools = 2;
-const MAX_NUM_OF_iTEMS = 9;
+const MAX_NUM_OF_iTEMS = 8;
 // const stepWithNoNarration = 2;
-const secondLastStep = 8;
+const lastStep = 8;
 // const lastStep = 9;
 // const TOTAL_ITEMS_IN_STEP_5 = 7;
 
@@ -86,7 +86,7 @@ any) => {
   }, []);
 
   const handleSpeech = (text: any) => {
-    if (currentStep.item == secondLastStep) {
+    if (currentStep.item == lastStep) {
       return;
     }
 
@@ -101,6 +101,7 @@ any) => {
       const newUtterance = new SpeechSynthesisUtterance(text);
 
       if (voices.length > 0) {
+        console.log({ voices });
         const femaleVoice = voices.find(
           (voice: any) =>
             voice.name.includes("Zira") || // Zira Microsoft Asaf
@@ -108,7 +109,8 @@ any) => {
             (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
         );
 
-        newUtterance.voice = femaleVoice || voices[0];
+        // newUtterance.voice = femaleVoice || voices[0];
+        newUtterance.voice = voices[6];
       }
 
       newUtterance.rate = 0.8;
@@ -124,7 +126,7 @@ any) => {
 
   useEffect(() => {
     if (currentStep) {
-      if (currentStep.item == secondLastStep) {
+      if (currentStep.item == lastStep) {
         if (currentStep.subItem == 0 || currentStep.subItem == 1) {
           return;
         }
@@ -331,8 +333,8 @@ any) => {
 
       <div className="item-vid-player-wrapper">
         {currentStep.item == requiredTools ||
-        (currentStep.item == secondLastStep && currentStep.subItem == 2) ||
-        (currentStep.item == secondLastStep && currentStep.subItem == 1) ? (
+        (currentStep.item == lastStep && currentStep.subItem == 2) ||
+        (currentStep.item == lastStep && currentStep.subItem == 1) ? (
           <ImageToDisplay currentStep={currentStep} />
         ) : (
           <VideoPlayer
@@ -340,7 +342,7 @@ any) => {
             startTime={0}
             videoRef={videoRef}
             src={
-              currentStep.item == secondLastStep
+              currentStep.item == lastStep
                 ? "https://in3dwebsite.blob.core.windows.net/video/ICL bromine safety (1).mp4"
                 : `/assets/video/${videoToPlay}`
             } //{"/assets/video/13_compressed.mp4"}
@@ -430,7 +432,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
           onClick={() => handleCounterClick(true)}
           style={{
             padding:
-              currentStep.item == secondLastStep && currentStep.subItem == 2
+              currentStep.item == lastStep && currentStep.subItem == 2
                 ? "12px"
                 : "",
           }}
@@ -458,7 +460,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
 };
 
 const ImageToDisplay = ({ currentStep }: any) => {
-  if (currentStep.item == secondLastStep && currentStep.subItem == 1) {
+  if (currentStep.item == lastStep && currentStep.subItem == 1) {
     return <Typewriter currentStep={currentStep} />;
   }
   return (
