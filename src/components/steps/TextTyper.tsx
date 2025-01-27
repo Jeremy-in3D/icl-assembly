@@ -101,6 +101,7 @@ const getNarrationText = (currentStep: any) => {
         "4. Open the yellow valve on the isotank (deep pipe) and afterwards the pipe valve.",
         "5. Open the green valve on the isotank (air/nitrogen) and afterwards the pipe valve in a monitored and gradual manner.",
         "6. Using Ammonia 3%, check for leaks. In case of a leak or if the valve connection is inadequate a white smoke will appear. In this case, valves must be closed and all connections are to be rechecked.",
+        "7. At any stage of unloading: in case of a leak, close the green valve immediately (air pressure/Nitrogen discharge) and then the yellow valve.",
       ],
     };
 
@@ -149,7 +150,6 @@ const getNarrationText = (currentStep: any) => {
       "3. Wear a mask.",
       "4. Perform an impermeability test to the mask.",
       "5. Put on the head-dress and close the zipper of the suit.",
-      "6. In case of a leak, close the green faucet immediately (air pressure/Nitrogen discharge).",
     ],
     4: subCategoryTexts(currentStep.subItem),
     5: [
