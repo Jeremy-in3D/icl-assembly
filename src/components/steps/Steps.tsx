@@ -9,6 +9,7 @@ import { getItemsData } from "../../common/getItemData";
 import { getVideoSrc } from "../../common/getVideoSrc";
 import { Typewriter } from "./TextTyper";
 import { useAppContext } from "../../context/appContext";
+import { AudioPlayer } from "../common/AudioPlayer";
 
 const surveyOption = 2;
 const requiredTools = 2;
@@ -87,6 +88,11 @@ any) => {
 
   const handleSpeech = (text: any) => {
     if (currentStep.item == lastStep) {
+      return;
+    }
+
+    if (currentStep.item == 0) {
+      console.log("WE ARE HERE");
       return;
     }
 
@@ -318,6 +324,7 @@ any) => {
               }}
             />
           )}
+          {currentStep.item == 0 ? <AudioPlayer /> : null}
           {/* <RecordVoiceOverIcon
             fontSize="medium"
             sx={{ color: "white" }}

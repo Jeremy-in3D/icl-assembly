@@ -11,7 +11,7 @@
 
     "taskTwo": "Registering, checklist and preparing the Isotank before connecting",
     "subTaskTwo": "Checklist ",
-    "subTaskTwoNarration": "The operator needs to register the Isotank serial number and the test date which are printed on the Isotank body",
+    "subTaskTwoNarration": "The operator needs to register the Isotank serial number and the test date which are printed on the Isotank body.",
 
     "taskThree": "Required tools",
     "subTaskThree": "Required tools  ",
