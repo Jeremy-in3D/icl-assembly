@@ -56,7 +56,7 @@ const getAudioSrc = (currentStep: any) => {
 export const AudioPlayer = ({ currentStep }: any) => {
   const audioRef: MutableRefObject<any> = useRef(null);
   // const [isPlaying, setIsPlaying] = useState(false);
-  const [audioSrc, setAudioSrc] = useState("assets/audio/item-one.mp3");
+  const [audioSrc, setAudioSrc] = useState("");
 
   const { isPlayingAudio, setIsPlayingAudio } = useAppContext();
 
@@ -98,7 +98,10 @@ export const AudioPlayer = ({ currentStep }: any) => {
   return (
     <div>
       <audio ref={audioRef}>
-        <source src={audioSrc} type="audio/mp3" />
+        <source
+          src={audioSrc ? audioSrc : "assets/audio/item-one.mp3"}
+          type="audio/mp3"
+        />
         Your browser does not support the audio element.
       </audio>
       <button onClick={isPlayingAudio ? handlePause : handlePlay}>
