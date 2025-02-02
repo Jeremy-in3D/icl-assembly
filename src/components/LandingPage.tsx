@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChooseLanguage } from "./ChooseLanguage";
+import Modal from "react-modal";
 // import { OpeningVideo } from "./OpeningVideo";
+
+Modal.setAppElement("#root");
 
 type LandingPageProps = {
   setViewedOpeningVid: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,17 +22,143 @@ export function LandingPage({
     console.log(language);
   }
 
-  const appStart = // language ? (
-    (
-      //   <OpeningVideo setViewedOpeningVid={setViewedOpeningVid} />
-      // ) : (
-      <ChooseLanguage
-        setLanguage={setLanguage}
-        setCurrentLanguage={setCurrentLanguage}
-        setViewedOpeningVid={setViewedOpeningVid}
-      />
-    );
+  const appStart = language ? (
+    //   <OpeningVideo setViewedOpeningVid={setViewedOpeningVid} />
+    <IntroText setViewedOpeningVid={setViewedOpeningVid} />
+  ) : (
+    <ChooseLanguage
+      setLanguage={setLanguage}
+      setCurrentLanguage={setCurrentLanguage}
+    />
+  );
   // );
 
   return <div>{appStart}</div>;
 }
+
+type IntroTextProps = {
+  setViewedOpeningVid: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const IntroText = ({ setViewedOpeningVid }: IntroTextProps) => {
+  const [modalIsOpen, setIsOpen] = useState(true);
+  const [hasSeenAni, setHasSeenAni] = useState(false);
+
+  useEffect(() => {
+    if (!hasSeenAni) {
+      setTimeout(() => setHasSeenAni(true), 1000);
+    }
+  }, []);
+
+  return (
+    <div
+      style={
+        {
+          // position: "absolute",
+          // border: "1px solid yellow",
+          // background: "rgb(0,0,0,0.5)",
+          // height: "50%",
+          // zIndex: 500,
+          // width: "50%",
+        }
+      }
+    >
+      Some Text
+      <ModalComponent
+        setViewedOpeningVid={setViewedOpeningVid}
+        modalIsOpen={modalIsOpen}
+        setIsOpen={setIsOpen}
+        hasSeenAni={hasSeenAni}
+      />
+    </div>
+  );
+};
+
+const customStyles = {
+  content: {
+    backgroundImage: "url(/assets/images/icl-symbol.png)",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    backgroundColor: "white",
+  },
+};
+
+type ModalProps = {
+  setViewedOpeningVid: React.Dispatch<React.SetStateAction<boolean>>;
+  modalIsOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  hasSeenAni: boolean;
+};
+
+const ModalComponent = ({
+  setViewedOpeningVid,
+  modalIsOpen,
+  setIsOpen,
+  hasSeenAni,
+}: ModalProps) => (
+  <>
+    <Modal
+      isOpen={modalIsOpen}
+      // onRequestClose={closeModal}
+      style={customStyles}
+      // style={}
+
+      contentLabel="Example Modal"
+      onAfterClose={() => {
+        // setIsDescriptionModal(false);
+        setViewedOpeningVid(true);
+      }}
+      // sty
+    >
+      <div className={` ${hasSeenAni ? "fade-in-stay" : "no-opacity"}`}>
+        <div
+          style={{
+            // color: "black",
+            marginTop: "4em",
+            fontFamily: "crimson-reg",
+            fontSize: "1.3em",
+            color: "black",
+            width: "100%",
+            // padding: "6px",
+          }}
+        >
+          Welcome to this safety training video, designed to guide operators in
+          the proper handling and unloading procedures for Bromine-containing
+          Isotanks. Bromine (UN-1744) is a hazardous material, and as such, you
+          will encounter various safety labels and warning signs on the Isotank.
+          These containers are specially designed for transporting Bromine and
+          are internally coated with lead to ensure safe transit. This video
+          will walk you through essential safety protocols, including
+          preparation, personal protective equipment (PPE), proper unloading
+          techniques, and emergency procedures to ensure a safe and efficient
+          process.
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "1em",
+          }}
+        >
+          <button
+            onClick={() => {
+              console.log("HAGA");
+              setIsOpen(false);
+              setViewedOpeningVid(true);
+            }}
+            style={{
+              // all: "unset",
+              borderRadius: "12px",
+              border: "1px solid rgb(0,0,0,0.6)",
+              padding: "5px",
+              fontSize: "1.2em",
+            }}
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+    </Modal>
+  </>
+);

@@ -324,7 +324,9 @@ any) => {
               }}
             />
           )}
-          {currentStep.item == 0 ? <AudioPlayer /> : null}
+          {/* {currentStep.item == 0 ? ( */}
+          <AudioPlayer currentStep={currentStep} />
+          {/* ) : null} */}
           {/* <RecordVoiceOverIcon
             fontSize="medium"
             sx={{ color: "white" }}

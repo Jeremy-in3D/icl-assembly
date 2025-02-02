@@ -17,6 +17,8 @@ type Context = {
   setIsNarrationMuted: React.Dispatch<React.SetStateAction<boolean>>;
   hasUserUnmutedNarrationOnce: boolean;
   setHasUserUnmutedNarrationOnce: React.Dispatch<React.SetStateAction<boolean>>;
+  modalIsOpen: boolean;
+  setModalIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -27,6 +29,8 @@ export default function AppContextProvider({
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [currentStep, setCurrentStep] = useState<any>(null);
   const [menuData, setMenuData] = useState<any[]>([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const [openPdf, setOpenPdf] = useState<boolean>(false);
   const [isNarrationMuted, setIsNarrationMuted] = useState<boolean>(true);
   const [hasUserUnmutedNarrationOnce, setHasUserUnmutedNarrationOnce] =
@@ -47,6 +51,8 @@ export default function AppContextProvider({
         setIsNarrationMuted,
         hasUserUnmutedNarrationOnce,
         setHasUserUnmutedNarrationOnce,
+        modalIsOpen,
+        setModalIsOpen,
       }}
     >
       {children}
@@ -73,6 +79,8 @@ export function useAppContext() {
       setIsNarrationMuted: () => {},
       hasUserUnmutedNarrationOnce: false,
       setHasUserUnmutedNarrationOnce: () => {},
+      modalIsOpen: false,
+      setModalIsOpen: () => {},
     };
   }
 

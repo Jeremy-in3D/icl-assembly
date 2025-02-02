@@ -6,7 +6,6 @@ const hebrew = "he";
 
 export const Topbar = ({
   currentLanguage,
-  viewedOpeningVid,
   setCurrentLanguage,
   toggleMenu,
 }: any) => {
@@ -73,7 +72,7 @@ export const Topbar = ({
           </div>
         ) : null}
 
-        {viewedOpeningVid && currentStep ? (
+        {currentStep ? (
           <div
             style={{
               display: "flex",
