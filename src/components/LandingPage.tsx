@@ -42,7 +42,7 @@ type IntroTextProps = {
 };
 
 const IntroText = ({ setViewedOpeningVid }: IntroTextProps) => {
-  const [modalIsOpen, setIsOpen] = useState(true);
+  // const [modalIsOpen, setIsOpen] = useState(true);
   const [hasSeenAni, setHasSeenAni] = useState(false);
 
   useEffect(() => {
@@ -72,32 +72,32 @@ const IntroText = ({ setViewedOpeningVid }: IntroTextProps) => {
       /> */}
       <TextComponent
         setViewedOpeningVid={setViewedOpeningVid}
-        setIsOpen={setIsOpen}
+        // setIsOpen={setIsOpen}
         hasSeenAni={hasSeenAni}
       />
     </div>
   );
 };
 
-const customStyles = {
-  content: {
-    backgroundImage: "url(/assets/images/icl-symbol.png)",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "contain",
-    backgroundColor: "white",
-    padding: 0,
-    // position: "absolute",
-    // height: "100%",
-  },
-};
+// const customStyles = {
+//   content: {
+//     backgroundImage: "url(/assets/images/icl-symbol.png)",
+//     backgroundRepeat: "no-repeat",
+//     backgroundPosition: "center",
+//     backgroundSize: "contain",
+//     backgroundColor: "white",
+//     padding: 0,
+//     // position: "absolute",
+//     // height: "100%",
+//   },
+// };
 
-type ModalProps = {
-  setViewedOpeningVid: React.Dispatch<React.SetStateAction<boolean>>;
-  modalIsOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  hasSeenAni: boolean;
-};
+// type ModalProps = {
+//   setViewedOpeningVid: React.Dispatch<React.SetStateAction<boolean>>;
+//   modalIsOpen: boolean;
+//   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+//   hasSeenAni: boolean;
+// };
 
 // const ModalComponent = ({
 //   setViewedOpeningVid,
@@ -178,7 +178,7 @@ type ModalProps = {
 //   </>
 // );
 
-const TextComponent = ({ setViewedOpeningVid, setIsOpen, hasSeenAni }: any) => {
+const TextComponent = ({ setViewedOpeningVid, hasSeenAni }: any) => {
   return (
     <div
       className={` ${hasSeenAni ? "fade-in-stay" : "no-opacity"}`}
@@ -225,7 +225,7 @@ const TextComponent = ({ setViewedOpeningVid, setIsOpen, hasSeenAni }: any) => {
         <button
           onClick={() => {
             console.log("HAGA");
-            setIsOpen(false);
+            // setIsOpen(false);
             setViewedOpeningVid(true);
           }}
           style={{
