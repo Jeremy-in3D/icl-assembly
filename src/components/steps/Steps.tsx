@@ -71,6 +71,7 @@ any) => {
     setIsNarrationMuted,
     hasUserUnmutedNarrationOnce,
     setHasUserUnmutedNarrationOnce,
+    setIsPlayingAudio,
   } = useAppContext();
 
   useEffect(() => {
@@ -173,6 +174,7 @@ any) => {
   };
 
   const handleCounterClick = (nextStepBtnClicked: any) => {
+    setIsPlayingAudio(false);
     setIsShouldShowNarrationText(false);
     if (utterance) {
       window.speechSynthesis.cancel();

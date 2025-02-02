@@ -81,6 +81,7 @@ const customStyles = {
     backgroundPosition: "center",
     backgroundSize: "contain",
     backgroundColor: "white",
+    padding: 0,
   },
 };
 
@@ -111,7 +112,10 @@ const ModalComponent = ({
       }}
       // sty
     >
-      <div className={` ${hasSeenAni ? "fade-in-stay" : "no-opacity"}`}>
+      <div
+        className={` ${hasSeenAni ? "fade-in-stay" : "no-opacity"}`}
+        style={{ width: "100%" }}
+      >
         <div
           style={{
             // color: "black",
@@ -119,8 +123,8 @@ const ModalComponent = ({
             fontFamily: "crimson-reg",
             fontSize: "1.3em",
             color: "black",
-            width: "100%",
-            // padding: "6px",
+            width: "96%",
+            // padding: "6 .px",
           }}
         >
           Welcome to this safety training video, designed to guide operators in
@@ -153,6 +157,7 @@ const ModalComponent = ({
               border: "1px solid rgb(0,0,0,0.6)",
               padding: "5px",
               fontSize: "1.2em",
+              background: "none",
             }}
           >
             Continue

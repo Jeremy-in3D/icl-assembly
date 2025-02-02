@@ -1,4 +1,5 @@
-import { MutableRefObject, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { useAppContext } from "../../context/appContext";
 
 const getAudioSrc = (currentStep: any) => {
   if (currentStep.item === 4) {
@@ -54,38 +55,54 @@ const getAudioSrc = (currentStep: any) => {
 
 export const AudioPlayer = ({ currentStep }: any) => {
   const audioRef: MutableRefObject<any> = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isPlaying, setIsPlaying] = useState(false);
+  const [audioSrc, setAudioSrc] = useState("");
 
-  const srcToPlay = getAudioSrc(currentStep);
+  const { isPlayingAudio, setIsPlayingAudio } = useAppContext();
 
-  console.log({ srcToPlay });
+  // useEffect(() => {
+  //   if (audioRef.current) {
+  //     audioRef.current.pause();
+  //   }
+  //   const srcToPlay = getAudioSrc(currentStep);
+  //   setAudioSrc(`assets/audio/item-${srcToPlay}`);
+  //   console.log(`Playing audio from: assets/audio/item-${srcToPlay}`);
+  // }, [currentStep]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause(); // Pause current playback
+      const srcToPlay = getAudioSrc(currentStep);
+      setAudioSrc(`assets/audio/item-${srcToPlay}`);
+      audioRef.current.load(); // Load the new audio source
+    }
+  }, [currentStep]);
 
   const handlePlay = () => {
     if (audioRef.current) {
       audioRef.current.currentTime = 0; // Reset to start
       audioRef.current.play();
-      setIsPlaying(true);
+      setIsPlayingAudio(true);
     }
   };
 
   const handlePause = () => {
     if (audioRef.current) {
       audioRef.current.pause();
-      setIsPlaying(false);
+      setIsPlayingAudio(false);
     }
   };
+
+  // console.log(`assets/audio/item-${audioSrc}`);
 
   return (
     <div>
       <audio ref={audioRef}>
-        <source
-          src={srcToPlay ? `assets/audio/${srcToPlay}` : ""}
-          type="audio/mp3"
-        />
+        <source src={audioSrc} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
-      <button onClick={isPlaying ? handlePause : handlePlay}>
-        {isPlaying ? "Pause" : "Play"}
+      <button onClick={isPlayingAudio ? handlePause : handlePlay}>
+        {isPlayingAudio ? "Pause" : "Play"}
       </button>
     </div>
   );
