@@ -56,7 +56,7 @@ const getAudioSrc = (currentStep: any) => {
 export const AudioPlayer = ({ currentStep }: any) => {
   const audioRef: MutableRefObject<any> = useRef(null);
   // const [isPlaying, setIsPlaying] = useState(false);
-  const [audioSrc, setAudioSrc] = useState("");
+  const [audioSrc, setAudioSrc] = useState("assets/audio/item-one.mp3");
 
   const { isPlayingAudio, setIsPlayingAudio } = useAppContext();
 
