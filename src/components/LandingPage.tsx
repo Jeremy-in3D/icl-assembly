@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChooseLanguage } from "./ChooseLanguage";
 import Modal from "react-modal";
+import { Position } from "@react-pdf-viewer/core";
 // import { OpeningVideo } from "./OpeningVideo";
 
 Modal.setAppElement("#root");
@@ -33,7 +34,7 @@ export function LandingPage({
   );
   // );
 
-  return <div>{appStart}</div>;
+  return <div style={{ height: "100%" }}>{appStart}</div>;
 }
 
 type IntroTextProps = {
@@ -52,21 +53,25 @@ const IntroText = ({ setViewedOpeningVid }: IntroTextProps) => {
 
   return (
     <div
-      style={
-        {
-          // position: "absolute",
-          // border: "1px solid yellow",
-          // background: "rgb(0,0,0,0.5)",
-          // height: "50%",
-          // zIndex: 500,
-          // width: "50%",
-        }
-      }
+      style={{
+        height: "100%",
+        // position: "absolute",
+        // border: "1px solid yellow",
+        // background: "rgb(0,0,0,0.5)",
+        // height: "50%",
+        // zIndex: 500,
+        // width: "50%",
+      }}
     >
-      Some Text
+      {/* Some Text
       <ModalComponent
         setViewedOpeningVid={setViewedOpeningVid}
         modalIsOpen={modalIsOpen}
+        setIsOpen={setIsOpen}
+        hasSeenAni={hasSeenAni}
+      /> */}
+      <TextComponent
+        setViewedOpeningVid={setViewedOpeningVid}
         setIsOpen={setIsOpen}
         hasSeenAni={hasSeenAni}
       />
@@ -105,8 +110,6 @@ const ModalComponent = ({
       isOpen={modalIsOpen}
       // onRequestClose={closeModal}
       style={customStyles}
-      // style={}
-
       contentLabel="Example Modal"
       onAfterClose={() => {
         // setIsDescriptionModal(false);
@@ -116,7 +119,9 @@ const ModalComponent = ({
     >
       <div
         className={` ${hasSeenAni ? "fade-in-stay" : "no-opacity"}`}
-        style={{ width: "100%" }}
+        style={{
+          width: "100%",
+        }}
       >
         <div
           style={{
@@ -131,16 +136,16 @@ const ModalComponent = ({
           }}
         >
           <p style={{ overflowX: "hidden" }}>
-            Welcome to this safety training video, designed to guide operators
-            in the proper handling and unloading procedures for
-            Bromine-containing Isotanks. Bromine (UN-1744) is a hazardous
-            material, and as such, you will encounter various safety labels and
-            warning signs on the Isotank. These containers are specially
-            designed for transporting Bromine and are internally coated with
-            lead to ensure safe transit. This video will walk you through
-            essential safety protocols, including preparation, personal
-            protective equipment (PPE), proper unloading techniques, and
-            emergency procedures to ensure a safe and efficient process.
+            <span style={{ fontWeight: "bold" }}>Welcome</span> to this safety
+            training video, designed to guide operators in the proper handling
+            and unloading procedures for Bromine-containing Isotanks. Bromine
+            (UN-1744) is a hazardous material, and as such, you will encounter
+            various safety labels and warning signs on the Isotank. These
+            containers are specially designed for transporting Bromine and are
+            internally coated with lead to ensure safe transit. This video will
+            walk you through essential safety protocols, including preparation,
+            personal protective equipment (PPE), proper unloading techniques,
+            and emergency procedures to ensure a safe and efficient process.
           </p>
         </div>
         <div
@@ -172,3 +177,69 @@ const ModalComponent = ({
     </Modal>
   </>
 );
+
+const TextComponent = ({ setViewedOpeningVid, setIsOpen, hasSeenAni }: any) => {
+  return (
+    <div
+      className={` ${hasSeenAni ? "fade-in-stay" : "no-opacity"}`}
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <div
+        style={{
+          // color: "black",
+          marginTop: "6em",
+          fontFamily: "crimson-reg",
+          fontSize: "1.3em",
+          color: "black",
+          width: "96%",
+          // padding: "6 .px",
+          overflowX: "hidden",
+          border: "1px solid rgb(0,0,0,0.6)",
+          borderRadius: "12px",
+          padding: "8px",
+        }}
+      >
+        <p style={{ overflowX: "hidden" }}>
+          Welcome to this safety training video, designed to guide operators in
+          the proper handling and unloading procedures for Bromine-containing
+          Isotanks. Bromine (UN-1744) is a hazardous material, and as such, you
+          will encounter various safety labels and warning signs on the Isotank.
+          These containers are specially designed for transporting Bromine and
+          are internally coated with lead to ensure safe transit. This video
+          will walk you through essential safety protocols, including
+          preparation, personal protective equipment (PPE), proper unloading
+          techniques, and emergency procedures to ensure a safe and efficient
+          process.
+        </p>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "1em",
+        }}
+      >
+        <button
+          onClick={() => {
+            console.log("HAGA");
+            setIsOpen(false);
+            setViewedOpeningVid(true);
+          }}
+          style={{
+            // all: "unset",
+            borderRadius: "12px",
+            border: "1px solid rgb(0,0,0,0.6)",
+            padding: "5px",
+            fontSize: "1.2em",
+            background: "none",
+          }}
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+  );
+};
