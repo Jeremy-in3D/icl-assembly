@@ -239,6 +239,7 @@ const TextComponent = ({ setViewedOpeningVid, hasSeenAni }: any) => {
         >
           Continue
         </button>
+        <div style={{ height: "20px" }}></div>
       </div>
     </div>
   );
