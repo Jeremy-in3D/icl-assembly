@@ -14,14 +14,26 @@ export function ItemsMenu() {
   const { currentStep, setCurrentStep, menuData } = useAppContext();
 
   const handleItemClick = (itemIdx: number) => {
-    if (openedItems.includes(itemIdx)) {
-      const openedItemsCopy = [...openedItems];
-      const filteredArr = openedItemsCopy.filter((item) => item != itemIdx);
-      setOpenedItems(filteredArr);
+    if (menuData[itemIdx].subItems.length == 1) {
+      setCurrentStep({ item: itemIdx, subItem: 0 });
     } else {
-      const openedItemsCopy = [...openedItems, itemIdx];
-      setOpenedItems(openedItemsCopy);
+      if (openedItems.includes(itemIdx)) {
+        const openedItemsCopy = [...openedItems];
+        const filteredArr = openedItemsCopy.filter((item) => item != itemIdx);
+        setOpenedItems(filteredArr);
+      } else {
+        const openedItemsCopy = [...openedItems, itemIdx];
+        setOpenedItems(openedItemsCopy);
+      }
     }
+    // if (openedItems.includes(itemIdx)) {
+    //   const openedItemsCopy = [...openedItems];
+    //   const filteredArr = openedItemsCopy.filter((item) => item != itemIdx);
+    //   setOpenedItems(filteredArr);
+    // } else {
+    //   const openedItemsCopy = [...openedItems, itemIdx];
+    //   setOpenedItems(openedItemsCopy);
+    // }
   };
 
   const handleSubItemClick = (itemIdx: number, subItemIdx: number) => {
@@ -89,7 +101,9 @@ const Menu = ({
                     </div>
                   </div>
                   <div>
-                    {openedItems.includes(itemIdx) ? (
+                    {menuData[itemIdx].subItems.length == 1 ? (
+                      <></>
+                    ) : openedItems.includes(itemIdx) ? (
                       <ArrowDropUpIcon />
                     ) : (
                       <ArrowDropDownIcon />

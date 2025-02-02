@@ -13,16 +13,32 @@ export function SlideMenu({ toggleMenu }: any) {
   }, []);
 
   const handleItemClick = (itemIdx: number) => {
-    if (openedItems.includes(itemIdx)) {
-      const openedItemsCopy = [...openedItems];
-      const filteredArr = openedItemsCopy.filter((item) => item != itemIdx);
-      setOpenedItems(filteredArr);
+    if (menuData[itemIdx].subItems.length == 1) {
+      setCurrentStep({ item: itemIdx, subItem: 0 });
+      setMenuOpen(false);
     } else {
-      const openedItemsCopy = [...openedItems, itemIdx];
-      setOpenedItems(openedItemsCopy);
+      if (openedItems.includes(itemIdx)) {
+        const openedItemsCopy = [...openedItems];
+        const filteredArr = openedItemsCopy.filter((item) => item != itemIdx);
+        setOpenedItems(filteredArr);
+      } else {
+        const openedItemsCopy = [...openedItems, itemIdx];
+        setOpenedItems(openedItemsCopy);
+      }
     }
-    // setMenuOpen(false);
   };
+
+  // const handleItemClick = (itemIdx: number) => {
+  //   if (openedItems.includes(itemIdx)) {
+  //     const openedItemsCopy = [...openedItems];
+  //     const filteredArr = openedItemsCopy.filter((item) => item != itemIdx);
+  //     setOpenedItems(filteredArr);
+  //   } else {
+  //     const openedItemsCopy = [...openedItems, itemIdx];
+  //     setOpenedItems(openedItemsCopy);
+  //   }
+  //   // setMenuOpen(false);
+  // };
 
   const handleSubItemClick = (itemIdx: number, subItemIdx: number) => {
     window.speechSynthesis.cancel();
@@ -86,7 +102,9 @@ export function SlideMenu({ toggleMenu }: any) {
                       </div>
                     </div>
                     <div>
-                      {openedItems.includes(itemIdx) ? (
+                      {menuData[itemIdx].subItems.length == 1 ? (
+                        <></>
+                      ) : openedItems.includes(itemIdx) ? (
                         <ArrowDropUpIcon />
                       ) : (
                         <ArrowDropDownIcon />

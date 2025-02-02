@@ -37,7 +37,7 @@
     "subTaskFiveSeven": "Opening valves and start unloading the Bromine",
     "subTaskFiveSevenNarration": "One. Before unloading, make sure the scrubber is fresh and active properly. Two. The unloading will take place only by using Nitrogen/dry air. Three. Make sure the red valve is closed (Vent). Four. Open the yellow valve on the isotank (deep pipe) and afterwards the pipe valve. Five. Open the green valve on the isotank (air/nitrogen) and afterwards the pipe valve in a monitored and gradual manner. Six. Using Ammonia 3%, check for leaks. In case of a leak or if the valve connection is inadequate a white smoke will appear. In this case, valves must be closed and all connections are to be rechecked. Seven. At any stage of unloading: in case of a leak, close the green valve immediately (air pressure/Nitrogen discharge), and then the yellow valve.",
 
-    "taskSix": "Ending unloading the bromine and preparations for disconnecting the pipes",
+    "taskSix": "Ending the bromine unloading and preparations for disconnecting the pipes",
     "taskSixNarration": "One. Close the pipe green valve (air/nitrogen). Two. Close the pipe yellow valve (deep pipe). Three. Open the pipe red valve (vent). Four. Open the red valve on the isotank (Vent). Five. Check for leaks using Ammonia 3% through the red valve. In case of a leak, white smoke will appear and operator must close all valves and recheck connections. Six. Wait for the pressure in the isotank to release. Seven. Close the green valve on the isotank. Eight. Close the yellow valve on the isotank. Nine. Wait until the pressure reduces to 0 in your system. Ten. Close the red valve on the isotanks and then the pipe's red valve.",
 
     "taskSeven": "Disconnecting the pipes and installing the blind flanges",
