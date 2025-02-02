@@ -97,6 +97,8 @@ any) => {
       return;
     }
 
+    return;
+
     if ("speechSynthesis" in window) {
       if (utterance) {
         window.speechSynthesis.cancel();
