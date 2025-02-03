@@ -190,7 +190,7 @@ const TextComponent = ({ setViewedOpeningVid, hasSeenAni }: any) => {
       <div
         style={{
           // color: "black",
-          marginTop: "6em",
+          marginTop: "5em",
           fontFamily: "crimson-reg",
           fontSize: "1.3em",
           color: "black",
@@ -214,6 +214,7 @@ const TextComponent = ({ setViewedOpeningVid, hasSeenAni }: any) => {
           techniques, and emergency procedures to ensure a safe and efficient
           process.
         </p>
+        <span style={{ height: "1em", border: "1px solid white" }}></span>
       </div>
       <div
         style={{
@@ -232,9 +233,9 @@ const TextComponent = ({ setViewedOpeningVid, hasSeenAni }: any) => {
             // all: "unset",
             borderRadius: "12px",
             border: "1px solid rgb(0,0,0,0.6)",
-            padding: "5px",
+            padding: "6px",
             fontSize: "1.2em",
-            background: "none",
+            background: "var(--blue3opaque)",
             color: "black",
           }}
         >

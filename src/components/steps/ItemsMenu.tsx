@@ -55,7 +55,11 @@ export function ItemsMenu() {
         />
       ) : (
         <Suspense fallback={null}>
-          <Item currentStep={currentStep} setCurrentStep={setCurrentStep} />
+          <Item
+            currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
+            key={`${currentStep?.item}-${currentStep?.subItem}`}
+          />
         </Suspense>
       )}
     </div>

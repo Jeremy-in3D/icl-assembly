@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useAppContext } from "../../context/appContext";
+import VolumeOffIcon from "@mui/icons-material/VolumeOff";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 
 const getAudioSrc = (currentStep: any) => {
   if (currentStep.item === 4) {
@@ -55,28 +57,14 @@ const getAudioSrc = (currentStep: any) => {
 
 export const AudioPlayer = ({ currentStep }: any) => {
   const audioRef: any = useRef(null);
-  // const [isPlaying, setIsPlaying] = useState(false);
   const [audioSrc, setAudioSrc] = useState("");
 
-  const { isPlayingAudio, setIsPlayingAudio } = useAppContext();
-
-  // useEffect(() => {
-  //   if (audioRef.current) {
-  //     audioRef.current.pause();
-  //   }
-  //   const srcToPlay = getAudioSrc(currentStep);
-  //   setAudioSrc(`assets/audio/item-${srcToPlay}`);
-  //   console.log(`Playing audio from: assets/audio/item-${srcToPlay}`);
-  // }, [currentStep]);
-
-  // useEffect(() => {
-  //   if (audioRef.current) {
-  //     audioRef.current.pause(); // Pause current playback
-  //     const srcToPlay = getAudioSrc(currentStep);
-  //     setAudioSrc(`assets/audio/item-${srcToPlay}`);
-  //     audioRef.current.load(); // Load the new audio source
-  //   }
-  // }, [currentStep]);
+  const {
+    isPlayingAudio,
+    setIsPlayingAudio,
+    hasUserUnmutedNarrationOnce,
+    setHasUserUnmutedNarrationOnce,
+  } = useAppContext();
 
   useEffect(() => {
     const srcToPlay = getAudioSrc(currentStep);
@@ -88,11 +76,20 @@ export const AudioPlayer = ({ currentStep }: any) => {
     if (audioRef.current && audioSrc) {
       audioRef.current.load();
     }
+
+    if (isPlayingAudio) {
+      setTimeout(() => handlePlay(), 800);
+    } else {
+      // handlePlay();
+    }
   }, [audioSrc]);
 
   const handlePlay = () => {
+    if (!hasUserUnmutedNarrationOnce) {
+      setHasUserUnmutedNarrationOnce(true);
+    }
     if (audioRef.current) {
-      audioRef.current.currentTime = 0; // Reset to start
+      audioRef.current.currentTime = 0;
       audioRef.current.play();
       setIsPlayingAudio(true);
     }
@@ -108,14 +105,38 @@ export const AudioPlayer = ({ currentStep }: any) => {
   // console.log(`assets/audio/item-${audioSrc}`);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
       <audio ref={audioRef}>
         <source src={audioSrc ? audioSrc : ""} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
-      <button onClick={isPlayingAudio ? handlePause : handlePlay}>
+      {/* <button onClick={isPlayingAudio ? handlePause : handlePlay}>
         {isPlayingAudio ? "Pause" : "Play"}
-      </button>
+      </button> */}
+      {!isPlayingAudio ? (
+        <VolumeOffIcon
+          fontSize="medium"
+          sx={{
+            color: "white",
+          }}
+          onClick={() => {
+            handlePlay();
+          }}
+        />
+      ) : (
+        <VolumeUpIcon
+          fontSize="medium"
+          sx={{ color: "white" }}
+          onClick={() => {
+            handlePause();
+          }}
+        />
+      )}
     </div>
   );
 };

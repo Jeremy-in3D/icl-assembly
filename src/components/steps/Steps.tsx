@@ -1,7 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
-// import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
-import VolumeOffIcon from "@mui/icons-material/VolumeOff";
-import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import React, { useRef, useState } from "react";
 import { VideoPlayer } from "../VideoPlayer";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -60,104 +57,13 @@ const Text = ({
   numberOfSubItemsInCurrentItem,
 }: // containerRef,
 any) => {
-  const [voices, setVoices] = useState<any>([]);
   const [utterance, setUtterance] = useState<any>(null);
   const [narrationText, setNarrationText] = useState("");
   const [isShouldShowNarrationText, setIsShouldShowNarrationText] =
     useState<boolean>(true);
   // const speechRate = 25; // Speech rate used in the utterance
 
-  const {
-    setIsNarrationMuted,
-    hasUserUnmutedNarrationOnce,
-    setHasUserUnmutedNarrationOnce,
-    setIsPlayingAudio,
-  } = useAppContext();
-
-  useEffect(() => {
-    const getVoices = () => {
-      const voiceList = window.speechSynthesis.getVoices();
-      setVoices(voiceList);
-    };
-
-    getVoices();
-    // Firefox does not support the voiceschanged event
-    if (window.speechSynthesis.onvoiceschanged !== undefined) {
-      window.speechSynthesis.onvoiceschanged = getVoices;
-    }
-  }, []);
-
-  const handleSpeech = (text: any) => {
-    if (currentStep.item == lastStep) {
-      return;
-    }
-
-    if (currentStep.item == 0) {
-      console.log("WE ARE HERE");
-      return;
-    }
-
-    return;
-
-    if ("speechSynthesis" in window) {
-      if (utterance) {
-        window.speechSynthesis.cancel();
-        setNarrationText("");
-        setUtterance(null);
-        return;
-      }
-
-      const newUtterance = new SpeechSynthesisUtterance(text);
-
-      if (voices.length > 0) {
-        // console.log({ voices });
-        const femaleVoice = voices.find(
-          (voice: any) =>
-            voice.name.includes("Zira") || // Zira Microsoft Asaf
-            voice.name.includes("Samantha") || // Common female names in macOS/iOS
-            (voice.name.includes("Google") && voice.name.includes("Female")) // common on Android
-        );
-
-        newUtterance.voice = femaleVoice || voices[0];
-        // newUtterance.voice = voices[6];
-      }
-
-      newUtterance.rate = 0.8;
-      setNarrationText(text);
-      window.speechSynthesis.speak(newUtterance);
-      setUtterance(newUtterance);
-
-      newUtterance.onend = () => setUtterance(null);
-    } else {
-      alert("Sorry, your browser does not support text-to-speech.");
-    }
-  };
-
-  useEffect(() => {
-    if (currentStep) {
-      if (currentStep.item == lastStep) {
-        if (currentStep.subItem == 0 || currentStep.subItem == 1) {
-          return;
-        }
-      }
-      const textToSpeak =
-        data?.subItems[currentStep.subItem][currentStep.subItem].narration;
-
-      if (textToSpeak && !utterance) {
-        const timer = setTimeout(() => {
-          setIsShouldShowNarrationText(true);
-          if (hasUserUnmutedNarrationOnce) {
-            handleSpeech(textToSpeak);
-          }
-        }, 1200);
-
-        // Cleanup the timer if the component unmounts or if currentStep changes again
-        return () => {
-          clearTimeout(timer);
-        };
-      }
-    }
-  }, [currentStep]);
+  const { hasUserUnmutedNarrationOnce } = useAppContext();
 
   if (!currentStep) {
     return null;
@@ -176,7 +82,7 @@ any) => {
   };
 
   const handleCounterClick = (nextStepBtnClicked: any) => {
-    setIsPlayingAudio(false);
+    // setIsPlayingAudio(false);
     setIsShouldShowNarrationText(false);
     if (utterance) {
       window.speechSynthesis.cancel();
@@ -186,18 +92,6 @@ any) => {
     if (numberOfSubItemsInCurrentItem === undefined) {
       return null;
     }
-    // if (containerRef.current) {
-    //   console.log("JAJAJAHA");
-    //   const newScrollTop = 0; // containerRef.current.scrollHeight * 0.1; // Calculating 10% down from the top
-    //   containerRef.current.scrollTo({
-    //     top: newScrollTop,
-    //     behavior: "smooth", // Adds a smooth scrolling effect
-    //   });
-    //   window.scrollTo({
-    //     top: newScrollTop,
-    //     behavior: "smooth", // Adds a smooth scrolling effect
-    //   });
-    // }
 
     if (nextStepBtnClicked) {
       // NEXT BTN
@@ -291,56 +185,7 @@ any) => {
           }`}
           style={{ border: utterance ? "1px solid green" : "" }}
         >
-          {!utterance ? (
-            <VolumeOffIcon
-              fontSize="medium"
-              sx={{
-                color: "white",
-                // border: "2px solid transparent", // Initial border setup
-                // animation: "border-flash 1.4s infinite",
-                // "@keyframes border-flash": {
-                //   "0%": { borderColor: "green" },
-                //   "50%": { borderColor: "transparent" },
-                //   "100%": { borderColor: "green" },
-                // },
-              }}
-              onClick={() => {
-                if (!hasUserUnmutedNarrationOnce) {
-                  setHasUserUnmutedNarrationOnce(true);
-                }
-                handleSpeech(
-                  data?.subItems[currentStep.subItem][currentStep.subItem]
-                    .narration
-                );
-                setIsNarrationMuted(false);
-              }}
-            />
-          ) : (
-            <VolumeUpIcon
-              fontSize="medium"
-              sx={{ color: "white" }}
-              onClick={() => {
-                handleSpeech(
-                  data?.subItems[currentStep.subItem][currentStep.subItem]
-                    .narration
-                );
-                setIsNarrationMuted(true);
-              }}
-            />
-          )}
-          {/* {currentStep.item == 0 ? ( */}
           <AudioPlayer currentStep={currentStep} />
-          {/* ) : null} */}
-          {/* <RecordVoiceOverIcon
-            fontSize="medium"
-            sx={{ color: "white" }}
-            onClick={() => {
-              handleSpeech(
-                data?.subItems[currentStep.subItem][currentStep.subItem]
-                  .narration
-              );
-            }}
-          /> */}
         </div>
       </div>
 
