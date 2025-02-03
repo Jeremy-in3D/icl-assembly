@@ -235,6 +235,7 @@ const TextComponent = ({ setViewedOpeningVid, hasSeenAni }: any) => {
             padding: "5px",
             fontSize: "1.2em",
             background: "none",
+            color: "black",
           }}
         >
           Continue

@@ -98,10 +98,7 @@ export const AudioPlayer = ({ currentStep }: any) => {
   return (
     <div>
       <audio ref={audioRef}>
-        <source
-          src={audioSrc ? audioSrc : "assets/audio/item-one.mp3"}
-          type="audio/mp3"
-        />
+        <source src={audioSrc ? audioSrc : ""} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
       <button onClick={isPlayingAudio ? handlePause : handlePlay}>
