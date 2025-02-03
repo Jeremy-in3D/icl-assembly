@@ -225,8 +225,6 @@ const TextComponent = ({ setViewedOpeningVid, hasSeenAni }: any) => {
       >
         <button
           onClick={() => {
-            console.log("HAGA");
-            // setIsOpen(false);
             setViewedOpeningVid(true);
           }}
           style={{
