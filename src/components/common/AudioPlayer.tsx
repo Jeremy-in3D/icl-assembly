@@ -69,14 +69,26 @@ export const AudioPlayer = ({ currentStep }: any) => {
   //   console.log(`Playing audio from: assets/audio/item-${srcToPlay}`);
   // }, [currentStep]);
 
+  // useEffect(() => {
+  //   if (audioRef.current) {
+  //     audioRef.current.pause(); // Pause current playback
+  //     const srcToPlay = getAudioSrc(currentStep);
+  //     setAudioSrc(`assets/audio/item-${srcToPlay}`);
+  //     audioRef.current.load(); // Load the new audio source
+  //   }
+  // }, [currentStep]);
+
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.pause(); // Pause current playback
-      const srcToPlay = getAudioSrc(currentStep);
-      setAudioSrc(`assets/audio/item-${srcToPlay}`);
-      audioRef.current.load(); // Load the new audio source
-    }
+    const srcToPlay = getAudioSrc(currentStep);
+    // setAudioSrc(`assets/audio/item-${srcToPlay}`);
+    setAudioSrc(`assets/audio/item-${srcToPlay}?v=${Date.now()}`);
   }, [currentStep]);
+
+  useEffect(() => {
+    if (audioRef.current && audioSrc) {
+      audioRef.current.load();
+    }
+  }, [audioSrc]);
 
   const handlePlay = () => {
     if (audioRef.current) {
