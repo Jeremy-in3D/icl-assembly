@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAppContext } from "../../context/appContext";
 
 const getAudioSrc = (currentStep: any) => {
@@ -54,7 +54,7 @@ const getAudioSrc = (currentStep: any) => {
 };
 
 export const AudioPlayer = ({ currentStep }: any) => {
-  const audioRef: MutableRefObject<any> = useRef(null);
+  const audioRef: any = useRef(null);
   // const [isPlaying, setIsPlaying] = useState(false);
   const [audioSrc, setAudioSrc] = useState("");
 
