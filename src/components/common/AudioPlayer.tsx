@@ -109,19 +109,6 @@ export const AudioPlayer = ({ currentStep }: any) => {
 
   return (
     <div>
-      <div
-        style={{
-          position: "absolute",
-          top: "5em",
-          left: 0,
-          background: "white",
-          color: "black",
-          height: "10em",
-          width: "10em",
-        }}
-      >
-        {audioSrc}
-      </div>
       <audio ref={audioRef}>
         <source src={audioSrc ? audioSrc : ""} type="audio/mp3" />
         Your browser does not support the audio element.
