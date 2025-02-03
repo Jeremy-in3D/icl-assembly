@@ -199,10 +199,10 @@ const TextComponent = ({ setViewedOpeningVid, hasSeenAni }: any) => {
           overflowX: "hidden",
           border: "1px solid rgb(0,0,0,0.6)",
           borderRadius: "12px",
-          padding: "8px",
+          // padding: "12px",
         }}
       >
-        <p style={{ overflowX: "hidden" }}>
+        <p style={{ overflowX: "hidden", padding: "6px" }}>
           Welcome to this safety training video, designed to guide operators in
           the proper handling and unloading procedures for Bromine-containing
           Isotanks. Bromine (UN-1744) is a hazardous material, and as such, you
