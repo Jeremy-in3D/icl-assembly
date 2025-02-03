@@ -68,6 +68,7 @@ export const VideoPlayer = ({
       <video
         key={src}
         controls
+        muted
         autoPlay
         preload="metadata"
         playsInline
