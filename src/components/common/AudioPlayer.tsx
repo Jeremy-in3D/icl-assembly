@@ -8,21 +8,21 @@ const getAudioSrc = (currentStep: any) => {
   if (currentStep.item === 4) {
     switch (currentStep.subItem) {
       case 0:
-        return "five-one.mp3";
+        return "five-one";
       case 1:
-        return "five-two.mp3";
+        return "five-two";
       case 2:
-        return "five-three.mp3";
+        return "five-three";
       case 3:
-        return "five-four.mp3";
+        return "five-four";
       case 4:
-        return "five-five.mp3";
+        return "five-five";
       case 5:
-        return "five-six.mp3";
+        return "five-six";
       case 6:
-        return "five-seven.mp3";
+        return "five-seven";
       default:
-        return "five-eight.mp3";
+        return "five-eight";
     }
   } else if (currentStep.item === 9) {
     // switch (currentStep.subItem) {
@@ -33,25 +33,25 @@ const getAudioSrc = (currentStep: any) => {
   } else {
     switch (currentStep.item) {
       case 0:
-        return "one.mp3";
+        return "one";
       case 1:
-        return "two.mp3";
+        return "two";
       case 2:
-        return "three.mp3";
+        return "three";
       case 3:
-        return "four.mp3";
+        return "four";
       case 5:
-        return "six.mp3";
+        return "six";
       case 6:
-        return "seven.mp3";
+        return "seven";
       case 7:
-        return "eight.mp3";
+        return "eight";
       case 8:
         return "";
       // case 9:
-      //   return "10_compressed.mp3";
+      //   return "10_compressed";
       default:
-        return "one.mp3";
+        return "one";
     }
   }
 };
@@ -75,8 +75,8 @@ export const AudioPlayer = ({ currentStep }: any) => {
     const srcToPlay = getAudioSrc(currentStep);
     // setAudioSrc(`assets/audio/item-${srcToPlay}`);
     language == "en"
-      ? setAudioSrc(`assets/audio/en/item-${srcToPlay}?v=${Date.now()}`)
-      : setAudioSrc(`assets/audio/zh/item-${srcToPlay}-zh?v=${Date.now()}`);
+      ? setAudioSrc(`assets/audio/en/item-${srcToPlay}.mp3?v=${Date.now()}`)
+      : setAudioSrc(`assets/audio/zh/item-${srcToPlay}-zh.mp3?v=${Date.now()}`);
   }, [currentStep]);
 
   useEffect(() => {
@@ -89,6 +89,7 @@ export const AudioPlayer = ({ currentStep }: any) => {
     } else {
       // handlePlay();
     }
+    console.log({ audioSrc });
   }, [audioSrc]);
 
   const handlePlay = () => {
