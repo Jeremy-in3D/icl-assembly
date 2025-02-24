@@ -6,6 +6,7 @@ import { t } from "../../common/t";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Item from "./Steps";
 import { useAppContext } from "../../context/appContext";
+import { useTranslation } from "react-i18next";
 
 // const numberOfSteps = 9;
 
@@ -73,13 +74,17 @@ const Menu = ({
   handleSubItemClick,
   setCurrentStep,
 }: any) => {
+  const itemTxt = t("item");
+
+  const { i18n } = useTranslation();
+
   return (
     <div style={{ marginTop: "1em", height: "100%" }}>
-      <ul className="ul-styles">
+      <ul className="ul-styles" key={i18n.language}>
         {menuData.length
           ? menuData.map((item: any, itemIdx: number) => (
               <li
-                key={`item-${itemIdx}`}
+                key={`item-${itemIdx}-${i18n.language}`}
                 onClick={() => handleItemClick(itemIdx)}
                 className={`menu-item-list-item  ${
                   itemIdx % 2 == 0 ? "lighter-grey" : "darker-grey"
@@ -94,7 +99,7 @@ const Menu = ({
                         textWrap: "nowrap",
                         // width: "50%",
                       }}
-                    >{`Item ${itemIdx + 1}: `}</div>
+                    >{`${itemTxt} ${itemIdx + 1}: `}</div>
                     {/* text text */}
                     <div
                       style={{

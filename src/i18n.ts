@@ -1,13 +1,13 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import heJSON from "./common/textHe.json";
+import enJSON from "./common/textEn.json";
 import zhJSON from "./common/textZh.json";
 
 i18n.use(initReactI18next).init({
   resources: {
-    he: { ...heJSON },
+    en: { ...enJSON },
     zh: { ...zhJSON },
   }, // Where we're gonna put translations' files
-  lng: "he", // Set the initial language of the App
+  lng: "en", // Set the initial language of the App
 });

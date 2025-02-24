@@ -4,10 +4,12 @@ import { useState } from "react";
 type ChooseLanguageProps = {
   setLanguage: React.Dispatch<React.SetStateAction<string>>;
   setCurrentLanguage: React.Dispatch<React.SetStateAction<string>>;
+  handleChangeLanguage: (lang: string) => void;
 };
 export const ChooseLanguage = ({
   setLanguage,
   setCurrentLanguage,
+  handleChangeLanguage,
 }: ChooseLanguageProps) => {
   const [clickedButton, setClickedButton] = useState<string | null>(null);
 
@@ -17,6 +19,7 @@ export const ChooseLanguage = ({
       setLanguage(language);
       setCurrentLanguage(language);
     }, 1600);
+    handleChangeLanguage(language);
   };
 
   return (
@@ -28,14 +31,14 @@ export const ChooseLanguage = ({
           <div>
             <button
               className={`language-flag ${
-                clickedButton === "he"
+                clickedButton === "en"
                   ? "move-and-fade"
                   : clickedButton
                   ? "fade-out-now"
                   : ""
               }`}
               onClick={() => {
-                handleLanguagePick("he");
+                handleLanguagePick("en");
               }}
             ></button>
           </div>

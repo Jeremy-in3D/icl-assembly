@@ -1,10 +1,17 @@
 // import { useEffect, useState } from "react";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+import { useTranslation } from "react-i18next";
 
 export const Typewriter = ({ currentStep, isRegularStep }: any) => {
   if (currentStep.item == 8 && currentStep.subItem == 1 && isRegularStep) {
     return null;
   }
+  const { i18n } = useTranslation();
+  const narrationText =
+    i18n.language == "en"
+      ? getNarrationText(currentStep)
+      : getNarrationTextZh(currentStep);
+
   // {rate}
   //   const [displayedText, setDisplayedText] = useState<any>("");
   //   const typingSpeed = 1000 / rate; // Calculate time per character based on the speech rate
@@ -22,8 +29,6 @@ export const Typewriter = ({ currentStep, isRegularStep }: any) => {
 
   //     return () => clearInterval(timer); // Cleanup on unmount
   //   }, [text, typingSpeed]);
-
-  const narrationText = getNarrationText(currentStep);
 
   return (
     <div
@@ -179,6 +184,139 @@ const getNarrationText = (currentStep: any) => {
       "6. Carefully climb down using the ladder Isotank.",
       "7. Conduct a visual examination around the Isotank.",
       "8. End of process.",
+    ],
+    8: subCategoryTexts(currentStep.subItem),
+  };
+
+  return textByItem[currentStep.item] || [""];
+};
+
+const getNarrationTextZh = (currentStep: any) => {
+  const subCategoryTexts = (subItemIdx: number) => {
+    const subTexts: any = {
+      0: ["操作员应小心地使用梯子爬上Isotank"],
+
+      1: [
+        "操作员应审查以下内容。",
+        "一、负责全球定位Isotank装置的GPS装置。",
+        "二、圆顶铅封。",
+        "三、安全锁杆插销。",
+        "四、锁杆。",
+      ],
+      2: [
+        "一、剪断铅封。",
+        "二、拔下安全插销。",
+        "三、抽出锁杆。",
+        "四、缓慢而小心地打开圆顶。",
+      ],
+      // 3: [
+      //   "Isotank's valves roles.",
+      //   "Important!",
+      //   "After emptying the Isotank, make sure that the valves are properly closed. Replace the gaskets for the blind flanges with the new ones provided.",
+      //   "Make sure that all the bolts are tight. ",
+      // ],
+      3: [
+        "Isotank阀门的作用。",
+        "黄色阀门，浸管。",
+        "红阀公司，泄压（排气）。",
+        "绿色阀门，氮气入口。",
+      ],
+      4: [
+        "一、确保所有阀门都紧紧关闭。",
+        "二、确保压力表显示为零。",
+        "三、打开盲板法兰——从远侧打开（远侧螺钉）",
+        "四、确保存在打开的垫片。",
+        "五、用打开的垫片更换盲板垫片",
+      ],
+      5: [
+        "一、将排气管连接到红色阀门上。",
+        "二、将液体管连接到黄色阀门。",
+        "三、将氮气/空气入口管连接到绿色阀门。",
+        "四、交叉拧紧法兰螺钉，同时观察平衡情况",
+      ],
+      6: [
+        "一、卸载前，确保洗涤器洁净且正常工作。",
+        "二、只能使用氮气/干燥空气进行卸载。",
+        "三、确保红色阀门关闭（排气）。",
+        "四、打开Isotank（深管）上的黄色阀门，然后打开管道阀门。",
+        "五、打开Isotank上的绿色阀门（空气/氮气），然后以监测和渐进的方式打开管道阀门。",
+        "六、使用3%的氨水，检查是否泄漏。一旦泄漏或阀门连接不足，将出现白烟。在这种情况下，必须关闭阀门，并重新检查所有连接。",
+        "七、在卸载的任何阶段：如果发生泄漏，请立即关闭绿色阀门（气压/氮气排放），然后关闭黄色阀门。",
+      ],
+    };
+
+    const lastItemSubTexts: any = {
+      0: [],
+      1: [
+        "Emergency call center phone numbers:",
+        <br />,
+        "1. Emergency #1: 999-999-9999",
+        "2. Emergency #2: 00-000-0000",
+        "3. Emergency #3: 12-345-6789",
+      ],
+      2: [
+        "Personal protective equipment: ",
+        <br />,
+        "1. Respiratory protection: Self-contained breathing apparatus.",
+        "An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only.",
+        "NIOSH recommendations for respirator selection includes any chemical cartridge respirator with a full facepiece and cartridge. Only nonoxidizable sorbents are allowed",
+        "2. Hand protection: PVC or neoprene gloves.",
+        "3. Eye protection: Chemical safety goggles or face shield with safety glasses.",
+        "4. Skin and body protection: Protective impervious clothing, hard hat and neoprene or rubber boots.",
+      ],
+    };
+
+    return currentStep.item == 8
+      ? lastItemSubTexts[subItemIdx]
+      : subTexts[subItemIdx];
+  };
+
+  const textByItem: any = {
+    0: [
+      "以下视频的目的是指导操作员如何正确操作含溴Isotank。溴（UN-1744）是一种危险物质，因此您可以在Isotank周围找到标签和标志。Isotank仅用于运输溴，内部涂有铅。Isotank框架的存在是为了在运输和操作过程中保护储罐。",
+    ],
+    1: ["操作员需要注册打印在Isotank主体上的Isotank序列号和测试日期。"],
+    2: [
+      "一、浓度为3%的氨水，用于检查泄漏。",
+      "二、工具和垫片。",
+      "三、备用盲板垫片。",
+    ],
+    3: [
+      "操作员必须根据安全信息手册使用个人防护装备（或PPE）保护自己。",
+      "一、穿防护服。",
+      "二、戴氯丁橡胶手套，确保袖子在手套上。",
+      "三、戴上口罩。",
+      "四、对面罩进行不渗透性测试。",
+      "五、穿上头盔，拉上衣服拉链。",
+    ],
+    4: subCategoryTexts(currentStep.subItem),
+    5: [
+      "一、关闭管道绿色阀（空气/氮气）。",
+      "二、关闭管道黄色阀（深管）。",
+      "三、打开管道红色阀门（排气口）。",
+      "四、打开Isotank上的红色阀门（排气口）。",
+      "五、使用3%的氨水通过红色阀门检查是否泄漏。如果发生泄漏，将出现白烟，操作员必须关闭所有阀门并重新检查连接。",
+      "六、等待Isotank中的压力释放。",
+      "七、关闭Isotank上的绿色阀门。",
+      "八、关闭Isotank上的黄色阀门。",
+      "九、等待系统中的压力降至0。",
+      "十、关闭Isotank上的红色阀门，然后关闭管道的红色阀门。",
+    ],
+    6: [
+      "一、慢慢且小心地打开螺栓，首先打开远端的螺栓，握住管道，这样它们就不会断开。",
+      "二、打开密封垫盲袋，将其安装在阀门顶部。",
+      "三、安装盲板法兰，交叉拧紧法兰螺钉并保持平衡。",
+      "四、使用3%的氨水检查是否泄漏。一旦发生泄漏，将出现白烟，操作员必须关闭所有阀门并重新检查连接。",
+    ],
+    7: [
+      "一、关闭圆顶前，请仔细检查所有阀门是否关闭，盲板法兰是否拧紧。",
+      "二、关闭圆顶。",
+      "三、插上锁杆。",
+      "四、插上安全插销。",
+      "五、安装安全封盖，并在运输文件中登记封盖上的编号。",
+      "六、使用Isotank梯子小心地爬下来。",
+      "七、在Isotank周围进行目视检查",
+      "八、完成。",
     ],
     8: subCategoryTexts(currentStep.subItem),
   };

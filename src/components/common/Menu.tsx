@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAppContext } from "../../context/appContext";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import { t } from "../../common/t";
 
 export function SlideMenu({ toggleMenu }: any) {
   const [slideOpenAni, setSlideOpenAni] = useState(false);
@@ -69,7 +70,7 @@ export function SlideMenu({ toggleMenu }: any) {
               window.speechSynthesis.cancel();
             }}
           >
-            Back To Menu
+            {t("backToMenu")}
           </button>
         </div>
         <ul className="ul-styles" style={{ border: "none" }}>

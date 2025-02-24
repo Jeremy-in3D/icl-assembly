@@ -7,17 +7,16 @@ import { useAppContext } from "./context/appContext";
 import { PdfViewer } from "./components/common/PdfViewer";
 
 // import Homepage from "./components/Homepage";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const LazyHomepage = lazy(() => import("./components/Homepage"));
 // const chinese = 'zh'
 
 function App() {
-  // const {
-  //   i18n: { changeLanguage, language },
-  // } = useTranslation();
+  const { i18n } = useTranslation();
+  // useTranslation();
 
-  const [viewedOpeningVid, setViewedOpeningVid] = useState<boolean>(false);
+  const [viewedOpeningTxt, setViewedOpeningTxt] = useState<boolean>(false);
   // const [currentLanguage, setCurrentLanguage] = useState(language);
   const [fadeOutHappenedAlready, setFdOutHappenedAlready] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<string>("");
@@ -25,8 +24,15 @@ function App() {
 
   const { menuOpen, setMenuOpen, openPdf } = useAppContext();
 
+  console.log({ currentLanguage });
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleChangeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    setCurrentLanguage(lang);
   };
 
   useEffect(() => {
@@ -45,26 +51,35 @@ function App() {
     setTimeout(() => setFdOutHappenedAlready(true), 1900);
   }, []);
 
+  useEffect(() => {
+    setCurrentLanguage(i18n.language ? i18n.language : "en"); // Ensure it syncs with the active language
+  }, [i18n.language]);
+
   return (
     <>
       {fadeOutHappenedAlready ? null : (
         <div className="fade-out-animation"></div>
       )}
       <Background />
-      <Topbar
-        currentLanguage={currentLanguage}
-        viewedOpeningVid={viewedOpeningVid}
-        setCurrentLanguage={setCurrentLanguage}
-        toggleMenu={toggleMenu}
-      />
-      {viewedOpeningVid ? (
+
+      {currentLanguage ? (
+        <Topbar
+          currentLanguage={currentLanguage}
+          setCurrentLanguage={setCurrentLanguage}
+          toggleMenu={toggleMenu}
+          handleChangeLanguage={handleChangeLanguage}
+        />
+      ) : null}
+
+      {viewedOpeningTxt ? (
         <Suspense fallback={null}>
           <LazyHomepage />
         </Suspense>
       ) : (
         <LandingPage
-          setViewedOpeningVid={setViewedOpeningVid}
+          setViewedOpeningTxt={setViewedOpeningTxt}
           setCurrentLanguage={setCurrentLanguage}
+          handleChangeLanguage={handleChangeLanguage}
         />
       )}
       {openPdf ? (

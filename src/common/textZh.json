@@ -1,9 +1,66 @@
 {
-  "translations": {
-    "industry": {
-      "title": "Industry",
-      "text1": "The world was recently introduced to the wonders of the industry 4.0 revolution.",
-      "text2": "Together with our clients we map out the challenges they face and develop tailor made solutions using XR and 3D technology that creates an innovative visual interface between men and machine."
-    }
+  "translation": {
+    "pleaseSelectLanguage": "אנא בחר שפה",
+    "skip": "跳过",
+    "start": "项目 1",
+    "allItems": "所有项目",
+    "safetyHBook": "安全手册",
+    "menu": "菜单",
+    "item": "项目",
+
+    "backToMenu": "返回菜单",
+
+    "continue": "继续",
+    "prev": "上一步",
+    "next": "下一步",
+    "step": "步骤",
+
+    "taskOne": "360 简介",
+    "subTaskOne": "Isotank display",
+    "subTaskOneNarration": "以下视频的目的是指导操作员如何正确操作含溴Isotank。溴（UN-1744）是一种危险物质，因此您可以在Isotank周围找到标签和标志。Isotank仅用于运输溴，内部涂有铅。Isotank框架的存在是为了在运输和操作过程中保护储罐。",
+
+    "taskTwo": "连接前注册、检查清单和准备Isotank",
+    "subTaskTwo": "清单 ",
+    "subTaskTwoNarration": "操作员需要注册打印在Isotank主体上的Isotank序列号和测试日期。",
+
+    "taskThree": "所需工具",
+    "subTaskThree": "Required tools  ",
+    "subTaskThreeNarration": "一、浓度为3%的氨水，用于检查泄漏。二、工具和垫片。三、备用盲板垫片。",
+
+    "taskFour": "个人保护装备",
+    "subTaskFour": "Personal protective equipment required before connecting",
+    "subTaskFourNarration": "操作员必须根据安全信息手册使用个人防护装备（或PPE）保护自己。一、穿防护服。二、戴氯丁橡胶手套，确保袖子在手套上。三、戴上口罩。四、对面罩进行不渗透性测试。五、穿上头盔，拉上衣服拉链。",
+
+    "taskFive": "Isotank装卸作业",
+    "subTaskFiveOne": "Climbing the Isotank",
+    "subTaskFiveOneNarration": "操作员应小心地使用梯子爬上Isotank",
+    "subTaskFiveTwo": "Review the Isotank dome",
+    "subTaskFiveTwoNarration": "操作员应审查以下内容。一、负责全球定位Isotank装置的GPS装置。二、圆顶铅封。三、安全锁杆插销。四、锁杆。",
+    "subTaskFiveThree": "Opening the dome protecting the Isotank valves",
+    "subTaskFiveThreeNarration": "一、剪断铅封。二、拔下安全插销。三、抽出锁杆。四、缓慢而小心地打开圆顶。",
+    "subTaskFiveFour": "Isotank's valves roles.",
+    "subTaskFiveFourNarration": "Isotank阀门的作用。黄色阀门，浸管。红阀公司，泄压（排气）。绿色阀门，氮气入口。",
+    "subTaskFiveFive": "Disconnecting blind flanges",
+    "subTaskFiveFiveNarration": "一、确保所有阀门都紧紧关闭。二、确保压力表显示为零。三、打开盲板法兰——从远侧打开（远侧螺钉）。四、确保存在打开的垫片。五、用打开的垫片更换盲板垫片",
+    "subTaskFiveSix": "Connect pipes to valves for start to unloading",
+    "subTaskFiveSixNarration": "一、将排气管连接到红色阀门上。二、将液体管连接到黄色阀门。三、将氮气/空气入口管连接到绿色阀门。四、交叉拧紧法兰螺钉，同时观察平衡情况",
+    "subTaskFiveSeven": "Opening valves and start unloading the Bromine",
+    "subTaskFiveSevenNarration": "一、卸载前，确保洗涤器洁净且正常工作。二、只能使用氮气/干燥空气进行卸载。三、确保红色阀门关闭（排气）。四、打开Isotank（深管）上的黄色阀门，然后打开管道阀门。五、打开Isotank上的绿色阀门（空气/氮气），然后以监测和渐进的方式打开管道阀门。六、使用3%的氨水，检查是否泄漏。一旦泄漏或阀门连接不足，将出现白烟。在这种情况下，必须关闭阀门，并重新检查所有连接。七、在卸载的任何阶段：如果发生泄漏，请立即关闭绿色阀门（气压/氮气排放），然后关闭黄色阀门。",
+
+    "taskSix": "结束溴卸载和断开管道的准备工作",
+    "taskSixNarration": "一、关闭管道绿色阀（空气/氮气）。二、关闭管道黄色阀（深管）。三、打开管道红色阀门（排气口）。四、打开Isotank上的红色阀门（排气口）。五、使用3%的氨水通过红色阀门检查是否泄漏。如果发生泄漏，将出现白烟，操作员必须关闭所有阀门并重新检查连接。六、等待Isotank中的压力释放。七、关闭Isotank上的绿色阀门。八、关闭Isotank上的黄色阀门。九、等待系统中的压力降至0。十、关闭Isotank上的红色阀门，然后关闭管道的红色阀门。",
+
+    "taskSeven": "断开管道并安装盲板法兰",
+    "taskSevenNarration": "一、慢慢且小心地打开螺栓，首先打开远端的螺栓，握住管道，这样它们就不会断开。二、打开密封垫盲袋，将其安装在阀门顶部。三、安装盲板法兰，交叉拧紧法兰螺钉并保持平衡。四、使用3%的氨水检查是否泄漏。一旦发生泄漏，将出现白烟，操作员必须关闭所有阀门并重新检查连接。",
+
+    "taskEight": "关闭圆顶，准备将Isotank运回",
+    "taskEightNarration": "一、关闭圆顶前，请仔细检查所有阀门是否关闭，盲板法兰是否拧紧。二、关闭圆顶。三、插上锁杆。四、插上安全插销。五、安装安全封盖，并在运输文件中登记封盖上的编号。六、使用Isotank梯子小心地爬下来。七、在Isotank周围进行目视检查。八、完成。",
+
+    "taskNine": "安全和应急",
+    "subTaskNineOne": "紧急视频",
+    "subTaskNineTwo": "紧急呼叫中心号码",
+    "subTaskNineThree": "溴指定的安全设备",
+
+    "introText": "欢迎观看此安全培训视频，旨在指导操作员正确处理和卸载含溴Isotank。溴（UN-1744）是一种危险物质，因此，在Isotank上会遇到各种安全标签和警告标志。这些容器是专门为运输溴而设计的，内部涂有铅，以确保安全运输。本视频将引导您了解必要的的安全协议，包括准备、个人防护装备（PPE）、正确的卸载技术和应急程序，以确保安全且高效的操作过程。"
   }
 }
