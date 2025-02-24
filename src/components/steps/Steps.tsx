@@ -7,6 +7,7 @@ import { getVideoSrc } from "../../common/getVideoSrc";
 import { Typewriter } from "./TextTyper";
 import { useAppContext } from "../../context/appContext";
 import { AudioPlayer } from "../common/AudioPlayer";
+import { t } from "../../common/t";
 
 const surveyOption = 2;
 const requiredTools = 2;
@@ -238,22 +239,22 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
   const getBtnText = (isPrevBtn: boolean) => {
     if (currentStep.item == 4) {
       if (isPrevBtn && currentStep.subItem == 0) {
-        return "Item";
+        return t("item");
       }
       if (!isPrevBtn && currentStep.subItem == 6) {
-        return "Item";
+        return t("item");
       }
-      return "Step";
+      return t("step");
     } else if (currentStep.item == 8) {
       if (isPrevBtn && currentStep.subItem == 0) {
-        return "Item";
+        return t("item");
       }
       if (!isPrevBtn && currentStep.subItem == 2) {
         return "complete";
       }
-      return "Step";
+      return t("step");
     } else {
-      return "Item";
+      return t("item");
     }
   };
 
@@ -278,7 +279,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
             }}
           >
             <NavigateBeforeIcon fontSize="medium" />
-            {`Prev ${getBtnText(true)}`}
+            {`${t("prev")} ${getBtnText(true)}`}
           </div>
           {/* Previous */}
         </button>
@@ -307,7 +308,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
                 marginLeft: "5px",
               }}
             >
-              {`Next ${getBtnText(false)}`}{" "}
+              {`${t("next")} ${getBtnText(false)}`}{" "}
               <NavigateNextIcon fontSize="medium" />
             </div>
           )}
