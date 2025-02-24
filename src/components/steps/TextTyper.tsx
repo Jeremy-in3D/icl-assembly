@@ -248,14 +248,14 @@ const getNarrationTextZh = (currentStep: any) => {
     const lastItemSubTexts: any = {
       0: [],
       1: [
-        "Emergency call center phone numbers:",
+        "紧急呼叫中心号码",
         <br />,
         "1. Emergency #1: 999-999-9999",
         "2. Emergency #2: 00-000-0000",
         "3. Emergency #3: 12-345-6789",
       ],
       2: [
-        "Personal protective equipment: ",
+        "个人保护装备",
         <br />,
         "1. Respiratory protection: Self-contained breathing apparatus.",
         "An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only.",

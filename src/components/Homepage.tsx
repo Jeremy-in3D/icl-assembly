@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 // import { Questionaire } from "./questionnaire/Questionnaire";
 // import { PdfViewer } from "./common/PdfViewer";
 // import { Item } from "./Item";
@@ -10,14 +10,11 @@ import { useTranslation } from "react-i18next";
 const numberOfSteps = 8;
 
 function Homepage() {
-  const { menuData, setMenuData } = useAppContext();
-  const [_, forceRender] = useState(0);
-  const { i18n } = useTranslation();
+  // const [isAssemble, setIsAssemble] = useState<boolean | null>(null);
+  // const [openPdf, setOpenPdf] = useState<boolean>(false);
+  const { setMenuData } = useAppContext();
 
-  useEffect(() => {
-    forceRender((prev) => prev + 1);
-    console.log("heyoo");
-  }, [i18n.language]);
+  const { i18n } = useTranslation();
 
   let itemDataArr: any[] = [];
   for (let i = 0; i <= numberOfSteps; i++) {
@@ -27,10 +24,8 @@ function Homepage() {
   }
 
   useEffect(() => {
-    if (!menuData.length) {
-      setMenuData(itemDataArr);
-    }
-  }, [menuData]);
+    setMenuData(itemDataArr);
+  }, [i18n.language]);
 
   return (
     <div className="homepage-wrapper">
