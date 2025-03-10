@@ -46,7 +46,18 @@ export const Typewriter = ({ currentStep, isRegularStep }: any) => {
       <ul style={{ listStyle: "none" }}>
         {narrationText.length
           ? narrationText.map((narrationTxt: string, idx: number) => (
-              <li key={`key-${idx}`}>{narrationTxt}</li>
+              <li
+                style={
+                  currentStep.item == 8 &&
+                  currentStep.subItem == 1 &&
+                  idx % 2 != 0
+                    ? { marginLeft: "1em" }
+                    : {}
+                }
+                key={`key-${idx}`}
+              >
+                {narrationTxt}
+              </li>
             ))
           : null}
       </ul>
@@ -113,11 +124,16 @@ const getNarrationText = (currentStep: any) => {
     const lastItemSubTexts: any = {
       0: [],
       1: [
-        "Emergency call center phone numbers:",
-        <br />,
-        "1. Emergency #1: 999-999-9999",
-        "2. Emergency #2: 00-000-0000",
-        "3. Emergency #3: 12-345-6789",
+        "EUROPE: ICL-IP TERNEUZEN HOLLAND",
+        "tel: (31) 11-568-9000",
+        "U.K.: FOR EMERGENCY ADVICE",
+        "tel: (44) 1865-407-333",
+        "U.S.A.: CHEMTREC",
+        "tel: 1-800-424-9300",
+        "SINGAPORE: ALERT - SGS",
+        "tel: (65) 6542-9595",
+        "CHINA: NRCC",
+        "tel: (86) 532-8388-9090",
       ],
       2: [
         "Personal protective equipment: ",
@@ -248,21 +264,26 @@ const getNarrationTextZh = (currentStep: any) => {
     const lastItemSubTexts: any = {
       0: [],
       1: [
-        "紧急呼叫中心号码",
-        <br />,
-        "1. Emergency #1: 999-999-9999",
-        "2. Emergency #2: 00-000-0000",
-        "3. Emergency #3: 12-345-6789",
+        "EUROPE: ICL-IP TERNEUZEN HOLLAND",
+        "tel: (31) 11-568-9000",
+        "U.K.: FOR EMERGENCY ADVICE",
+        "tel: (44) 1865-407-333",
+        "U.S.A.: CHEMTREC",
+        "tel: 1-800-424-9300",
+        "SINGAPORE: ALERT - SGS",
+        "tel: (65) 6542-9595",
+        "CHINA: NRCC",
+        "tel: (86) 532-8388-9090",
       ],
       2: [
         "个人保护装备",
         <br />,
-        "1. Respiratory protection: Self-contained breathing apparatus.",
-        "An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only.",
-        "NIOSH recommendations for respirator selection includes any chemical cartridge respirator with a full facepiece and cartridge. Only nonoxidizable sorbents are allowed",
-        "2. Hand protection: PVC or neoprene gloves.",
-        "3. Eye protection: Chemical safety goggles or face shield with safety glasses.",
-        "4. Skin and body protection: Protective impervious clothing, hard hat and neoprene or rubber boots.",
+        "1.呼吸防护：自给式呼吸器",
+        "经批准的酸性气体-有机蒸气组合防毒面具仅适用于短期低浓度暴露或逃生目的",
+        "NIOSH对呼吸器选择的建议包括任何带有全面罩和滤筒的化学滤筒呼吸器。只允许使用不可氧化的吸附剂",
+        "2.手部防护：PVC或氯丁橡胶手套",
+        "3.眼睛防护：化学安全护目镜或带安全眼镜的面罩",
+        "4.皮肤和身体防护：防水的衣服、安全帽和氯丁橡胶或橡胶靴",
       ],
     };
 

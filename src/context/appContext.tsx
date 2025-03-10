@@ -21,6 +21,8 @@ type Context = {
   setModalIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isPlayingAudio: boolean;
   setIsPlayingAudio: React.Dispatch<React.SetStateAction<boolean>>;
+  videosPreloaded: boolean;
+  setVideosPreloaded: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const AppContext = createContext<Context | null>(null);
@@ -37,6 +39,7 @@ export default function AppContextProvider({
   const [isNarrationMuted, setIsNarrationMuted] = useState<boolean>(true);
   const [hasUserUnmutedNarrationOnce, setHasUserUnmutedNarrationOnce] =
     useState(false);
+  const [videosPreloaded, setVideosPreloaded] = useState<boolean>(false);
 
   return (
     <AppContext.Provider
@@ -57,6 +60,8 @@ export default function AppContextProvider({
         setModalIsOpen,
         isPlayingAudio,
         setIsPlayingAudio,
+        videosPreloaded,
+        setVideosPreloaded,
       }}
     >
       {children}
@@ -87,6 +92,8 @@ export function useAppContext() {
       setModalIsOpen: () => {},
       isPlayingAudio: false,
       setIsPlayingAudio: () => {},
+      videosPreloaded: false,
+      setVideosPreloaded: () => {},
     };
   }
 

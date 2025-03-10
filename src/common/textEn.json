@@ -10,10 +10,11 @@
 
     "backToMenu": "Back To Menu",
 
-    "continue": "Continue",
+    "continue": "Approve",
     "prev": "Prev",
     "next": "Next",
     "step": "Step",
+    "complete": "Complete",
 
     "taskOne": "360 Introduction",
     "subTaskOne": "Isotank display",
@@ -61,6 +62,7 @@
     "subTaskNineTwo": "Emergency call center phone numbers",
     "subTaskNineThree": "Brom assigned safety gear",
 
-    "introText": "Welcome to this safety training video, designed to guide operators in the proper handling and unloading procedures for Bromine-containing Isotanks. Bromine (UN-1744) is a hazardous material, and as such, will encounter various safety labels and warning signs on the Isotank. These containers are specially designed for transporting Bromine and are internally coated with lead to ensure safe transit. This video will walk you through essential safety protocols, including preparation, personal protective equipment (PPE), proper unloading techniques, and emergency procedures to ensure a safe and efficient process."
+    "introText": "Welcome to this safety training video, designed to guide operators in the proper handling and unloading procedures for Bromine-containing Isotanks. Bromine (UN-1744) is a hazardous material, and as such, will encounter various safety labels and warning signs on the Isotank. These containers are specially designed for transporting Bromine and are internally coated with lead to ensure safe transit. This video will walk you through essential safety protocols, including preparation, personal protective equipment (PPE), proper unloading techniques, and emergency procedures to ensure a safe and efficient process.",
+    "disclaimer": "DISCLAIMER: This video is intended for reference assistance only. All operations must be performed exclusively by personnel properly trained and certified for these tasks. All activities must comply with company procedures and the guidelines of authorized authorities. Nothing in these instructions replace or modifies those official procedures and guidelines."
   }
 }

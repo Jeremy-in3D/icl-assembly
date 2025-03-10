@@ -298,7 +298,7 @@ const Counter = ({ currentStep, handleCounterClick }: any) => {
         >
           {/* Next */}
           {currentStep.item == 8 && currentStep.subItem == 2 ? (
-            "Complete"
+            t("complete")
           ) : (
             <div
               style={{

@@ -89,7 +89,6 @@ export const AudioPlayer = ({ currentStep }: any) => {
     } else {
       // handlePlay();
     }
-    console.log({ audioSrc });
   }, [audioSrc]);
 
   const handlePlay = () => {

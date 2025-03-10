@@ -24,8 +24,6 @@ function App() {
 
   const { menuOpen, setMenuOpen, openPdf } = useAppContext();
 
-  console.log({ currentLanguage });
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };

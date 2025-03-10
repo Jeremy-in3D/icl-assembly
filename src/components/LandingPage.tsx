@@ -86,19 +86,7 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
           // padding: "12px",
         }}
       >
-        <p style={{ overflowX: "hidden", padding: "6px" }}>
-          {/* Welcome to this safety training video, designed to guide operators in
-          the proper handling and unloading procedures for Bromine-containing
-          Isotanks. Bromine (UN-1744) is a hazardous material, and as such, you
-          will encounter various safety labels and warning signs on the Isotank.
-          These containers are specially designed for transporting Bromine and
-          are internally coated with lead to ensure safe transit. This video
-          will walk you through essential safety protocols, including
-          preparation, personal protective equipment (PPE), proper unloading
-          techniques, and emergency procedures to ensure a safe and efficient
-          process. */}
-          {t("introText")}
-        </p>
+        <p style={{ overflowX: "hidden", padding: "6px" }}>{t("introText")}</p>
         <span style={{ height: "1em", border: "1px solid white" }}></span>
       </div>
       <div
@@ -124,6 +112,11 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
         >
           {t("continue")}
         </button>
+      </div>
+      <div>
+        <p style={{ color: "red", padding: "8px", fontSize: "0.9em" }}>
+          {t("disclaimer")}
+        </p>
       </div>
       <div style={{ height: "30px" }}></div>
     </div>
