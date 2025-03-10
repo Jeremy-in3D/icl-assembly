@@ -83,14 +83,11 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
           overflowX: "hidden",
           border: "1px solid rgb(0,0,0,0.6)",
           borderRadius: "12px",
+          overflowY: "visible",
           // padding: "12px",
         }}
       >
-        <p
-          style={{ overflowX: "hidden", padding: "6px", overflowY: "visible" }}
-        >
-          {t("introText")}
-        </p>
+        <p style={{ overflowX: "hidden", padding: "6px" }}>{t("introText")}</p>
         <span style={{ height: "1em", border: "1px solid white" }}></span>
       </div>
       <div
