@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ChooseLanguage } from "./ChooseLanguage";
 import { t } from "../common/t";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 type LandingPageProps = {
   setViewedOpeningTxt: React.Dispatch<React.SetStateAction<boolean>>;
@@ -63,6 +64,26 @@ const IntroText = ({ setViewedOpeningTxt }: IntroTextProps) => {
 };
 
 const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
+  const [isAtTop, setIsAtTop] = useState(true);
+  const divRef = useRef<HTMLDivElement | null>(null);
+
+  const handleScroll = () => {
+    if (divRef.current) {
+      setIsAtTop(divRef.current.scrollTop === 0);
+    }
+  };
+
+  useEffect(() => {
+    const div = divRef.current;
+    if (div) {
+      div.addEventListener("scroll", handleScroll);
+
+      // Cleanup scroll event listener on component unmount
+      return () => {
+        div.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
   return (
     <div
       className={` ${hasSeenAni ? "fade-in-stay" : "no-opacity"}`}
@@ -72,6 +93,7 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
       }}
     >
       <div
+        ref={divRef}
         style={{
           // color: "black",
           marginTop: "5em",
@@ -84,23 +106,35 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
           border: "1px solid rgb(0,0,0,0.6)",
           borderRadius: "12px",
           // padding: "12px",
-          overflowY: "scroll",
-          scrollbarWidth: "thin", // For Firefox
-          scrollbarColor: "rgba(0,0,0,0.5) transparent", // For Firefox
+          position: "relative",
         }}
       >
         <p
           style={{
             overflowX: "hidden",
             padding: "6px",
-            overflowY: "scroll",
-            scrollbarWidth: "thin", // For Firefox
-            scrollbarColor: "rgba(0,0,0,0.5) transparent",
           }}
         >
           {t("introText")}
         </p>
         <span style={{ height: "1em", border: "1px solid white" }}></span>
+        {isAtTop && (
+          <div
+            style={{
+              position: "absolute",
+              bottom: "5px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              fontSize: "24px",
+              pointerEvents: "none",
+              zIndex: 10,
+              background: "rgb(0,0,0,0.8)",
+              display: "flex",
+            }}
+          >
+            <ArrowDownwardIcon fontSize="large" sx={{ color: "white" }} />
+          </div>
+        )}
       </div>
       <div
         style={{
