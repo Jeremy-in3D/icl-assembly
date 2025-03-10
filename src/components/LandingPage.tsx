@@ -122,7 +122,7 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
           <div
             style={{
               position: "absolute",
-              bottom: "5px",
+              bottom: "10px",
               left: "50%",
               transform: "translateX(-50%)",
               fontSize: "24px",
