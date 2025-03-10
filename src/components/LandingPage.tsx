@@ -130,6 +130,7 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
               zIndex: 10,
               background: "rgb(0,0,0,0.9)",
               display: "flex",
+              borderRadius: "50%",
             }}
           >
             <ArrowDownwardIcon fontSize="medium" sx={{ color: "white" }} />
