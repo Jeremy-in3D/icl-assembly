@@ -128,11 +128,11 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
               fontSize: "24px",
               pointerEvents: "none",
               zIndex: 10,
-              background: "rgb(0,0,0,0.8)",
+              background: "rgb(0,0,0,0.9)",
               display: "flex",
             }}
           >
-            <ArrowDownwardIcon fontSize="large" sx={{ color: "white" }} />
+            <ArrowDownwardIcon fontSize="medium" sx={{ color: "white" }} />
           </div>
         )}
       </div>
