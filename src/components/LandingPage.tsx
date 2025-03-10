@@ -83,7 +83,7 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
           overflowX: "hidden",
           border: "1px solid rgb(0,0,0,0.6)",
           borderRadius: "12px",
-          overflowY: "visible",
+          overflowY: "scroll",
           // padding: "12px",
         }}
       >
