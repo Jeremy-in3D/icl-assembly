@@ -70,19 +70,6 @@ body {
   /* overflow: hidden; */
 }
 
-div::-webkit-scrollbar {
-  width: 8px;
-}
-
-div::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-div::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 @keyframes slideUp {
   0% {
     transform: translateY(100%);
