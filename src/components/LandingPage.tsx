@@ -83,13 +83,13 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
           overflowX: "hidden",
           border: "1px solid rgb(0,0,0,0.6)",
           borderRadius: "12px",
-          overflowY: "scroll",
           // padding: "12px",
+          overflowY: "scroll",
+          scrollbarWidth: "thin", // For Firefox
+          scrollbarColor: "rgba(0,0,0,0.5) transparent", // For Firefox
         }}
       >
-        <p style={{ overflowX: "hidden", padding: "6px", overflowY: "scroll" }}>
-          {t("introText")}
-        </p>
+        <p style={{ overflowX: "hidden", padding: "6px" }}>{t("introText")}</p>
         <span style={{ height: "1em", border: "1px solid white" }}></span>
       </div>
       <div
