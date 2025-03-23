@@ -107,6 +107,7 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
           borderRadius: "12px",
           // padding: "12px",
           position: "relative",
+          minHeight: "40%",
         }}
       >
         <p
