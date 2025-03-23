@@ -360,16 +360,111 @@ const getNarrationTextZh = (currentStep: any) => {
     const lastItemSubTexts: any = {
       0: [],
       1: [
-        "EUROPE: ICL-IP TERNEUZEN HOLLAND",
-        "tel: (31) 11-568-9000",
-        "U.K.: FOR EMERGENCY ADVICE",
-        "tel: (44) 1865-407-333",
-        "U.S.A.: CHEMTREC",
-        "tel: 1-800-424-9300",
-        "SINGAPORE: ALERT - SGS",
-        "tel: (65) 6542-9595",
-        "CHINA: NRCC",
-        "tel: (86) 532-8388-9090",
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            EUROPE
+          </span>
+          : <span>ICL-IP TERNEUZEN HOLLAND</span>
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (31) 11-568-9000
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            U.K.
+          </span>
+          : FOR EMERGENCY ADVICE
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (44) 1865-407-333
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            U.S.A.
+          </span>
+          : CHEMTREC
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: 1-800-424-9300
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            SINGAPORE
+          </span>
+          : ALERT - SGS
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (65) 6542-9595
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            CHINA
+          </span>
+          : NRCC
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (86) 532-8388-9090
+        </div>,
       ],
       2: [
         "个人保护装备",
