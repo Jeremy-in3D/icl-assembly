@@ -1,6 +1,7 @@
 // import { useEffect, useState } from "react";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 import { useTranslation } from "react-i18next";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 export const Typewriter = ({ currentStep, isRegularStep }: any) => {
   if (currentStep.item == 8 && currentStep.subItem == 1 && isRegularStep) {
@@ -125,15 +126,60 @@ const getNarrationText = (currentStep: any) => {
       0: [],
       1: [
         "EUROPE: ICL-IP TERNEUZEN HOLLAND",
-        "tel: (31) 11-568-9000",
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (31) 11-568-9000
+        </div>,
         "U.K.: FOR EMERGENCY ADVICE",
-        "tel: (44) 1865-407-333",
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (44) 1865-407-333
+        </div>,
         "U.S.A.: CHEMTREC",
-        "tel: 1-800-424-9300",
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: 1-800-424-9300
+        </div>,
         "SINGAPORE: ALERT - SGS",
-        "tel: (65) 6542-9595",
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (65) 6542-9595
+        </div>,
         "CHINA: NRCC",
-        "tel: (86) 532-8388-9090",
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (86) 532-8388-9090
+        </div>,
       ],
       2: [
         "Personal protective equipment: ",

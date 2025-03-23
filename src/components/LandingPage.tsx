@@ -161,8 +161,8 @@ const TextComponent = ({ setViewedOpeningTxt, hasSeenAni }: any) => {
           {t("continue")}
         </button>
       </div>
-      <div>
-        <p style={{ color: "red", padding: "8px", fontSize: "0.9em" }}>
+      <div style={{ width: "96%" }}>
+        <p style={{ color: "red", padding: "6px", fontSize: "1.2em" }}>
           {t("disclaimer")}
         </p>
       </div>
