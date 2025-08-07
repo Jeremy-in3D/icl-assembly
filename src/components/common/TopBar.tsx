@@ -2,20 +2,65 @@ import ListIcon from "@mui/icons-material/List";
 import { useAppContext } from "../../context/appContext";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import { t } from "../../common/t";
-
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import IconButton from "@mui/material/IconButton";
+import { useState } from "react";
 // const hebrew = "he";
 
-export const Topbar = ({
+const LANGUAGE_OPTIONS = [
+  {
+    code: "en",
+    label: "En",
+    flagSrc: "/assets/images/uk.jpg",
+  },
+  {
+    code: "zh",
+    label: "Zh",
+    flagSrc: "/assets/images/Flag_of_the_People's_Republic_of_China.png",
+  },
+  {
+    code: "kr",
+    label: "Kr",
+    flagSrc: "/assets/images/Flag_of_South_Korea-small.png",
+  },
+];
+
+type TopbarProps = {
+  currentLanguage: string;
+  setCurrentLanguage: (lang: string) => void;
+  toggleMenu: () => void;
+  handleChangeLanguage: (lang: string) => void;
+};
+
+export const Topbar: React.FC<TopbarProps> = ({
   currentLanguage,
   setCurrentLanguage,
   toggleMenu,
   handleChangeLanguage,
-}: any) => {
+}) => {
   const { currentStep, openPdf, setOpenPdf } = useAppContext();
 
-  const toggleLanguage = () => {
-    setCurrentLanguage(currentLanguage === "en" ? "zh" : "en");
-    handleChangeLanguage(currentLanguage === "en" ? "zh" : "en");
+  // State for Material-UI menu
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const isMenuOpen = Boolean(anchorEl);
+
+  const currentOption =
+    LANGUAGE_OPTIONS.find((l) => l.code === currentLanguage) ||
+    LANGUAGE_OPTIONS[0];
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLanguageSelect = (code: string) => {
+    setCurrentLanguage(code);
+    handleChangeLanguage(code); // sync with your i18n logic
+    handleMenuClose();
   };
 
   const menuText = t("menu");
@@ -27,24 +72,60 @@ export const Topbar = ({
       </div>
 
       <div className="top-bar-language-items-container">
-        {/* {currentLanguage && ( */}
-        <img
-          style={{
-            height: "2em",
-            width: "2em",
+        {/* Language Dropdown (using MUI Menu) */}
+        <IconButton
+          onClick={handleMenuOpen}
+          size="small"
+          sx={{
+            p: 0,
+            // border: "1px solid black",
             borderRadius: "50%",
-            border: "1px solid black",
+            // backgroundColor: "white",
+            marginRight: "1em",
           }}
-          onClick={toggleLanguage}
-          src={
-            currentLanguage === "en"
-              ? "/assets/images/uk.jpg"
-              : "/assets/images/Flag_of_the_People's_Republic_of_China.png"
-          }
-        />
-        {/* )} */}
+        >
+          <img
+            src={currentOption.flagSrc}
+            alt={currentOption.label}
+            style={{ height: "2em", width: "2em", borderRadius: "50%" }}
+          />
+        </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          open={isMenuOpen}
+          onClose={handleMenuClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+        >
+          {LANGUAGE_OPTIONS.map((option) => (
+            <MenuItem
+              key={option.code}
+              selected={option.code === currentLanguage}
+              onClick={() => handleLanguageSelect(option.code)}
+            >
+              <img
+                src={option.flagSrc}
+                alt={option.label}
+                style={{
+                  height: "1.5em",
+                  width: "1.5em",
+                  borderRadius: "50%",
+                  marginRight: 8,
+                  border: "1px solid #555",
+                }}
+              />
+              {option.label}
+            </MenuItem>
+          ))}
+        </Menu>
 
-        {/* {currentLanguage && ( */}
+        {/* Book Icon (PDF Toggle) */}
         <div
           style={{
             display: "flex",
@@ -70,7 +151,6 @@ export const Topbar = ({
           </div>
           <div style={{ color: "white" }}>{t("safetyHBook")}</div>
         </div>
-        {/* )} */}
 
         {currentStep ? (
           <div

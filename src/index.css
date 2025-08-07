@@ -246,11 +246,12 @@ body {
 }
 
 .languages-container {
-  margin-top: 8em;
-  display: flex;
-  justify-content: center;
+  margin-top: 6em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 2em; /* spacing between images */
+  justify-items: center; /* center items horizontally */
   align-items: center;
-  justify-content: space-evenly;
   position: relative;
 }
 
@@ -323,7 +324,7 @@ body {
   background: var(--blue1opaque);
 }
 
-.language-flag {
+/* .language-flag {
   height: 12em;
   width: 12em;
   background-image: url("/assets/images/closeup-union-jack-flag.jpg");
@@ -332,18 +333,27 @@ body {
   background-size: cover;
   border-radius: 12px;
   box-shadow: -1px 1px 17px 5px rgba(255, 255, 255, 0.45);
-  /* opacity: 0.9; */
   position: relative;
   border: 1px solid rgb(0, 0, 0, 0.6);
-  /* animation: move_then_fadeIn 3s forwards; */
 }
 
 .secondLanguage-flag {
   background-image: url("/assets/images/china-flag.webp");
   background-position: left;
 
-  /* background-size: contain; */
-  /* animation: move_then_fadeIn 3s forwards; */
+
+} */
+
+.language-flag {
+  height: 12em;
+  width: 12em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 12px;
+  box-shadow: -1px 1px 17px 5px rgba(255, 255, 255, 0.45);
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.6);
 }
 
 @keyframes fadeOut {
