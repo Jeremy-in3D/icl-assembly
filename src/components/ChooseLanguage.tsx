@@ -67,7 +67,14 @@ export const ChooseLanguage = ({
                 }}
                 onClick={() => handleLanguagePick(lang.code)}
                 aria-label={lang.label}
-              />
+              >
+                {" "}
+                <img
+                  src={lang.image}
+                  alt={lang.label}
+                  className="language-flag-img"
+                />
+              </button>
             </div>
           ))}
         </div>

@@ -243,6 +243,7 @@ body {
   flex-direction: column;
   /* background: var(--radial-gradientTest); */
   height: 100%;
+  align-items: center;
 }
 
 .languages-container {
@@ -253,6 +254,7 @@ body {
   justify-items: center; /* center items horizontally */
   align-items: center;
   position: relative;
+  width: 90%;
 }
 
 /* @keyframes move_then_fadeIn_he {
@@ -345,6 +347,27 @@ body {
 } */
 
 .language-flag {
+  /* height: 12em; */
+  width: 12em;
+  border-radius: 12px;
+  box-shadow: -1px 1px 17px 5px rgba(255, 255, 255, 0.45);
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  padding: 0;
+  background: none;
+  display: flex; /* Center the image */
+  align-items: center;
+  justify-content: center;
+}
+.language-flag-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* .language-flag {
   height: 12em;
   width: 12em;
   background-position: center;
@@ -354,7 +377,7 @@ body {
   box-shadow: -1px 1px 17px 5px rgba(255, 255, 255, 0.45);
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.6);
-}
+} */
 
 @keyframes fadeOut {
   to {

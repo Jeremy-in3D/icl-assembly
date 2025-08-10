@@ -22,7 +22,7 @@ const LANGUAGE_OPTIONS = [
   {
     code: "kr",
     label: "Kr",
-    flagSrc: "/assets/images/Flag_of_South_Korea-small.png",
+    flagSrc: "/assets/images/Capture_sk.PNG",
   },
 ];
 
@@ -149,7 +149,15 @@ export const Topbar: React.FC<TopbarProps> = ({
           >
             <MenuBookIcon fontSize="medium" sx={{ color: "#006a88ff" }} />
           </div>
-          <div style={{ color: "white" }}>{t("safetyHBook")}</div>
+          <div
+            style={{
+              color: "white",
+              width: "10em",
+              textAlign: "center",
+            }}
+          >
+            {t("safetyHBook")}
+          </div>
         </div>
 
         {currentStep ? (
