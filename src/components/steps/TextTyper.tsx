@@ -3,15 +3,28 @@ import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 import { useTranslation } from "react-i18next";
 import PhoneIcon from "@mui/icons-material/Phone";
 
+const getNarrationTextByLanguage = (language: string, currentStep: any) => {
+  if (language == "zh") {
+    return getNarrationTextZh(currentStep);
+  } else if (language == "kr") {
+    return getNarrationTextKr(currentStep);
+  } else if (language == "en") {
+    return getNarrationText(currentStep);
+  }
+
+  return getNarrationText(currentStep);
+};
+
 export const Typewriter = ({ currentStep, isRegularStep }: any) => {
   if (currentStep.item == 8 && currentStep.subItem == 1 && isRegularStep) {
     return null;
   }
   const { i18n } = useTranslation();
-  const narrationText =
-    i18n.language == "en"
-      ? getNarrationText(currentStep)
-      : getNarrationTextZh(currentStep);
+  const language = i18n.language || "en";
+  const narrationText = getNarrationTextByLanguage(language, currentStep);
+  // i18n.language == "en"
+  //   ? getNarrationText(currentStep)
+  //   : getNarrationTextZh(currentStep);
 
   // {rate}
   //   const [displayedText, setDisplayedText] = useState<any>("");
@@ -529,6 +542,241 @@ const getNarrationTextZh = (currentStep: any) => {
       "六、使用Isotank梯子小心地爬下来。",
       "七、在Isotank周围进行目视检查",
       "八、完成。",
+    ],
+    8: subCategoryTexts(currentStep.subItem),
+  };
+
+  return textByItem[currentStep.item] || [""];
+};
+
+const getNarrationTextKr = (currentStep: any) => {
+  const subCategoryTexts = (subItemIdx: number) => {
+    const subTexts: any = {
+      0: ["작업자는 사다리를 사용하여 Isotank에 조심스럽게 올라가야 합니다."],
+
+      1: [
+        "작업자는 다음 사항을 점검해야 합니다:",
+        "1. Isotank 유닛의 전 세계 위치를 추적하는 GPS 유닛.",
+        "2. 돔의 보안 핀.",
+        "3. 안전 핀.",
+        "4. 잠금 핀.",
+      ],
+      2: [
+        "1. 보안 핀을 분리합니다.",
+        "2. 안전 핀을 제거합니다.",
+        "3. 잠금 핀을 제거합니다.",
+        "4. 돔을 천천히 조심스럽게 엽니다.",
+      ],
+      // 3: [
+      //   "Isotank's valves roles.",
+      //   "Important!",
+      //   "After emptying the Isotank, make sure that the valves are properly closed. Replace the gaskets for the blind flanges with the new ones provided.",
+      //   "Make sure that all the bolts are tight. ",
+      // ],
+      3: [
+        "Isotank의 밸브 역할은 다음과 같습니다:",
+        "노란색 밸브: 딥 파이프.",
+        "딥 파이프. 빨간색 밸브: 압력 해제(배기).",
+        "녹색 밸브: 질소 주입구.",
+      ],
+      4: [
+        "1. 모든 밸브가 단단히 닫혀 있는지 확인합니다.",
+        "2. 압력 게이지가 0을 가리키는지 확인합니다.",
+        "3. 블라인드 플랜지를 엽니다 – 먼 쪽(먼 쪽 나사)부터 엽니다.",
+        "4. 개방형 가스켓이 있는지 확인합니다.",
+        "5. 블라인드 가스켓을 개방형 가스켓으로 교체합니다.",
+      ],
+      5: [
+        "1. 배기 파이프를 빨간색 밸브에 연결합니다.",
+        "2. 액체 파이프를 노란색 밸브에 연결합니다.",
+        "3. 질소/공기 주입 파이프를 녹색 밸브에 연결합니다.",
+        "4. 균형을 유지하면서 플랜지 나사를 교차로 조입니다.",
+      ],
+      6: [
+        "1. 추출 전에 스크러버가 준비되어 있고 제대로 작동하는지 확인합니다.",
+        "2. 추출은 질소/건조 공기를 사용하여만 수행됩니다.",
+        "3. 빨간색 밸브(배기)가 닫혀 있는지 확인합니다.",
+        "4. Isotank의 노란색 밸브(딥 파이프)를 열고 그 후 파이프 밸브를 엽니다.",
+        "5. Isotank의 녹색 밸브(공기/질소)를 열고 그 후 파이프 밸브를 모니터링하며 점진적으로 엽니다.",
+        "6. 3% 암모니아를 사용하여 누출을 점검합니다. 누출이 발생하거나 밸브 연결이 불충분한 경우 흰 연기가 나타납니다. 이 경우 밸브를 닫고 모든 연결을 다시 점검해야 합니다.",
+        "7. 추출 중 어느 단계에서든 누출이 발생하면 즉시 녹색 밸브(공기 압력/질소 배출)를 닫고, 그 후 노란색 밸브를 닫습니다.",
+      ],
+    };
+
+    const lastItemSubTexts: any = {
+      0: [],
+      1: [
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            EUROPE
+          </span>
+          : ICL-IP TERNEUZEN HOLLAND
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (31) 11-568-9000
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            U.K.
+          </span>
+          : FOR EMERGENCY ADVICE
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (44) 1865-407-333
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            U.S.A.
+          </span>
+          : CHEMTREC
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: 1-800-424-9300
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            SINGAPORE
+          </span>
+          : ALERT - SGS
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (65) 6542-9595
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            CHINA
+          </span>
+          : NRCC
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: (86) 532-8388-9090
+        </div>,
+      ],
+      2: [
+        "개인보호장비: ",
+        <br />,
+        "1. 호흡 보호 장비: 독립형 호흡 장치.",
+        "승인된 복합 산성 가스-유기 증기 가스 마스크는 저농도에 단기간 노출되거나 탈출 목적으로만 적합합니다.",
+        "NIOSH의 호흡기 선택 권장 사항에는 전면 마스크와 카트리지가 있는 화학 카트리지 호흡기가 포함됩니다. 산화되지 않는 흡착제만 허용됩니다.",
+        "2. 손 보호 장비: PVC 또는 네오프렌 장갑.",
+        "3. 눈 보호 장비: 화학 안전 고글 또는 안전 안경이 있는 얼굴 보호대.",
+        "4. 피부 및 신체 보호: 보호용 불침투성 의복, 안전모, 네오프렌 또는 고무 부츠.",
+      ],
+    };
+
+    return currentStep.item == 8
+      ? lastItemSubTexts[subItemIdx]
+      : subTexts[subItemIdx];
+  };
+
+  const textByItem: any = {
+    0: [
+      "다음 비디오의 목적은 브롬을 포함한 Isotank를 올바르게 작동하는 방법을 안내하는 것입니다. 브롬(UN-1744)은 위험 물질이므로 Isotank 주변에 라벨과 표지판이 있습니다. Isotank는 브롬을 운반하기 위해서만 사용되며 내부는 납으로 코팅되어 있습니다. Isotank 프레임은 운송 및 작동 중 탱크를 보호하기 위해 존재합니다.",
+    ],
+    1: [
+      "작업자는 Isotank 본체에 인쇄된 일련 번호와 검사 날짜를 등록해야 합니다.",
+    ],
+    2: [
+      "1. 누출 점검을 위한 3% 농도의 수산화 암모늄.",
+      "2. 도구 및 가스켓.",
+      "3. 여분의 블라인드 가스켓",
+    ],
+    3: [
+      "작업자는 안전 정보 브로셔에 따라 개인 보호 장비(PPE)를 사용하여 자신을 보호해야 합니다: ",
+      "1. 보호복을 착용합니다.",
+      "2. 네오프렌 장갑을 착용하고 소매가 장갑 위에 오도록 합니다.",
+      "3. 마스크를 착용합니다.",
+      "4. 마스크의 밀폐성 테스트를 수행합니다.",
+      "5. 헤드드레스를 착용하고 보호복의 지퍼를 닫습니다.",
+    ],
+    4: subCategoryTexts(currentStep.subItem),
+    5: [
+      "1. 파이프의 녹색 밸브(공기/질소)를 닫습니다.",
+      "2. 파이프의 노란색 밸브(딥 파이프)를 닫습니다.",
+      "3. 파이프의 빨간색 밸브(배기)를 엽니다.",
+      "4. Isotank의 빨간색 밸브(배기)를 엽니다.",
+      "5. 빨간색 밸브를 통해 3% 암모니아를 사용하여 누출을 점검합니다. 누출이 발생하면 흰 연기가 나타나며, 이 경우 작업자는 모든 밸브를 닫고 연결을 다시 점검해야 합니다.",
+      "6. Isotank 압력이 해제될 때까지 기다립니다.",
+      "7. Isotank의 녹색 밸브를 닫습니다.",
+      "8. Isotank의 노란색 밸브를 닫습니다.",
+      "9. 시스템의 압력이 0으로 줄어들 때까지 기다립니다.",
+      "10. Isotank의 빨간색 밸브를 닫고, 그 후 파이프의 빨간색 밸브를 닫습니다.",
+    ],
+    6: [
+      "1. 나사를 천천히 조심스럽게 엽니다. 먼저 먼 쪽의 나사를 열고 파이프가 분리되지 않도록 잡습니다.",
+      "2. 블라인드 가스켓 가방을 열고 밸브 위에 설치합니다.",
+      "3. 블라인드 플랜지를 설치하고, 플랜지 나사를 교차로 조여 균형을 유지합니다.",
+      "4. 3% 암모니아를 사용하여 누출을 점검합니다. 누출이 발생하면 흰 연기가 나타나며, 이 경우 작업자는 모든 밸브를 닫고 연결을 다시 점검해야 합니다.",
+    ],
+    7: [
+      "1. 돔을 닫기 전에 모든 밸브가 닫혀 있고 블라인드 플랜지가 단단히 조여져 있는지 다시 확인합니다.",
+      "2. 돔을 닫습니다.",
+      "3. 잠금 핀을 연결합니다.",
+      "4. 안전 핀을 연결합니다.",
+      "5. 보안 잠금을 설치하고, 잠금 장치에 표시된 번호를 운송 문서에 등록합니다.",
+      "6. 사다리를 사용하여 아이소탱크에서 조심스럽게 내려옵니다.",
+      "7. Isotank 주변을 시각적으로 점검합니다.",
+      "8. 프로세스를 종료합니다.",
     ],
     8: subCategoryTexts(currentStep.subItem),
   };

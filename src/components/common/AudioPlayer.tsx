@@ -74,9 +74,13 @@ export const AudioPlayer = ({ currentStep }: any) => {
   useEffect(() => {
     const srcToPlay = getAudioSrc(currentStep);
     // setAudioSrc(`assets/audio/item-${srcToPlay}`);
-    language == "en"
-      ? setAudioSrc(`assets/audio/en/item-${srcToPlay}.mp3?v=${Date.now()}`)
-      : setAudioSrc(`assets/audio/zh/item-${srcToPlay}-zh.mp3?v=${Date.now()}`);
+
+    setAudioSrc(
+      `assets/audio/${language}/item-${srcToPlay}-${language}.mp3?v=${Date.now()}`
+    );
+    // language == "en"
+    //   ? setAudioSrc(`assets/audio/en/item-${srcToPlay}.mp3?v=${Date.now()}`)
+    //   : setAudioSrc(`assets/audio/zh/item-${srcToPlay}-zh.mp3?v=${Date.now()}`);
   }, [currentStep]);
 
   useEffect(() => {

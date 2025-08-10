@@ -82,7 +82,7 @@ function App() {
       )}
       {openPdf ? (
         <Suspense fallback={null}>
-          <PdfViewer />
+          <PdfViewer currentLanguage={i18n.language || "en"} />
         </Suspense>
       ) : null}
       {menuOpen ? <SlideMenu toggleMenu={toggleMenu} /> : null}
