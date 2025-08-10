@@ -6,7 +6,10 @@ import screenfull from "screenfull";
 import CloseFullscreenIcon from "@mui/icons-material/CloseFullscreen";
 import { useAppContext } from "../../context/appContext";
 
-export const PdfViewer: React.FC = () => {
+type PdfViewerProps = {
+  currentLanguage: string;
+};
+export const PdfViewer: React.FC<PdfViewerProps> = ({ currentLanguage }) => {
   const viewerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -55,7 +58,11 @@ export const PdfViewer: React.FC = () => {
             <CloseFullscreenIcon />
           </div>
           <Viewer
-            fileUrl={"/assets/Bromine Safety HandBook-compressed-2.pdf"}
+            fileUrl={
+              currentLanguage == "kr"
+                ? "/assets/BROMINE_SHB_2022_Kor_compressed.pdf"
+                : "/assets/Bromine Safety HandBook-compressed-2.pdf"
+            }
           />
         </Worker>
       </div>
