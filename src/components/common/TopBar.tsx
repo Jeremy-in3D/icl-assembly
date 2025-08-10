@@ -81,7 +81,8 @@ export const Topbar: React.FC<TopbarProps> = ({
             // border: "1px solid black",
             borderRadius: "50%",
             // backgroundColor: "white",
-            marginRight: "1em",
+            // marginRight: "1em",
+            marginBottom: "0.5em",
           }}
         >
           <img
