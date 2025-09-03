@@ -208,6 +208,27 @@ const getNarrationText = (currentStep: any) => {
               color: "yellow",
             }}
           >
+            SGS Korea
+          </span>
+          : <span></span>
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: +82 51 630 7043 / 7061
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
             SINGAPORE
           </span>
           : ALERT - SGS
@@ -443,6 +464,27 @@ const getNarrationTextZh = (currentStep: any) => {
               color: "yellow",
             }}
           >
+            SGS Korea
+          </span>
+          : <span></span>
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: +82 51 630 7043 / 7061
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
             SINGAPORE
           </span>
           : ALERT - SGS
@@ -576,7 +618,7 @@ const getNarrationTextKr = (currentStep: any) => {
       3: [
         "Isotank의 밸브 역할은 다음과 같습니다:",
         "노란색 밸브: 딥 파이프.",
-        "딥 파이프. 빨간색 밸브: 압력 해제(배기).",
+        "빨간색 밸브: 압력 해제(배기).",
         "녹색 밸브: 질소 주입구.",
       ],
       4: [
@@ -668,6 +710,27 @@ const getNarrationTextKr = (currentStep: any) => {
           }}
         >
           <PhoneIcon sx={{ marginRight: "0.1em" }} />: 1-800-424-9300
+        </div>,
+        <div>
+          <span
+            style={{
+              fontSize: "1.1em",
+              color: "yellow",
+            }}
+          >
+            SGS Korea
+          </span>
+          : <span></span>
+        </div>,
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            borderBottom: "1px solid rgb(255,255,255,0.4)",
+            marginBottom: "0.5em",
+          }}
+        >
+          <PhoneIcon sx={{ marginRight: "0.1em" }} />: +82 51 630 7043 / 7061
         </div>,
         <div>
           <span
