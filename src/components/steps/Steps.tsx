@@ -59,7 +59,7 @@ const Text = ({
 }: // containerRef,
 any) => {
   const [utterance, setUtterance] = useState<any>(null);
-  const [narrationText, setNarrationText] = useState("");
+  // const [narrationText, setNarrationText] = useState("");
   const [isShouldShowNarrationText, setIsShouldShowNarrationText] =
     useState<boolean>(true);
   // const speechRate = 25; // Speech rate used in the utterance
@@ -87,7 +87,7 @@ any) => {
     setIsShouldShowNarrationText(false);
     if (utterance) {
       window.speechSynthesis.cancel();
-      setNarrationText("");
+      // setNarrationText("");
       setUtterance(null);
     }
     if (numberOfSubItemsInCurrentItem === undefined) {
@@ -145,7 +145,7 @@ any) => {
         return null;
       }
     }
-    setNarrationText("");
+    // setNarrationText("");
   };
 
   return (
