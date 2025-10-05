@@ -220,7 +220,7 @@ any) => {
       />
       {isShouldShowNarrationText ? (
         <Typewriter
-          text={narrationText}
+          // text={narrationText}
           currentStep={currentStep}
           isRegularStep
         />
