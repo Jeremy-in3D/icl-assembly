@@ -50,6 +50,8 @@ export const Topbar: React.FC<TopbarProps> = ({
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(anchorEl);
 
+  console.log({ currentLanguage });
+
   const currentOption =
     LANGUAGE_OPTIONS.find((l) => l.code === currentLanguage) ||
     LANGUAGE_OPTIONS[0];
@@ -98,7 +100,14 @@ export const Topbar: React.FC<TopbarProps> = ({
                 style={{ height: "2em", width: "2em", borderRadius: "50%" }}
               />
             </div>
-            <div style={{ display: "none", fontSize: "0.8em" }}>lo</div>
+            <div
+              style={{
+                display: "none",
+                fontSize: currentLanguage == "ja" ? "0.7" : "0.8em",
+              }}
+            >
+              lo
+            </div>
           </div>
         </IconButton>
         <Menu
@@ -165,7 +174,7 @@ export const Topbar: React.FC<TopbarProps> = ({
               color: "white",
               width: "10em",
               textAlign: "center",
-              fontSize: "0.8em",
+              fontSize: currentLanguage == "ja" ? "0.7" : "0.8em",
             }}
           >
             {t("safetyHBook")}
@@ -199,7 +208,14 @@ export const Topbar: React.FC<TopbarProps> = ({
                 sx={{ color: "#006a88ff" }}
               />
             </div>
-            <div style={{ color: "white", fontSize: "0.8em" }}>{menuText}</div>
+            <div
+              style={{
+                color: "white",
+                fontSize: currentLanguage == "ja" ? "0.7" : "0.8em",
+              }}
+            >
+              {menuText}
+            </div>
           </div>
         ) : null}
       </div>
