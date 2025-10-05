@@ -85,6 +85,7 @@ export const Topbar: React.FC<TopbarProps> = ({
             p: 0,
             // border: "1px solid black",
             borderRadius: "50%",
+            // width: "0.5em",
             // backgroundColor: "white",
             // marginRight: "1em",
             marginBottom: "0.5em",
@@ -100,7 +101,8 @@ export const Topbar: React.FC<TopbarProps> = ({
             </div>
             <div
               style={{
-                display: "none",
+                // display: "none",
+                opacity: 0,
                 fontSize: currentLanguage == "ja" ? "0.7" : "0.8em",
               }}
             >

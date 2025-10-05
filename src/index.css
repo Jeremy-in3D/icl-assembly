@@ -187,11 +187,11 @@ body {
 }
 
 .top-bar-language-items-container {
-  flex: 0.8;
+  flex: 0.9;
   display: flex;
   justify-content: space-evenly;
   margin-right: 2em;
-  width: 40%;
+  /* width: 0%; */
   margin-top: 1em;
 }
 
