@@ -50,8 +50,6 @@ export const Topbar: React.FC<TopbarProps> = ({
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(anchorEl);
 
-  console.log({ currentLanguage });
-
   const currentOption =
     LANGUAGE_OPTIONS.find((l) => l.code === currentLanguage) ||
     LANGUAGE_OPTIONS[0];
