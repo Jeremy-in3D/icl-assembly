@@ -1,0 +1,188 @@
+{
+  "translation": {
+    "pleaseSelectLanguage": "אנא בחר שפה",
+    "skip": "スキップ",
+    "start": "項目",
+    "allItems": "全ての項目",
+    "safetyHBook": "安全ハンドブック",
+    "item": "項目",
+    "menu": "メニュー",
+
+    "backToMenu": "メニューに戻る",
+
+    "continue": "続く",
+    "prev": "前へ",
+    "next": "次へ",
+    "step": "ステップ",
+    "complete": "終結",
+
+    "taskOne": "360度　紹介",
+    "subTaskOne": "Isotank display",
+    "subTaskOneNarration": "The purpose of the following video is to guide operators on how to properly operate the Bromine containing Isotank. Bromine (UN-1744) is a hazardous material therefore you will find labels and signs around the Isotank. The Isotanks are only intended to transport Bromine and are internally coated with lead. The Isotank frame exists to protect the tank during transport and operation.",
+
+    "taskTwo": "ISOタンクへの接続前の登録、チェックリストと準備",
+    "subTaskTwo": "Checklist ",
+    "subTaskTwoNarration": "The operator needs to register the Isotank serial number and the test date which are printed on the Isotank body.",
+
+    "taskThree": "必要な工具",
+    "subTaskThree": "必要な工具  ",
+    "subTaskThreeNarration": "One. Aqueous ammonia at a concentration of 3% for checking leaks. Two. Tools & gaskets. Three. Spare blind gaskets.",
+
+    "taskFour": "個人用保護具",
+    "subTaskFour": "Personal protective equipment required before connecting",
+    "subTaskFourNarration": "The operator must protect himself using his personal protective equipment (or PPE) according to the safety information brochure. One. Wear a protection suit. Two. Wear neoprene gloves, make sure that the sleeve is on top of the glove. Three. Wear a mask. Four. Perform an impermeability test to the mask. Five. Put on the head-dress and close the zipper of the suit.",
+
+    "taskFive": "ISOタンクからの荷下ろし手順",
+    "subTaskFiveOne": "ISOタンクを登る",
+    "subTaskFiveOneNarration": "The operator should climb on the Isotank carefully using the ladder",
+    "subTaskFiveTwo": "ISOタンクのフードの確認",
+    "subTaskFiveTwoNarration": "The operator should review the following. One. The GPS unit that is responsible for locating the Isotank unit globally. Two. The dome's security pin. Three. The safety pin. Four. The lock pin.",
+    "subTaskFiveThree": "バルブ保護用ISOタンクフード",
+    "subTaskFiveThreeNarration": "One. Disconnect the security pin. Two. Remove the safety pin. Three. Remove the lock pin. Four. Slowly and carefully open the dome.",
+    "subTaskFiveFour": "ISOタンクのバルブの役割",
+    "subTaskFiveFourNarration": "Isotank's valves roles. Yellow Valve. Dip Pipe. Red Valve. Pressure Relief (vent). Green Valve. Nitrogen Inlet.",
+    "subTaskFiveFive": "ブラインドフランジの取り外し",
+    "subTaskFiveFiveNarration": "One. Make sure all valves are tightly closed. Two. Make sure the pressure gauge shows zero. Three. Open the blind flanges – open from the far side (far side screws). Four. Make sure open gaskets are present. Five. Switch the blind gaskets with open gaskets.",
+    "subTaskFiveSix": "ホースをバルブに接続し荷下ろしを開始",
+    "subTaskFiveSixNarration": "One. Connect the vent pipe to the red valve. Two. Connect the liquid pipe to the yellow valve. Three. Connect the Nitrogen/air entry pipe to the green valve. Four. Cross-tighten the flange screws while observing the balance.",
+    "subTaskFiveSeven": "バルブを開放し臭素の荷下ろしの開始",
+    "subTaskFiveSevenNarration": "One. Before unloading, make sure the scrubber is fresh and active properly. Two. The unloading will take place only by using Nitrogen/dry air. Three. Make sure the red valve is closed (Vent). Four. Open the yellow valve on the isotank (deep pipe) and afterwards the pipe valve. Five. Open the green valve on the isotank (air/nitrogen) and afterwards the pipe valve in a monitored and gradual manner. Six. Using Ammonia 3%, check for leaks. In case of a leak or if the valve connection is inadequate a white smoke will appear. In this case, valves must be closed and all connections are to be rechecked. Seven. At any stage of unloading: in case of a leak, close the green valve immediately (air pressure/Nitrogen discharge), and then the yellow valve.",
+
+    "taskSix": "臭素の荷下ろしの終了とホースの取り外し",
+    "taskSixNarration": "One. Close the pipe green valve (air/nitrogen). Two. Close the pipe yellow valve (deep pipe). Three. Open the pipe red valve (vent). Four. Open the red valve on the isotank (Vent). Five. Check for leaks using Ammonia 3% through the red valve. In case of a leak, white smoke will appear and operator must close all valves and recheck connections. Six. Wait for the pressure in the isotank to release. Seven. Close the green valve on the isotank. Eight. Close the yellow valve on the isotank. Nine. Wait until the pressure reduces to 0 in your system. Ten. Close the red valve on the isotanks and then the pipe's red valve.",
+
+    "taskSeven": "ホースの取り外しとブラインドフランジの取り付け",
+    "taskSevenNarration": "One. Open the screws slowly and be careful, first open the screw on the far side and hold the pipes so they won't disconnect. Two. Open the blind gaskets bag and install them on top of the valves. Three. Install the blind flanges, cross-tighten the flange screws and keep them balanced. Four. Check for leaks using Ammonia 3%. In case of a leak, white smoke will appear, and operator must close all valves and recheck connections.",
+
+    "taskEight": "ドームを閉じ、ISOタンクを返却する",
+    "taskEightNarration": "One. Before closing the dome, double-check that all valves are closed and that the blind flanges are tightened. Two. Close the dome. Three. Connect the lock pin. Four. Connect the safety pin. Five. Install the security closure and register the number showing on the closure in the transport document. Six. Carefully climb down using the ladder Isotank. Seven. Conduct a visual examination around the Isotank. Eight. End of process.",
+
+    "taskNine": "安全と緊急",
+    "subTaskNineOne": "エマージェンシービデオ",
+    "subTaskNineTwo": "緊急連絡先　電話番号",
+    "subTaskNineThree": "臭素専用の安全保護具",
+
+    "introText": "この安全トレーニングのビデオは、臭素含有ISOタンクの適切な取り扱いおよび荷降ろし手順を作業者に適切に行っていただくように作られております。臭素(UN-1744)は危険物であるため、ISOタンクにはさまざまな安全ラベルやピクトグラムが貼付されております。これらのコンテナは、臭素の輸送用に専用設計されており、安全な輸送を確保するために内部に鉛がコーティングされています。このビデオでは、安全で効率的なプロセスを確保するための準備、個人用保護具(PPE)、適切な荷降ろし方法、緊急時の手順など、基本的な安全手順について説明します。",
+    "disclaimer": "免責事項:このビデオは、支援的な参照を目的としています。すべての操作は、これらの業務について適切に訓練され、認定された作業者のみが行っていただく必要があります。全て作業は、貴社の会社の手順書と権限のある行政のガイドラインに準拠する必要があります。このビデオの指示やいかなる内容が、貴社の手順書や行政のガイドラインに取って代わるものではありません。",
+
+    "steps": {
+      "0": [
+        "このビデオの目的は、ISOタンクに入った臭素を適切な操作方法で作業者に取り扱っていただく事です。臭素 (UN-1744) は危険物であるため、ISOタンクの側面にラベルやピクトグラムを貼付してあります。このISOタンクは臭素を輸送することを目的とした専用タンクで、内部は鉛でコーティングされています。またISOタンクのフレームは、輸送および運転中にタンクを保護するためのものです。"
+      ],
+      "1": [
+        "作業者は、ISOタンク本体に印刷されているタンクのシリアル番号とテスト日を記録していただく必要があります。"
+      ],
+      "2": [
+        "1.漏れをチェックするための3%の濃度のアンモニア水。",
+        "2.工具とガスケット。",
+        "3.予備のブラインドガスケット"
+      ],
+      "3": [
+        "作業者は、取り扱い安全パンフレットに従って、必ず個人用保護具(またはPPE)を装着して身を守る必要があります。",
+        "1.防護服を着用してください。",
+        "2.ネオプレン手袋を着用し、保護具の袖が手袋の上にあることを確認してください。",
+        "3.マスクを着用してください。",
+        "4.マスクに対する不透過性テストを実行します。",
+        "5.頭部を覆う保護具を装着し、保護スーツのジッパーを閉めます。"
+      ],
+      "4": {
+        "0": ["作業者は、ISOタンクのはしごを使い慎重に登ってください。"],
+        "1": [
+          "作業者は以下を確認する必要があります:",
+          "1.個々のISOタンクの位置情報を世界的に確認するGPS ユニット。",
+          "2.フードのセキュリティピン。",
+          "3.安全ピン。",
+          "4.ロックピン。"
+        ],
+        "2": [
+          "1.セキュリティピンを外します。",
+          "2.安全ピンを取り外します。",
+          "3.ロックピンを取り外します。",
+          "4.ゆっくりと丁寧にフードを開けます。"
+        ],
+        "3": [
+          "ISOタンクのバルブの役割。",
+          "イエローバルブ：ディップパイプ、",
+          "レッドバルブ：圧力リリーフ(ベント)、",
+          "グリーンバルブ：窒素充填口。"
+        ],
+        "4": [
+          "1.全てのバルブがしっかりと閉じていることを確認してください。",
+          "2.圧力計がゼロを表示していることを確認してください。",
+          "3.ブラインドフランジを開きます–反対側から開きます(反対側のネジ)。",
+          "4.新品のオープンガスケットが手元にあることを確認してください。",
+          "5.ブラインドガスケットをオープンガスケットと交換してください。"
+        ],
+        "5": [
+          "1.ベントホースをレッドバルブに接続してください。",
+          "2.液体ホースをイエローバルブに接続してください。",
+          "3.窒素/空気充填ホースをグリーンバルブに接続してください。",
+          "4.フランジのボルトはバランスを見ながら対角線上にボルトを締めてください。"
+        ],
+        "6": [
+          "1.荷下ろしをする前に、スクラバー（除害装置）がきれいになっているか、また適切に作動しているかを確認してください。",
+          "2.荷下ろしは、窒素ガス/ドライエアーのみを使用してください。",
+          "3.レッドバルブ(ベント）が閉じている事を確認してください。",
+          "4.ISOタンクのイエローバルブを開けてください（ディップパイプに接続されています）、後に受け入れ側のパイプバルブを開いてください。",
+          "5.ISOタンク (空気/窒素) のグリーンバルブを開き、その後、監視の下で徐々に受け入れ側パイプバルブを開いてください。",
+          "6.アンモニア3%を使用して、漏れがないか確認してください。漏れがある場合、またはバルブ接続が不十分な場合、白煙が発生します。この場合、バルブを閉じ、すべての接続を再確認する必要があります。",
+          "7.荷下ろしのどの段階でも、漏れが発生した場合は、すぐにグリーンバルブを閉じ (ドライエアー/窒素ガス供給停止)、次にイエローバルブを閉じます。"
+        ]
+      },
+      "5": [
+        "1。ドライエアー/窒素ガスホースのグリーンのバルブを閉じます。",
+        "2。ディップパイプに接続されているイエローバルブを閉じます。",
+        "3。ベントホースに接続されているレッドバルブを開きます。",
+        "4。ISOタンクのレッドバルブ（ベント）を開きます。",
+        "5。レッドバルブよりアンモニア3%を使用して漏れがないか確認してください。漏れが発生した場合、白煙が発生し、オペレーターはすべてのバルブを閉じて接続を再確認する必要があります。",
+        "6。ISOタンク内の圧力が解放されるのを待ちます。",
+        "7。ISOタンクのグリーンバルブを閉じます。",
+        "8。ISOタンクのイエローバルブを閉じます。",
+        "9。システム内の圧力が 0 に下がるまで待ちます。",
+        "10。ISOタンクのレッドバルブを閉じてから、レッドバルブに接続されているホース側のバルブを閉じます。"
+      ],
+      "6": [
+        "1。ボルトはゆっくりと注意しながら開けてください。まず遠い方のボルトを開けてホースが外れないように持っていてください。",
+        "2.ブラインドガスケットを用意し、バルブの上に取り付けます。",
+        "3.ブラインドフランジを取り付け、フランジボルトを対角線上に締めて締付けのバランスを保ちます。",
+        "4.アンモニア3%を使用して漏れがないか確認します。漏れが発生している場合、白煙が発生するため、作業者はすべてのバルブを閉じて接続を再確認する必要があります。"
+      ],
+      "7": [
+        "1.フードを閉じる前に、すべてのバルブが閉じられているか、各ブラインドフランジが締められているかを再確認してください。",
+        "2.フードを閉じます。",
+        "3.ロックピンを装着します。",
+        "4.安全ピンを装着します。",
+        "5.プラスチックバンドを取り付け、バンドのタグ部分に記載されている番号を輸送書類に記録します。",
+        "6.ISOタンクのはしごを使用して慎重に降りてください。",
+        "7.ISOタンクの周囲を外観検査してください。",
+        "8.作業の終了です。"
+      ],
+      "8": {
+        "0": [],
+        "1": [
+          "<highlight>EUROPE</highlight>: ICL-IP TERNEUZEN HOLLAND",
+          "<phone/>: (31) 11-568-9000",
+          "<highlight>U.K.</highlight>: FOR EMERGENCY ADVICE",
+          "<phone/>: (44) 1865-407-333",
+          "<highlight>U.S.A.</highlight>: CHEMTREC",
+          "<phone/>: 1-800-424-9300",
+          "<highlight>SGS Korea</highlight>:",
+          "<phone/>: +82 51 630 7043 / 7061",
+          "<highlight>SINGAPORE</highlight>: ALERT - SGS",
+          "<phone/>: (65) 6542-9595",
+          "<highlight>CHINA</highlight>: NRCC",
+          "<phone/>: (86) 532-8388-9090"
+        ],
+        "2": [
+          "個人用保護具: ",
+          "1.呼吸保護:自給式呼吸器。",
+          "国家認定規格やJIS規格に合致した、酸性ガスと有機蒸気ガス対応の防毒マスクは、低濃度の環境下の短時間の暴露または避難の目的にのみ適しています。",
+          "NIOSH（アメリカ国立労働安全衛生研究所）のマスク選択に関する推奨事項には、全面型とカートリッジを備えたケミカルカートリッジマスクが入っております。臭素ガス用吸収缶のみが使用可能です。",
+          "2.手の保護:PVCまたはネオプレン手袋",
+          "3.目の保護具:化学安全ゴーグルまたは安全メガネ付きのフェイスシールド。",
+          "4.皮膚と体の保護: 保護用の不浸透質の衣類、ヘルメット、ネオプレンまたはゴム長靴。"
+        ]
+      }
+    }
+  }
+}

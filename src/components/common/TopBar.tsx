@@ -24,6 +24,11 @@ const LANGUAGE_OPTIONS = [
     label: "Kr",
     flagSrc: "/assets/images/Capture_sk.PNG",
   },
+  {
+    code: "ja",
+    label: "ja",
+    flagSrc: "/assets/images/flag_ja_plain.png",
+  },
 ];
 
 type TopbarProps = {
@@ -85,11 +90,16 @@ export const Topbar: React.FC<TopbarProps> = ({
             marginBottom: "0.5em",
           }}
         >
-          <img
-            src={currentOption.flagSrc}
-            alt={currentOption.label}
-            style={{ height: "2em", width: "2em", borderRadius: "50%" }}
-          />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div>
+              <img
+                src={currentOption.flagSrc}
+                alt={currentOption.label}
+                style={{ height: "2em", width: "2em", borderRadius: "50%" }}
+              />
+            </div>
+            <div style={{ display: "none" }}>hello</div>
+          </div>
         </IconButton>
         <Menu
           anchorEl={anchorEl}
@@ -155,6 +165,7 @@ export const Topbar: React.FC<TopbarProps> = ({
               color: "white",
               width: "10em",
               textAlign: "center",
+              // fontSize: "0.9em",
             }}
           >
             {t("safetyHBook")}

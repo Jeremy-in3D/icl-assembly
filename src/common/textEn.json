@@ -63,6 +63,128 @@
     "subTaskNineThree": "Brom assigned safety gear",
 
     "introText": "Welcome to this safety training video, designed to guide operators in the proper handling and unloading procedures for Bromine-containing Isotanks. Bromine (UN-1744) is a hazardous material, and as such, will encounter various safety labels and warning signs on the Isotank. These containers are specially designed for transporting Bromine and are internally coated with lead to ensure safe transit. This video will walk you through essential safety protocols, including preparation, personal protective equipment (PPE), proper unloading techniques, and emergency procedures to ensure a safe and efficient process.",
-    "disclaimer": "DISCLAIMER: This video is intended for reference assistance only. All operations must be performed exclusively by personnel properly trained and certified for these tasks. All activities must comply with company procedures and the guidelines of authorized authorities. Nothing in these instructions replace or modifies those official procedures and guidelines."
+    "disclaimer": "DISCLAIMER: This video is intended for reference assistance only. All operations must be performed exclusively by personnel properly trained and certified for these tasks. All activities must comply with company procedures and the guidelines of authorized authorities. Nothing in these instructions replace or modifies those official procedures and guidelines.",
+
+    "steps": {
+      "0": [
+        "The purpose of the following video is to guide operators on how to properly operate the Bromine containing Isotank. Bromine (UN-1744) is a hazardous material therefore you will find labels and signs around the Isotank. The Isotanks are only intended to transport Bromine and are internally coated with lead. The Isotank frame exists to protect the tank during transport and operation."
+      ],
+      "1": [
+        "The operator needs to register the Isotank serial number and the test date which are printed on the Isotank body"
+      ],
+      "2": [
+        "1. Aqueous ammonia at a concentration of 3% for checking leaks.",
+        "2. Tools & gaskets.",
+        "3. Spare blind gaskets."
+      ],
+      "3": [
+        "The operator must protect himself using his personal protective equipment (or PPE) according to the safety information brochure: ",
+        "1. Wear a protection suit.",
+        "2. Wear neoprene gloves, make sure that the sleeve is on top of the glove.",
+        "3. Wear a mask.",
+        "4. Perform an impermeability test to the mask.",
+        "5. Put on the head-dress and close the zipper of the suit."
+      ],
+      "4": {
+        "0": [
+          "The operator should climb on the Isotank carefully using the ladder"
+        ],
+        "1": [
+          "The operator should review the following:",
+          "1. The GPS unit that is responsible for locating the Isotank unit globally.",
+          "2. The dome's security pin.",
+          "3. The safety pin.",
+          "4. The lock pin."
+        ],
+        "2": [
+          "1. Disconnect the security pin.",
+          "2. Remove the safety pin.",
+          "3. Remove the lock pin.",
+          "4.Slowly and carefully open the dome."
+        ],
+        "3": [
+          "Isotank's valves roles:",
+          "Yellow Valve: Dip Pipe.",
+          "Red Valve: Pressure Relief (vent).",
+          "Green Valve: Nitrogen Inlet."
+        ],
+        "4": [
+          "1. Make sure all valves are tightly closed.",
+          "2. Make sure the pressure gauge shows 0.",
+          "3. Open the blind flanges – open from the far side (far side screws).",
+          "4. Make sure open gaskets are present.",
+          "5. Switch the blind gaskets with open gaskets."
+        ],
+        "5": [
+          "1. Connect the vent pipe to the red valve.",
+          "2. Connect the liquid pipe to the yellow valve.",
+          "3. Connect the Nitrogen/air entry pipe to the green valve.",
+          "4. Cross-tighten the flange screws while observing the balance."
+        ],
+        "6": [
+          "1. Before unloading, make sure the scrubber is fresh and active properly.",
+          "2. The unloading will take place only by using Nitrogen/dry air.",
+          "3. Make sure the red valve is closed (Vent).",
+          "4. Open the yellow valve on the isotank (deep pipe) and afterwards the pipe valve.",
+          "5. Open the green valve on the isotank (air/nitrogen) and afterwards the pipe valve in a monitored and gradual manner.",
+          "6. Using Ammonia 3%, check for leaks. In case of a leak or if the valve connection is inadequate a white smoke will appear. In this case, valves must be closed and all connections are to be rechecked.",
+          "7. At any stage of unloading: in case of a leak, close the green valve immediately (air pressure/Nitrogen discharge) and then the yellow valve."
+        ]
+      },
+      "5": [
+        "1. Close the pipe green valve (air/nitrogen).",
+        "2. Close the pipe yellow valve (deep pipe)",
+        "3. Open the pipe red valve (vent).",
+        "4. Open the red valve on the isotank (Vent).",
+        "5. Check for leaks using Ammonia 3% through the red valve. In case of a leak, white smoke will appear and operator must close all valves and recheck connections.",
+        "6. Wait for the pressure in the isotank to release.",
+        "7. Close the green valve on the isotank.",
+        "8. Close the yellow valve on the isotank.",
+        "9. Wait until the pressure reduces to 0 in your system.",
+        "10. Close the red valve on the isotanks and then the pipe's red valve."
+      ],
+      "6": [
+        "1. Open the screws slowly and be careful, first open the screw on the far side and hold the pipes so they won't disconnect.",
+        "2. Open the blind gaskets bag and install them on top of the valves.",
+        "3. Install the blind flanges, cross-tighten the flange screws and keep them balanced.",
+        "4. Check for leaks using Ammonia 3%. In case of a leak, white smoke will appear, and operator must close all valves and recheck connections."
+      ],
+      "7": [
+        "1. Before closing the dome, double-check that all valves are closed and that the blind flanges are tightened.",
+        "2. Close the dome.",
+        "3. Connect the lock pin.",
+        "4. Connect the safety pin.",
+        "5. Install the security closure and register the number showing on the closure in the transport document.",
+        "6. Carefully climb down using the ladder Isotank.",
+        "7. Conduct a visual examination around the Isotank.",
+        "8. End of process."
+      ],
+      "8": {
+        "0": [],
+        "1": [
+          "<highlight>EUROPE</highlight>: ICL-IP TERNEUZEN HOLLAND",
+          "<phone/>: (31) 11-568-9000",
+          "<highlight>U.K.</highlight>: FOR EMERGENCY ADVICE",
+          "<phone/>: (44) 1865-407-333",
+          "<highlight>U.S.A.</highlight>: CHEMTREC",
+          "<phone/>: 1-800-424-9300",
+          "<highlight>SGS Korea</highlight>:",
+          "<phone/>: +82 51 630 7043 / 7061",
+          "<highlight>SINGAPORE</highlight>: ALERT - SGS",
+          "<phone/>: (65) 6542-9595",
+          "<highlight>CHINA</highlight>: NRCC",
+          "<phone/>: (86) 532-8388-9090"
+        ],
+        "2": [
+          "Personal protective equipment: ",
+          "1. Respiratory protection: Self-contained breathing apparatus.",
+          "An approved combination acid gas-organic vapor gas mask is suitable for short term exposure to low concentration or escape purposes only.",
+          "NIOSH recommendations for respirator selection includes any chemical cartridge respirator with a full facepiece and cartridge. Only nonoxidizable sorbents are allowed",
+          "2. Hand protection: PVC or neoprene gloves.",
+          "3. Eye protection: Chemical safety goggles or face shield with safety glasses.",
+          "4. Skin and body protection: Protective impervious clothing, hard hat and neoprene or rubber boots."
+        ]
+      }
+    }
   }
 }

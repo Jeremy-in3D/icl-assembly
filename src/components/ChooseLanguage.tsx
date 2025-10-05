@@ -24,6 +24,12 @@ const languages = [
     code: "kr",
     label: "한국어",
     image: "/assets/images/south-korean-detailed.jpg",
+    animation: "move-and-fade-forwards",
+  },
+  {
+    code: "ja",
+    label: "日本語",
+    image: "/assets/images/ja-detailed.jpg",
     animation: "move-and-fade-backwards",
   },
   // Add more languages here as needed
@@ -68,7 +74,6 @@ export const ChooseLanguage = ({
                 onClick={() => handleLanguagePick(lang.code)}
                 aria-label={lang.label}
               >
-                {" "}
                 <img
                   src={lang.image}
                   alt={lang.label}

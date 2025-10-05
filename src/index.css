@@ -212,7 +212,7 @@ body {
   padding: 1em;
   box-sizing: border-box;
   transition: width 0.5s ease-in-out, opacity 0.8s ease-in-out;
-  z-index: 1;
+  z-index: 10;
   opacity: 0;
 }
 
@@ -422,6 +422,21 @@ body {
   }
 }
 
+@keyframes moveToCenterForwards_then_fadeOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(60%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(60%);
+    opacity: 0;
+  }
+}
+
 @keyframes moveToCenterAssembly_then_fadeOut {
   0% {
     transform: translateY(0);
@@ -513,6 +528,11 @@ body {
 
 .language-flag.move-and-fade-backwards {
   animation: moveToCenterBackwards_then_fadeOut 1.6s forwards;
+  animation-delay: 0.4s;
+}
+
+.language-flag.move-and-fade-forwards {
+  animation: moveToCenterForwards_then_fadeOut 1.6s forwards;
   animation-delay: 0.4s;
 }
 
