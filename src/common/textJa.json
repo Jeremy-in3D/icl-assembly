@@ -17,11 +17,11 @@
     "complete": "終結",
 
     "taskOne": "360度　紹介",
-    "subTaskOne": "Isotank display",
+    "subTaskOne": "ISOタンクの表示",
     "subTaskOneNarration": "The purpose of the following video is to guide operators on how to properly operate the Bromine containing Isotank. Bromine (UN-1744) is a hazardous material therefore you will find labels and signs around the Isotank. The Isotanks are only intended to transport Bromine and are internally coated with lead. The Isotank frame exists to protect the tank during transport and operation.",
 
     "taskTwo": "ISOタンクへの接続前の登録、チェックリストと準備",
-    "subTaskTwo": "Checklist ",
+    "subTaskTwo": "チェックリスト",
     "subTaskTwoNarration": "The operator needs to register the Isotank serial number and the test date which are printed on the Isotank body.",
 
     "taskThree": "必要な工具",
@@ -29,7 +29,7 @@
     "subTaskThreeNarration": "One. Aqueous ammonia at a concentration of 3% for checking leaks. Two. Tools & gaskets. Three. Spare blind gaskets.",
 
     "taskFour": "個人用保護具",
-    "subTaskFour": "Personal protective equipment required before connecting",
+    "subTaskFour": "タンクへ接続前の必要な個人用保護具",
     "subTaskFourNarration": "The operator must protect himself using his personal protective equipment (or PPE) according to the safety information brochure. One. Wear a protection suit. Two. Wear neoprene gloves, make sure that the sleeve is on top of the glove. Three. Wear a mask. Four. Perform an impermeability test to the mask. Five. Put on the head-dress and close the zipper of the suit.",
 
     "taskFive": "ISOタンクからの荷下ろし手順",
