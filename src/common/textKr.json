@@ -17,11 +17,11 @@
     "complete": "완료",
 
     "taskOne": "360도 소개",
-    "subTaskOne": "Isotank display",
+    "subTaskOne": "Isotank 표시",
     "subTaskOneNarration": "다음 비디오의 목적은 브롬을 포함한 Isotank를 올바르게 작동하는 방법을 안내하는 것입니다. 브롬(UN-1744)은 위험 물질이므로 Isotank 주변에 라벨과 표지판이 있습니다. Isotank는 브롬을 운반하기 위해서만 사용되며 내부는 납으로 코팅되어 있습니다. Isotank 프레임은 운송 및 작동 중 탱크를 보호하기 위해 존재합니다.",
 
     "taskTwo": "연결 전 등록, 체크리스트 및 Isotank 준비",
-    "subTaskTwo": "Checklist ",
+    "subTaskTwo": "체크리스트",
     "subTaskTwoNarration": "작업자는 Isotank 본체에 인쇄된 일련 번호와 검사 날짜를 등록해야 합니다.",
 
     "taskThree": "필요한 도구들",
@@ -29,7 +29,7 @@
     "subTaskThreeNarration": "1. 누출 점검을 위한 3% 농도의 수산화 암모늄. 2. 도구 및 가스켓. 3. 여분의 블라인드 가스켓",
 
     "taskFour": "개인보호장비",
-    "subTaskFour": "Personal protective equipment required before connecting",
+    "subTaskFour": "연결 전 개인보호장비 필요",
     "subTaskFourNarration": "작업자는 안전 정보 브로셔에 따라 개인 보호 장비(PPE)를 사용하여 자신을 보호해야 합니다. 1. 보호복을 착용합니다. 2. 네오프렌 장갑을 착용하고 소매가 장갑 위에 오도록 합니다. 3. 마스크를 착용합니다. 4. 마스크의 밀폐성 테스트를 수행합니다. 5. 헤드드레스를 착용하고 보호복의 지퍼를 닫습니다.",
 
     "taskFive": "Isotank 추출 작업",
