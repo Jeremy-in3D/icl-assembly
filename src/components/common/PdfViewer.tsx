@@ -63,6 +63,8 @@ export const PdfViewer: React.FC<PdfViewerProps> = ({ currentLanguage }) => {
                 ? "/assets/BROMINE_SHB_2022_Kor_compressed.pdf"
                 : currentLanguage == "zh"
                 ? "/assets/Bromine_sfty_zh.pdf"
+                : currentLanguage == "ja"
+                ? "/assets/Bromine_ja.pdf"
                 : "/assets/Bromine Safety HandBook-compressed-2.pdf"
             }
           />
